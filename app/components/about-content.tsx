@@ -1,9 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, Flame, ShieldCheck, Users } from "lucide-react";
-import { useState } from "react";
 
 const STARTER_PACK_PATH = "/starter-pack";
 const HERO_IMAGE = "/assets/Boxing%20at%20BJ.jpg";
@@ -28,13 +27,6 @@ const values = [
 ];
 
 export function AboutContent() {
-  const { scrollY } = useScroll();
-  const [showFloatingCta, setShowFloatingCta] = useState(false);
-
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    setShowFloatingCta(latest > 760);
-  });
-
   return (
     <>
       <div className="space-y-5 sm:space-y-6">
@@ -326,22 +318,6 @@ export function AboutContent() {
         </motion.section>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: showFloatingCta ? 1 : 0, y: showFloatingCta ? 0 : 16 }}
-        transition={{ duration: 0.25 }}
-        className="pointer-events-none fixed inset-x-4 bottom-[calc(5.5rem+env(safe-area-inset-bottom))] z-50 flex justify-center md:inset-x-auto md:right-6 md:bottom-6"
-      >
-        <motion.a
-          whileTap={{ scale: 0.98 }}
-          whileHover={{ scale: 1.02 }}
-          href={STARTER_PACK_PATH}
-          className="pointer-events-auto inline-flex items-center gap-2 rounded-full border border-white/40 bg-black/70 px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white shadow-[0_10px_30px_rgba(0,0,0,0.35)] backdrop-blur-sm"
-        >
-          Starter Pack £49
-          <ArrowRight className="h-4 w-4" />
-        </motion.a>
-      </motion.div>
     </>
   );
 }
