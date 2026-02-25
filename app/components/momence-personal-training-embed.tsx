@@ -112,7 +112,7 @@ export function MomencePersonalTrainingEmbed() {
           Share Your Goal First
         </h2>
         <p className="mt-3 max-w-2xl text-sm text-white/80 sm:text-base">
-          Tell us where you are now and what you want from your sessions. We will guide the next step.
+          Reach out and we'll discuss where you are now and what you want from your sessions.
         </p>
         <div className="mt-5 rounded-xl border border-white/10 bg-black/20 p-3 sm:p-4">
           <div ref={leadFormRef} className="min-h-[140px]" />
