@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import { DesktopHeader } from "./components/desktop-header";
+import { HashScroll } from "./components/hash-scroll";
 import { AnalyticsAutoTracker } from "./components/analytics-auto-tracker";
 import { CookieNotice } from "./components/cookie-notice";
 import { MobileBottomNavLazy } from "./components/mobile-bottom-nav-lazy";
@@ -84,6 +85,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </noscript>
         ) : null}
         <DesktopHeader />
+        <HashScroll />
         <AnalyticsAutoTracker />
         {children}
         <SiteFooter />

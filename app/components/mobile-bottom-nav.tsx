@@ -5,7 +5,7 @@ import { CalendarCheck2, CircleHelp, Dumbbell, House, Mail, Wallet } from "lucid
 
 const links = [
   { label: "Home", href: "/", icon: House },
-  { label: "Services", href: "#services", icon: Dumbbell },
+  { label: "Services", href: "/#services", icon: Dumbbell },
   { label: "Pricing", href: "/pricing", icon: Wallet },
   { label: "FAQ", href: "/faq", icon: CircleHelp },
   { label: "Contact", href: "/contact", icon: Mail },
