@@ -76,7 +76,7 @@ export default async function Home() {
         media={[
           media.serviceAssets[0],
           "/assets/%28WEB%29BODYJUNKIES_210124_1301.jpg",
-          ...media.serviceAssets.slice(2),
+          "/assets/womens-boxing-north-london-fitness-boxing-bodyjunkies-04%20%281%29.jpg",
         ].filter(Boolean) as string[]}
       />
 

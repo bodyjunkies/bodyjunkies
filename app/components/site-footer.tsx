@@ -14,6 +14,7 @@ const quickLinks = [
   { label: "Pricing", href: "/pricing" },
   { label: "First Session", href: "/first-session" },
   { label: "FAQ", href: "/faq" },
+  { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
