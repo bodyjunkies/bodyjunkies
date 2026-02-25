@@ -16,7 +16,8 @@ export function MobileBottomNav() {
   return (
     <nav
       aria-label="Mobile navigation"
-      className="fixed inset-x-0 bottom-0 z-50 border-t border-white/15 bg-[color:var(--bj-navy)]/95 px-3 pb-[calc(0.8rem+env(safe-area-inset-bottom))] pt-3 backdrop-blur md:hidden"
+      className="fixed inset-x-0 bottom-0 z-50 border-t border-white/15 bg-[color:var(--bj-navy)]/95 px-3 pb-[calc(0.8rem+env(safe-area-inset-bottom))] pt-3 will-change-transform md:hidden"
+      style={{ transform: "translateZ(0)" }}
     >
       <ul className="mx-auto grid max-w-lg grid-cols-5 gap-2">
         {links.map((link) => {

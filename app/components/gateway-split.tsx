@@ -63,8 +63,8 @@ export function GatewaySplit({
                 The Gloves
               </h2>
               <p className="max-w-sm text-sm text-white/85 sm:text-base">
-                Build your base in the Starter Pack and keep your brand-new boxing
-                gloves and wraps as part of your kit.
+                Build your base in the Starter Pack and{" "}
+                <span className="font-bold">keep your brand-new boxing gloves and wraps as part of your kit.</span>
               </p>
             </div>
             <motion.div

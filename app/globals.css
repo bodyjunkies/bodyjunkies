@@ -37,6 +37,7 @@ body {
   color: var(--foreground);
   font-family: var(--font-body);
   min-height: 100svh;
+  min-height: 100dvh;
 }
 
 h1,
