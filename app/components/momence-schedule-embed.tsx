@@ -32,7 +32,7 @@ export function MomenceScheduleEmbed() {
     script.setAttribute("host_id", "93353");
     script.setAttribute("teacher_ids", "[]");
     script.setAttribute("location_ids", "[]");
-    script.setAttribute("tag_ids", "[176483,165209,163787]");
+    script.setAttribute("tag_ids", "[]");
     script.setAttribute("default_filter", "show-all");
     script.setAttribute("locale", "en");
     script.src = MOMENCE_SCRIPT_SRC;
