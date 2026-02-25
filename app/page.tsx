@@ -47,7 +47,7 @@ export default async function Home() {
 
       <section
         id="reviews"
-        className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-10"
+        className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-10"
       >
         <div className="rounded-2xl border border-white/15 bg-white/[0.03] p-6 sm:p-8">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
@@ -63,12 +63,6 @@ export default async function Home() {
           <div className="mt-6">
             <ReviewsCarousel />
           </div>
-          <a
-            href="/schedule"
-            className="mt-6 inline-flex rounded-full bg-[var(--bj-red)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white transition-transform hover:scale-[1.02] active:scale-[0.98]"
-          >
-            View Class Schedule
-          </a>
         </div>
       </section>
 
@@ -82,7 +76,7 @@ export default async function Home() {
 
       <section
         id="trainers"
-        className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14"
+        className="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-14"
       >
         <div className="overflow-hidden rounded-2xl border border-white/15 bg-white/[0.03]">
           <div className="grid gap-0 lg:grid-cols-[1.2fr_1fr]">
@@ -121,7 +115,7 @@ export default async function Home() {
 
       <section
         id="final-cta"
-        className="mx-auto w-full max-w-7xl px-4 pb-8 sm:px-6 lg:px-8 lg:pb-10"
+        className="mx-auto w-full max-w-7xl px-4 pb-10 sm:px-6 lg:px-8 lg:pb-10"
       >
         <div className="rounded-2xl border border-white/15 bg-white/[0.03] p-6 sm:p-8">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
@@ -147,19 +141,13 @@ export default async function Home() {
             >
               View Class Schedule
             </a>
-            <a
-              href="/pricing"
-              className="inline-flex items-center justify-center rounded-full border border-white/35 bg-white/10 px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white transition-transform hover:scale-[1.02] active:scale-[0.98]"
-            >
-              View Pricing
-            </a>
           </div>
         </div>
       </section>
 
       <section
         id="location"
-        className="mx-auto w-full max-w-7xl px-4 pb-8 sm:px-6 lg:px-8 lg:pb-10"
+        className="mx-auto w-full max-w-7xl px-4 pb-12 sm:px-6 lg:px-8 lg:pb-10"
       >
         <div className="rounded-2xl border border-white/15 bg-white/[0.03] p-6 sm:p-8">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">

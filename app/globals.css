@@ -8,7 +8,9 @@
   --bj-orange: #f69523;
   --background: var(--bj-navy);
   --foreground: var(--bj-white);
-  --mobile-nav-height: 86px;
+  --mobile-nav-height: 5.5rem;
+  --floating-cta-bottom-mobile: calc(var(--mobile-nav-height) + 0.5rem);
+  --cookie-notice-bottom-mobile: calc(var(--mobile-nav-height) + 1rem);
 }
 
 @theme inline {

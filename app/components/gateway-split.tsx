@@ -35,7 +35,7 @@ export function GatewaySplit({
           viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.45 }}
           whileHover={{ scale: 1.01 }}
-          className="relative min-h-[64svh] overflow-hidden rounded-3xl border border-white/20"
+          className="relative min-h-[50svh] overflow-hidden rounded-3xl border border-white/20 sm:min-h-[64svh]"
         >
           <Image
             src={beginnerImage}
@@ -80,7 +80,7 @@ export function GatewaySplit({
           viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.45, delay: 0.06 }}
           whileHover={{ scale: 1.01 }}
-          className="relative min-h-[64svh] overflow-hidden rounded-3xl border border-white/20"
+          className="relative min-h-[50svh] overflow-hidden rounded-3xl border border-white/20 sm:min-h-[64svh]"
         >
           {experiencedVideo ? (
             <video
@@ -137,7 +137,7 @@ export function GatewaySplit({
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: showFloatingCta ? 1 : 0, y: showFloatingCta ? 0 : 16 }}
         transition={{ duration: 0.25 }}
-        className="pointer-events-none fixed inset-x-4 bottom-[calc(5.5rem+env(safe-area-inset-bottom))] z-50 flex justify-center md:inset-x-auto md:right-6 md:bottom-6"
+        className="pointer-events-none fixed inset-x-4 bottom-[calc(var(--floating-cta-bottom-mobile)+env(safe-area-inset-bottom))] z-30 hidden justify-center md:inset-x-auto md:right-6 md:bottom-6 md:flex"
       >
         <motion.a
           whileTap={{ scale: 0.98 }}

@@ -25,7 +25,7 @@ export function CookieNotice() {
   }
 
   return (
-    <div className="fixed inset-x-4 bottom-[calc(5.8rem+env(safe-area-inset-bottom))] z-50 md:bottom-6 md:left-6 md:right-auto md:max-w-md">
+    <div className="fixed inset-x-4 bottom-[calc(var(--cookie-notice-bottom-mobile)+env(safe-area-inset-bottom))] z-40 md:bottom-6 md:left-6 md:right-auto md:max-w-md">
       <div className="rounded-2xl border border-white/20 bg-black/80 p-4 shadow-[0_10px_30px_rgba(0,0,0,0.35)] backdrop-blur-sm">
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/70">
           Cookies
@@ -51,7 +51,7 @@ export function CookieNotice() {
         <button
           type="button"
           onClick={dismiss}
-          className="mt-3 inline-flex rounded-full bg-[var(--bj-red)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-white transition hover:scale-[1.02] active:scale-[0.98]"
+          className="mt-3 inline-flex min-h-11 items-center rounded-full bg-[var(--bj-red)] px-4 py-2.5 text-sm font-semibold uppercase tracking-[0.12em] text-white transition hover:scale-[1.02] active:scale-[0.98]"
         >
           Understood
         </button>
