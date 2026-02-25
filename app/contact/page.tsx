@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowLeft, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { siteConfig } from "../lib/site";
 import { buildPageMetadata } from "../lib/seo";
 
@@ -11,6 +11,9 @@ export const metadata = buildPageMetadata({
 });
 
 export default function ContactPage() {
+  const whatsappHref =
+    "https://wa.me/447458672586?text=Hi%21%20I%27m%20interested%20in%20the%20Bodyjunkies%20Starter%20Pack.";
+
   return (
     <main className="min-h-screen bg-[#221E3A] pb-nav-offset">
       <div className="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
@@ -49,6 +52,20 @@ export default function ContactPage() {
                 </p>
               </a>
             ) : null}
+            <a
+              href={whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-xl border border-white/15 bg-black/20 p-4 transition hover:scale-[1.01]"
+            >
+              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-white/70">
+                <MessageCircle className="h-4 w-4" />
+                WhatsApp
+              </p>
+              <p className="mt-2 text-lg font-bold text-white">
+                +44 7458 672586
+              </p>
+            </a>
             <a
               href={siteConfig.emailHref}
               className="rounded-xl border border-white/15 bg-black/20 p-4 transition hover:scale-[1.01]"
