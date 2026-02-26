@@ -43,15 +43,15 @@ export function HomeHero({ heroImage, heroVideo }: HomeHeroProps) {
 
         <div className="relative z-10 flex min-h-[56svh] items-end p-6 sm:min-h-[74svh] sm:p-8 lg:p-10">
           <div className="max-w-2xl">
-            <p className="inline-flex items-center rounded-full border border-white/35 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/90">
+            <p className="inline-flex items-center rounded-full border border-white/35 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-white/90">
               Boxing And Fitness In Islington
             </p>
-            <h1 className="mt-4 text-3xl font-black uppercase leading-[0.95] text-white sm:text-5xl lg:text-6xl">
+            <h1 className="mt-4 text-3xl font-black uppercase leading-[0.97] text-white sm:text-5xl lg:text-6xl">
               Fuel Your Fire
               <br />
               Build Real Strength
             </h1>
-            <p className="mt-4 max-w-lg text-sm text-white/85 sm:max-w-xl sm:text-base">
+            <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-white/85 sm:max-w-xl sm:text-base">
               Small-group boxing sessions with structure, accountability, and a
               real training standard.
             </p>
@@ -67,15 +67,14 @@ export function HomeHero({ heroImage, heroVideo }: HomeHeroProps) {
                 href="/schedule"
                 className="inline-flex min-h-12 w-full items-center justify-center rounded-full border border-white/60 bg-black/45 px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white transition-all duration-200 ease-out hover:scale-[1.02] active:scale-[0.98] sm:w-auto"
               >
-                <span className="sm:hidden">Book Session</span>
-                <span className="hidden sm:inline">I Have Gloves - Book Session</span>
+                Book Session
               </Link>
             </div>
-            <p className="mt-4 text-xs font-medium text-white/85 sm:text-sm">
+            <p className="mt-4 text-[13px] leading-relaxed text-white/85 sm:text-sm">
               New? Starter Pack £49 includes brand-new gloves + wraps. Already
-              training? Book now.
+              training? Book Session.
             </p>
-            <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/90">
+            <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.11em] text-white/90">
               <span className="inline-flex items-center gap-0.5" aria-hidden="true">
                 {[1, 2, 3, 4, 5].map((i) => (
                   <Star key={i} className="size-3 fill-current" fill="currentColor" />

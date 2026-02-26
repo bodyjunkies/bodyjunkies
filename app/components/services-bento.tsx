@@ -31,7 +31,7 @@ const tiles: Tile[] = [
     title: "Strength & Conditioning",
     copy: "Power-focused coaching tailored to your level, pace, and goals.",
     href: "/schedule/strength-conditioning",
-    cta: "Book a class",
+    cta: "Book Session",
     icon: Dumbbell,
   },
   {
@@ -52,7 +52,7 @@ export function ServicesBento({ media }: ServicesBentoProps) {
 
   return (
     <section id="services" className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-16">
-      <div className="mb-6 flex items-end justify-between gap-4">
+      <div className="mb-5 flex items-end justify-between gap-4 sm:mb-6">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
             Services
@@ -63,11 +63,12 @@ export function ServicesBento({ media }: ServicesBentoProps) {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-3 sm:gap-4 md:grid-cols-2 lg:grid-cols-3">
         {tiles.map((tile, index) => {
           const Icon = tile.icon;
           const mediaUrl = tileMedia[index];
           const external = tile.href.startsWith("http");
+          const isPrimaryTile = index === 0;
 
           return (
             <motion.article
@@ -77,12 +78,12 @@ export function ServicesBento({ media }: ServicesBentoProps) {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.4, delay: index * 0.04 }}
               whileHover={{ y: -4 }}
-              className="group relative min-h-[16rem] overflow-hidden rounded-2xl border border-white/15 md:min-h-[22rem]"
+              className={`group relative overflow-hidden rounded-2xl border border-white/15 ${isPrimaryTile ? "min-h-[16.5rem] sm:min-h-[18rem] md:min-h-[22rem]" : "min-h-[12.5rem] sm:min-h-[16rem] md:min-h-[22rem]"}`}
             >
               {mediaUrl ? (
                 isVideo(mediaUrl) ? (
                   <video
-                    className="absolute inset-0 h-full w-full object-cover"
+                    className={`absolute inset-0 h-full w-full object-cover ${isPrimaryTile ? "" : "hidden sm:block"}`}
                     autoPlay
                     muted
                     loop
@@ -103,13 +104,16 @@ export function ServicesBento({ media }: ServicesBentoProps) {
                     src={mediaUrl}
                     alt={`${tile.title} at Bodyjunkies`}
                     fill
-                    className="object-cover"
+                    className={`object-cover ${isPrimaryTile ? "" : "hidden sm:block"}`}
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 )
               ) : (
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_10%,#f69523_0%,#221e3a_45%,#000000_100%)]" />
               )}
+              {!isPrimaryTile ? (
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_5%,rgba(246,149,35,0.35)_0%,rgba(34,30,58,0.92)_45%,rgba(0,0,0,0.94)_100%)] sm:hidden" />
+              ) : null}
               <div className="absolute inset-0 bg-black/55 transition-colors group-hover:bg-black/45" />
 
               <div className="relative z-10 flex h-full flex-col justify-between p-5 sm:p-6">
@@ -117,10 +121,12 @@ export function ServicesBento({ media }: ServicesBentoProps) {
                   <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/15">
                     <Icon className="h-4 w-4 text-white" />
                   </span>
-                  <h4 className="text-xl font-extrabold uppercase text-white">
+                  <h4 className={`${isPrimaryTile ? "text-xl sm:text-2xl" : "text-lg sm:text-xl"} font-extrabold uppercase text-white`}>
                     {tile.title}
                   </h4>
-                  <p className="max-w-md text-sm text-white/85">{tile.copy}</p>
+                  <p className={`${isPrimaryTile ? "max-w-md text-sm text-white/85" : "hidden max-w-md text-sm text-white/85 sm:block"}`}>
+                    {tile.copy}
+                  </p>
                 </div>
 
                 <motion.div

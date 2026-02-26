@@ -45,16 +45,16 @@ export function GatewaySplit({
           <div className="absolute inset-0 bg-black/55" />
           <div className="relative z-10 flex h-full flex-col justify-between p-6 sm:p-8">
             <div className="space-y-3">
-              <span className="inline-flex w-fit items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-white">
+              <span className="inline-flex w-fit items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-white">
                 <Shield className="h-3.5 w-3.5" />
                 Beginner
               </span>
-              <h2 className="text-3xl font-black uppercase leading-[0.95] text-white sm:text-5xl">
+              <h2 className="text-3xl font-black uppercase leading-[0.97] text-white sm:text-5xl">
                 Start With
                 <br />
                 The Gloves
               </h2>
-              <p className="max-w-sm text-sm text-white/85 sm:text-base">
+              <p className="max-w-sm text-[15px] leading-relaxed text-white/85 sm:text-base">
                 Build your base in the Starter Pack and{" "}
                 <span className="font-bold">keep your brand-new boxing gloves and wraps as part of your kit.</span>
               </p>
@@ -109,18 +109,18 @@ export function GatewaySplit({
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.25)_0%,rgba(0,0,0,0.7)_100%)]" />
           <div className="relative z-10 flex h-full flex-col justify-between p-6 sm:p-8">
             <div className="space-y-3">
-              <span className="inline-flex w-fit items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-white">
+              <span className="inline-flex w-fit items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-white">
                 <Flame className="h-3.5 w-3.5" />
                 Experienced
               </span>
-              <h2 className="text-3xl font-black uppercase leading-[0.95] text-white sm:text-5xl">
+              <h2 className="text-3xl font-black uppercase leading-[0.97] text-white sm:text-5xl">
                 Bring The
                 <br />
                 Fire In
               </h2>
-              <p className="max-w-sm text-sm text-white/85 sm:text-base">
+              <p className="max-w-sm text-[15px] leading-relaxed text-white/85 sm:text-base">
                 Already equipped and ready to move? Jump straight into sessions and
-                lock your next slot.
+                book your next session.
               </p>
             </div>
             <motion.div
