@@ -79,6 +79,7 @@ export function MomenceStrengthConditioningEmbed() {
 
     const cleanup = mountMomenceScheduleScript({
       mountPoint: pluginMount,
+      fetchPriority: "low",
       config: {
         hostId: "93353",
         teacherIds: "[]",

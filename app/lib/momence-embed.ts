@@ -17,6 +17,7 @@ type MountMomenceScheduleScriptArgs = {
   onLoad: () => void;
   onError: () => void;
   cacheBust?: boolean;
+  fetchPriority?: "high" | "low" | "auto";
 };
 
 export function mountMomenceScheduleScript({
@@ -25,11 +26,12 @@ export function mountMomenceScheduleScript({
   onLoad,
   onError,
   cacheBust = false,
+  fetchPriority = "high",
 }: MountMomenceScheduleScriptArgs) {
   const script = document.createElement("script");
   script.async = true;
   script.type = "module";
-  script.setAttribute("fetchpriority", "low");
+  script.setAttribute("fetchpriority", fetchPriority);
   script.setAttribute("host_id", config.hostId);
   script.setAttribute("teacher_ids", config.teacherIds);
   script.setAttribute("location_ids", config.locationIds);

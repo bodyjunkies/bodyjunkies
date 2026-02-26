@@ -6,6 +6,7 @@ import { AnalyticsAutoTracker } from "./components/analytics-auto-tracker";
 import { CookieNotice } from "./components/cookie-notice";
 import { GtmLoader } from "./components/gtm-loader";
 import { MobileStarterPackCtaLazy } from "./components/mobile-bottom-nav-lazy";
+import { MomencePreloader } from "./components/momence-preloader";
 import { SiteFooter } from "./components/site-footer";
 import { siteConfig } from "./lib/site";
 import "./globals.css";
@@ -64,6 +65,7 @@ export default function RootLayout({
         <DesktopHeader />
         <HashScroll />
         <AnalyticsAutoTracker />
+        <MomencePreloader />
         {children}
         <SiteFooter />
         <CookieNotice />
