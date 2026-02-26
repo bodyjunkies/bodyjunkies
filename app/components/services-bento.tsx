@@ -106,7 +106,7 @@ export function ServicesBento({ media }: ServicesBentoProps) {
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_10%,#f69523_0%,#221e3a_45%,#000000_100%)]" />
                 )}
                 <div className="absolute inset-0 bg-black/65 transition-colors group-hover:bg-black/55" />
-                <div className="relative z-10 flex h-full flex-col justify-between p-5">
+                <div className="relative z-10 flex min-h-[16.5rem] flex-col justify-between p-5">
                   <div className="space-y-2.5">
                     <h4 className="text-xl font-extrabold uppercase text-white">{primary.title}</h4>
                     <p className="max-w-md text-sm text-white/90">{primary.copy}</p>
