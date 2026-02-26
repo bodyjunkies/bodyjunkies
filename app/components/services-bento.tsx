@@ -31,7 +31,7 @@ const tiles: Tile[] = [
     title: "Strength & Conditioning",
     copy: "Compound strength work built for the ring and beyond.",
     href: "/schedule/strength-conditioning",
-    cta: "Book Session",
+    cta: "Book S&C Session",
     icon: Dumbbell,
   },
   {
@@ -65,85 +65,92 @@ export function ServicesBento({ media }: ServicesBentoProps) {
 
       <div className="mt-1 md:hidden">
         {(() => {
-          const primary = tiles[0];
-          const mediaUrl = tileMedia[0];
-          const external = primary.href.startsWith("http");
+          const featuredTiles = tiles.slice(0, 2);
+          const pricingTile = tiles[2];
           return (
             <>
-              <motion.article
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.4 }}
-                whileHover={{ y: -4 }}
-                className="group relative min-h-[16.5rem] overflow-hidden rounded-2xl border border-white/15"
-              >
-                {mediaUrl ? (
-                  isVideo(mediaUrl) ? (
-                    <video
-                      className="absolute inset-0 h-full w-full object-cover"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      preload="none"
-                      aria-label={`${primary.title} training footage at Bodyjunkies`}
-                    >
-                      {getVideoSourceCandidates(mediaUrl).map((source) => (
-                        <source key={source.src} src={source.src} type={source.type} />
-                      ))}
-                    </video>
-                  ) : (
-                    <Image
-                      src={mediaUrl}
-                      alt={`${primary.title} at Bodyjunkies`}
-                      fill
-                      className="object-cover"
-                      sizes="100vw"
-                    />
-                  )
-                ) : (
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_10%,#f69523_0%,#221e3a_45%,#000000_100%)]" />
-                )}
-                <div className="absolute inset-0 bg-black/65 transition-colors group-hover:bg-black/55" />
-                <div className="relative z-10 flex min-h-[16.5rem] flex-col justify-between p-5">
-                  <div className="space-y-2.5">
-                    <h4 className="text-xl font-extrabold uppercase text-white">{primary.title}</h4>
-                    <p className="max-w-md text-sm text-white/90">{primary.copy}</p>
-                  </div>
-                  <motion.div whileTap={{ scale: 0.98 }} whileHover={{ scale: 1.02 }}>
-                    <Link
-                      href={primary.href}
-                      target={external ? "_blank" : undefined}
-                      rel={external ? "noopener noreferrer" : undefined}
-                      className="inline-flex min-h-11 w-fit items-center gap-2 rounded-full border border-white/20 bg-[var(--bj-red)] px-5 py-2.5 text-xs font-bold uppercase tracking-[0.12em] text-white shadow-[0_8px_20px_rgba(148,4,5,0.35)]"
-                    >
-                      {primary.cta}
-                      <ArrowRight className="h-3.5 w-3.5" />
-                    </Link>
-                  </motion.div>
-                </div>
-              </motion.article>
-              <ul className="mt-4 space-y-2 border-t border-white/10 pt-4">
-                {tiles.slice(1).map((tile) => {
-                  const ext = tile.href.startsWith("http");
+              <div className="space-y-3">
+                {featuredTiles.map((tile, index) => {
+                  const mediaUrl = tileMedia[index];
+                  const external = tile.href.startsWith("http");
+                  const isPrimaryTile = index === 0;
+
                   return (
-                    <li key={tile.title}>
-                      <Link
-                        href={tile.href}
-                        target={ext ? "_blank" : undefined}
-                        rel={ext ? "noopener noreferrer" : undefined}
-                      className="flex items-center justify-between text-white/75 transition hover:text-white/90"
-                      >
-                        <span className="text-sm font-medium">{tile.title}</span>
-                        <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/65">
-                          {tile.cta}
-                        </span>
-                      </Link>
-                    </li>
+                    <motion.article
+                      key={tile.title}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.3 }}
+                      transition={{ duration: 0.4, delay: index * 0.04 }}
+                      whileHover={{ y: -4 }}
+                      className={`group relative overflow-hidden rounded-2xl border border-white/15 ${isPrimaryTile ? "min-h-[16.5rem]" : "min-h-[14rem]"}`}
+                    >
+                      {mediaUrl ? (
+                        isVideo(mediaUrl) ? (
+                          <video
+                            className="absolute inset-0 h-full w-full object-cover"
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                            preload="none"
+                            aria-label={`${tile.title} training footage at Bodyjunkies`}
+                          >
+                            {getVideoSourceCandidates(mediaUrl).map((source) => (
+                              <source key={source.src} src={source.src} type={source.type} />
+                            ))}
+                          </video>
+                        ) : (
+                          <Image
+                            src={mediaUrl}
+                            alt={`${tile.title} at Bodyjunkies`}
+                            fill
+                            className="object-cover"
+                            sizes="100vw"
+                          />
+                        )
+                      ) : (
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_10%,#f69523_0%,#221e3a_45%,#000000_100%)]" />
+                      )}
+                      <div className="absolute inset-0 bg-black/65 transition-colors group-hover:bg-black/55" />
+                      <div className={`relative z-10 flex flex-col justify-between p-5 ${isPrimaryTile ? "min-h-[16.5rem]" : "min-h-[14rem]"}`}>
+                        <div className="space-y-2.5">
+                          <h4 className={`${isPrimaryTile ? "text-xl" : "text-lg"} font-extrabold uppercase text-white`}>
+                            {tile.title}
+                          </h4>
+                          <p className="max-w-md text-sm text-white/90">{tile.copy}</p>
+                        </div>
+                        <motion.div whileTap={{ scale: 0.98 }} whileHover={{ scale: 1.02 }}>
+                          <Link
+                            href={tile.href}
+                            target={external ? "_blank" : undefined}
+                            rel={external ? "noopener noreferrer" : undefined}
+                            className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/40 bg-white/10 px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white backdrop-blur-sm sm:w-fit"
+                          >
+                            {tile.cta}
+                            <ArrowRight className="h-4 w-4" />
+                          </Link>
+                        </motion.div>
+                      </div>
+                    </motion.article>
                   );
                 })}
-              </ul>
+              </div>
+              {pricingTile ? (
+                <ul className="mt-4 space-y-2 border-t border-white/10 pt-4">
+                  <li>
+                    <Link
+                      href={pricingTile.href}
+                      className="flex items-center justify-between text-white/75 transition hover:text-white/90"
+                    >
+                      <span className="text-sm font-medium">{pricingTile.title}</span>
+                      <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/65">
+                        {pricingTile.cta}
+                      </span>
+                    </Link>
+                  </li>
+                </ul>
+              ) : null}
             </>
           );
         })()}
