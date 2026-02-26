@@ -43,8 +43,7 @@ export default function PricingPage() {
               </h2>
               <p className="mt-2 text-4xl font-black uppercase text-white">£49</p>
               <p className="mt-3 text-sm text-white/85">
-                Best for beginners. Includes intro sessions and your gloves so
-                you can build a proper base from day one.
+                Perfect for beginners. Includes intro sessions plus your own gloves and wraps to keep, so you can build a strong foundation from day one.
               </p>
               <Link
                 href="/starter-pack"
@@ -81,7 +80,7 @@ export default function PricingPage() {
 
             <article className="rounded-2xl border border-white/15 bg-black/20 p-5">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/75">
-                Personal Focus
+                Personal Training
               </p>
               <h2 className="mt-3 text-2xl font-black uppercase text-white">
                 1:1 Coaching
@@ -92,7 +91,7 @@ export default function PricingPage() {
               </p>
               <ul className="mt-4 space-y-2 text-sm text-white/85">
                 <li>Book direct PT appointments</li>
-                <li>Share goals with lead form</li>
+                <li>Reach out to discuss your goals</li>
                 <li>Tailored coaching approach</li>
               </ul>
               <Link
