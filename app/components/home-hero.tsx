@@ -13,7 +13,7 @@ export function HomeHero({ heroImage, heroVideo }: HomeHeroProps) {
 
   return (
     <section className="mx-auto w-full max-w-7xl px-4 pt-4 sm:px-6 lg:px-8 lg:pt-6">
-      <div className="relative min-h-[56svh] overflow-hidden rounded-3xl border border-white/20 sm:min-h-[74svh]">
+      <div className="relative min-h-[70svh] overflow-hidden rounded-3xl border border-white/20 sm:min-h-[74svh]">
         <Image
           src={heroImage}
           alt="Bodyjunkies members training together in Islington"
@@ -41,7 +41,7 @@ export function HomeHero({ heroImage, heroVideo }: HomeHeroProps) {
         <div className="absolute inset-0 bg-[linear-gradient(160deg,rgba(0,0,0,0.88)_0%,rgba(0,0,0,0.55)_50%,rgba(0,0,0,0.78)_100%)] sm:hidden" />
         <div className="absolute inset-0 hidden bg-[linear-gradient(110deg,rgba(0,0,0,0.86)_0%,rgba(0,0,0,0.52)_45%,rgba(0,0,0,0.75)_100%)] sm:block" />
 
-        <div className="relative z-10 flex min-h-[56svh] items-end p-6 sm:min-h-[74svh] sm:p-8 lg:p-10">
+        <div className="relative z-10 flex min-h-[70svh] items-end p-6 sm:min-h-[74svh] sm:p-8 lg:p-10">
           <div className="max-w-2xl">
             <p className="inline-flex items-center rounded-full border border-white/35 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-white/90">
               Boxing And Fitness In Islington
