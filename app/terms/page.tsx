@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { buildPageMetadata } from "../lib/seo";
+import { siteConfig } from "../lib/site";
 
 export const metadata = buildPageMetadata({
   title: "Terms & Conditions | Bodyjunkies",
@@ -97,8 +98,8 @@ export default function TermsPage() {
               </h2>
               <p className="mt-2">
                 For terms-related queries, email{" "}
-                <a className="underline underline-offset-4" href="mailto:hello@bodyjunkies.co.uk">
-                  hello@bodyjunkies.co.uk
+                <a className="underline underline-offset-4" href={siteConfig.emailHref}>
+                  {siteConfig.email}
                 </a>
                 .
               </p>

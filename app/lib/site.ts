@@ -2,7 +2,7 @@ const phoneDisplay = process.env.NEXT_PUBLIC_PHONE_DISPLAY?.trim() ?? "";
 const phoneHref =
   process.env.NEXT_PUBLIC_PHONE_HREF?.trim() ??
   (phoneDisplay ? `tel:${phoneDisplay.replace(/[^\d+]/g, "")}` : "");
-const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() ?? "hello@bodyjunkies.co.uk";
+const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() ?? "info@bodyjunkies.co.uk";
 const emailHref = process.env.NEXT_PUBLIC_CONTACT_EMAIL_HREF?.trim() ?? `mailto:${email}`;
 
 export const siteConfig = {
