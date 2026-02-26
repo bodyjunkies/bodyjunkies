@@ -38,7 +38,7 @@ export function HomeHero({ heroImage, heroVideo }: HomeHeroProps) {
             ))}
           </video>
         ) : null}
-        <div className="absolute inset-0 bg-black/70 sm:hidden" />
+        <div className="absolute inset-0 bg-[linear-gradient(160deg,rgba(0,0,0,0.88)_0%,rgba(0,0,0,0.55)_50%,rgba(0,0,0,0.78)_100%)] sm:hidden" />
         <div className="absolute inset-0 hidden bg-[linear-gradient(110deg,rgba(0,0,0,0.86)_0%,rgba(0,0,0,0.52)_45%,rgba(0,0,0,0.75)_100%)] sm:block" />
 
         <div className="relative z-10 flex min-h-[56svh] items-end p-6 sm:min-h-[74svh] sm:p-8 lg:p-10">
@@ -46,7 +46,7 @@ export function HomeHero({ heroImage, heroVideo }: HomeHeroProps) {
             <p className="inline-flex items-center rounded-full border border-white/35 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-white/90">
               Boxing And Fitness In Islington
             </p>
-            <h1 className="mt-4 text-3xl font-black uppercase leading-[0.97] text-white sm:text-5xl lg:text-6xl">
+            <h1 className="mt-4 text-4xl font-black uppercase leading-[0.97] text-white sm:text-5xl lg:text-6xl">
               Fuel Your Fire
               <br />
               Build Real Strength

@@ -65,7 +65,7 @@ export function GatewaySplit({
             >
               <Link
                 href={STARTER_PACK_PATH}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/40 bg-white/10 px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white backdrop-blur-sm sm:w-fit"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-[var(--bj-red)]/40 bg-[var(--bj-red)] px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white sm:w-fit"
               >
                 Starter Pack £49
                 <ArrowRight className="h-4 w-4" />

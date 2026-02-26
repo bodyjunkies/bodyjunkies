@@ -162,11 +162,24 @@ export default async function Home() {
           <h2 className="mt-3 text-3xl font-black uppercase text-white sm:text-4xl">
             Train With Us In Islington
           </h2>
-          <p className="mt-4 max-w-2xl text-sm text-white/80 sm:text-base">
+          <div className="md:hidden">
+            <p className="mt-4 max-w-2xl text-sm text-white/80">
+              Find us in Islington. Get directions when you are ready to train.
+            </p>
+            <a
+              href={siteConfig.mapsHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center justify-center rounded-full border border-white/35 bg-white/10 px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white transition-transform hover:scale-[1.02] active:scale-[0.98]"
+            >
+              Get directions
+            </a>
+          </div>
+          <p className="mt-4 hidden max-w-2xl text-sm text-white/80 md:mt-4 md:block md:text-base">
             Find Bodyjunkies in Islington and step in for boxing and fitness
             sessions built around grit, structure, and progress.
           </p>
-          <div className="mt-6 overflow-hidden rounded-xl border border-white/15">
+          <div className="mt-6 hidden overflow-hidden rounded-xl border border-white/15 md:block">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2480.89910346624!2d-0.11407002359254548!3d51.55174910746285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b7473021b31%3A0x1958817c0ec4e2a6!2sBodyjunkies%20%7C%20Fitness%20%26%20Boxing%20Studio%20Islington!5e0!3m2!1sen!2suk!4v1772036651677!5m2!1sen!2suk"
               className="h-[360px] w-full sm:h-[420px]"

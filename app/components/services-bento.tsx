@@ -29,7 +29,7 @@ const tiles: Tile[] = [
   },
   {
     title: "Strength & Conditioning",
-    copy: "Power-focused coaching tailored to your level, pace, and goals.",
+    copy: "Compound strength work built for the ring and beyond.",
     href: "/schedule/strength-conditioning",
     cta: "Book Session",
     icon: Dumbbell,
@@ -63,7 +63,97 @@ export function ServicesBento({ media }: ServicesBentoProps) {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-3 sm:gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="md:hidden">
+        {(() => {
+          const primary = tiles[0];
+          const Icon = primary.icon;
+          const mediaUrl = tileMedia[0];
+          const external = primary.href.startsWith("http");
+          return (
+            <>
+              <motion.article
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.4 }}
+                whileHover={{ y: -4 }}
+                className="group relative min-h-[16.5rem] overflow-hidden rounded-2xl border border-white/15"
+              >
+                {mediaUrl ? (
+                  isVideo(mediaUrl) ? (
+                    <video
+                      className="absolute inset-0 h-full w-full object-cover"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="none"
+                      aria-label={`${primary.title} training footage at Bodyjunkies`}
+                    >
+                      {getVideoSourceCandidates(mediaUrl).map((source) => (
+                        <source key={source.src} src={source.src} type={source.type} />
+                      ))}
+                    </video>
+                  ) : (
+                    <Image
+                      src={mediaUrl}
+                      alt={`${primary.title} at Bodyjunkies`}
+                      fill
+                      className="object-cover"
+                      sizes="100vw"
+                    />
+                  )
+                ) : (
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_10%,#f69523_0%,#221e3a_45%,#000000_100%)]" />
+                )}
+                <div className="absolute inset-0 bg-black/55 transition-colors group-hover:bg-black/45" />
+                <div className="relative z-10 flex h-full flex-col justify-between p-5">
+                  <div className="space-y-3">
+                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/15">
+                      <Icon className="h-4 w-4 text-white" />
+                    </span>
+                    <h4 className="text-xl font-extrabold uppercase text-white">{primary.title}</h4>
+                    <p className="max-w-md text-sm text-white/85">{primary.copy}</p>
+                  </div>
+                  <motion.div whileTap={{ scale: 0.98 }} whileHover={{ scale: 1.02 }}>
+                    <Link
+                      href={primary.href}
+                      target={external ? "_blank" : undefined}
+                      rel={external ? "noopener noreferrer" : undefined}
+                      className="inline-flex min-h-11 w-fit items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.12em] text-white backdrop-blur-sm"
+                    >
+                      {primary.cta}
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </Link>
+                  </motion.div>
+                </div>
+              </motion.article>
+              <ul className="mt-4 space-y-2 border-t border-white/10 pt-4">
+                {tiles.slice(1).map((tile) => {
+                  const ext = tile.href.startsWith("http");
+                  return (
+                    <li key={tile.title}>
+                      <Link
+                        href={tile.href}
+                        target={ext ? "_blank" : undefined}
+                        rel={ext ? "noopener noreferrer" : undefined}
+                        className="flex items-center justify-between text-white/85 transition hover:text-white"
+                      >
+                        <span className="text-sm font-semibold">{tile.title}</span>
+                        <span className="text-xs font-semibold uppercase tracking-[0.1em]">
+                          {tile.cta}
+                        </span>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </>
+          );
+        })()}
+      </div>
+
+      <div className="hidden grid-cols-1 gap-3 sm:gap-4 md:grid md:grid-cols-2 lg:grid-cols-3">
         {tiles.map((tile, index) => {
           const Icon = tile.icon;
           const mediaUrl = tileMedia[index];
@@ -83,7 +173,7 @@ export function ServicesBento({ media }: ServicesBentoProps) {
               {mediaUrl ? (
                 isVideo(mediaUrl) ? (
                   <video
-                    className={`absolute inset-0 h-full w-full object-cover ${isPrimaryTile ? "" : "hidden sm:block"}`}
+                    className="absolute inset-0 h-full w-full object-cover"
                     autoPlay
                     muted
                     loop
@@ -92,11 +182,7 @@ export function ServicesBento({ media }: ServicesBentoProps) {
                     aria-label={`${tile.title} training footage at Bodyjunkies`}
                   >
                     {getVideoSourceCandidates(mediaUrl).map((source) => (
-                      <source
-                        key={source.src}
-                        src={source.src}
-                        type={source.type}
-                      />
+                      <source key={source.src} src={source.src} type={source.type} />
                     ))}
                   </video>
                 ) : (
@@ -104,16 +190,13 @@ export function ServicesBento({ media }: ServicesBentoProps) {
                     src={mediaUrl}
                     alt={`${tile.title} at Bodyjunkies`}
                     fill
-                    className={`object-cover ${isPrimaryTile ? "" : "hidden sm:block"}`}
+                    className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 )
               ) : (
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_10%,#f69523_0%,#221e3a_45%,#000000_100%)]" />
               )}
-              {!isPrimaryTile ? (
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_5%,rgba(246,149,35,0.35)_0%,rgba(34,30,58,0.92)_45%,rgba(0,0,0,0.94)_100%)] sm:hidden" />
-              ) : null}
               <div className="absolute inset-0 bg-black/55 transition-colors group-hover:bg-black/45" />
 
               <div className="relative z-10 flex h-full flex-col justify-between p-5 sm:p-6">
@@ -124,15 +207,10 @@ export function ServicesBento({ media }: ServicesBentoProps) {
                   <h4 className={`${isPrimaryTile ? "text-xl sm:text-2xl" : "text-lg sm:text-xl"} font-extrabold uppercase text-white`}>
                     {tile.title}
                   </h4>
-                  <p className={`${isPrimaryTile ? "max-w-md text-sm text-white/85" : "hidden max-w-md text-sm text-white/85 sm:block"}`}>
-                    {tile.copy}
-                  </p>
+                  <p className="max-w-md text-sm text-white/85">{tile.copy}</p>
                 </div>
 
-                <motion.div
-                  whileTap={{ scale: 0.98 }}
-                  whileHover={{ scale: 1.02 }}
-                >
+                <motion.div whileTap={{ scale: 0.98 }} whileHover={{ scale: 1.02 }}>
                   <Link
                     href={tile.href}
                     target={external ? "_blank" : undefined}
