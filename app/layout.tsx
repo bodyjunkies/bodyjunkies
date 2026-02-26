@@ -66,6 +66,10 @@ export default function RootLayout({
         <AnalyticsAutoTracker />
         {children}
         <SiteFooter />
+        <div
+          aria-hidden="true"
+          className="h-[calc(var(--mobile-nav-height)+3.5rem+env(safe-area-inset-bottom))] md:hidden"
+        />
         <CookieNotice />
         <MobileBottomNavLazy />
       </body>
