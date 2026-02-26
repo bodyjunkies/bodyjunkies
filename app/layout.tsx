@@ -5,7 +5,7 @@ import { HashScroll } from "./components/hash-scroll";
 import { AnalyticsAutoTracker } from "./components/analytics-auto-tracker";
 import { CookieNotice } from "./components/cookie-notice";
 import { GtmLoader } from "./components/gtm-loader";
-import { MobileBottomNavLazy } from "./components/mobile-bottom-nav-lazy";
+import { MobileStarterPackCtaLazy } from "./components/mobile-bottom-nav-lazy";
 import { SiteFooter } from "./components/site-footer";
 import { siteConfig } from "./lib/site";
 import "./globals.css";
@@ -66,12 +66,8 @@ export default function RootLayout({
         <AnalyticsAutoTracker />
         {children}
         <SiteFooter />
-        <div
-          aria-hidden="true"
-          className="h-[calc(var(--mobile-nav-height)+3.5rem+env(safe-area-inset-bottom))] md:hidden"
-        />
         <CookieNotice />
-        <MobileBottomNavLazy />
+        <MobileStarterPackCtaLazy />
       </body>
     </html>
   );

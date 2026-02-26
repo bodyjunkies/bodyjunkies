@@ -2,11 +2,12 @@
 
 import dynamic from "next/dynamic";
 
-const MobileBottomNav = dynamic(
-  () => import("./mobile-bottom-nav").then((module) => module.MobileBottomNav),
+const MobileStarterPackCta = dynamic(
+  () =>
+    import("./mobile-bottom-nav").then((module) => module.MobileStarterPackCta),
   { ssr: false }
 );
 
-export function MobileBottomNavLazy() {
-  return <MobileBottomNav />;
+export function MobileStarterPackCtaLazy() {
+  return <MobileStarterPackCta />;
 }

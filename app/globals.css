@@ -8,8 +8,8 @@
   --bj-orange: #f69523;
   --background: var(--bj-navy);
   --foreground: var(--bj-white);
-  --mobile-nav-height: 8.5rem;
-  --cookie-notice-bottom-mobile: calc(var(--mobile-nav-height) + 1rem);
+  --mobile-floating-cta-height: 4.5rem;
+  --cookie-notice-bottom-mobile: calc(var(--mobile-floating-cta-height) + 1.25rem);
   --font-heading:
     "Nourd Bold", "Nourd", "Arial Black", "Aileron Heavy", var(--font-geist-sans),
     Arial, Helvetica, sans-serif;
@@ -32,7 +32,7 @@
 
 @layer utilities {
   .pb-nav-offset {
-    padding-bottom: calc(var(--mobile-nav-height) + env(safe-area-inset-bottom));
+    padding-bottom: calc(var(--mobile-floating-cta-height) + env(safe-area-inset-bottom));
   }
 }
 

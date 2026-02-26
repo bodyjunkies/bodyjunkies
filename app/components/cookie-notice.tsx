@@ -22,7 +22,7 @@ export function CookieNotice() {
   }
 
   return (
-    <div className="fixed inset-x-4 bottom-[calc(var(--cookie-notice-bottom-mobile)+env(safe-area-inset-bottom))] z-40 md:bottom-6 md:left-6 md:right-auto md:max-w-md">
+    <div className="fixed inset-x-4 bottom-[calc(var(--cookie-notice-bottom-mobile)+env(safe-area-inset-bottom)+0.25rem)] z-40 md:bottom-6 md:left-6 md:right-auto md:max-w-md">
       <div className="rounded-2xl border border-white/20 bg-black/80 p-4 shadow-[0_10px_30px_rgba(0,0,0,0.35)] backdrop-blur-sm">
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/70">
           Cookies
