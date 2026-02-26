@@ -24,7 +24,10 @@ export function GatewaySplit({
     : [];
 
   return (
-    <section className="mx-auto w-full max-w-7xl px-4 pt-4 sm:px-6 lg:px-8 lg:pt-6">
+    <section className="mx-auto w-full max-w-7xl px-4 pt-6 sm:px-6 sm:pt-4 lg:px-8 lg:pt-6">
+      <p className="mb-3 inline-flex items-center rounded-full border border-white/25 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/80 sm:hidden">
+        Choose your lane
+      </p>
       <div className="grid gap-4 md:grid-cols-2">
         <motion.article
           initial={{ opacity: 0, y: 24 }}
@@ -67,7 +70,7 @@ export function GatewaySplit({
                 href={STARTER_PACK_PATH}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-[var(--bj-red)]/40 bg-[var(--bj-red)] px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white sm:w-fit"
               >
-                Starter Pack £49
+                See Starter Pack Details
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </motion.div>
