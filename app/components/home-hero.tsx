@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Star } from "lucide-react";
 import { getVideoSourceCandidates } from "../lib/video";
 
 type HomeHeroProps = {
@@ -75,7 +75,12 @@ export function HomeHero({ heroImage, heroVideo }: HomeHeroProps) {
               New? Starter Pack £49 includes brand-new gloves + wraps. Already
               training? Book now.
             </p>
-            <div className="mt-3 inline-flex items-center rounded-full border border-white/30 bg-white/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/90">
+            <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/90">
+              <span className="inline-flex items-center gap-0.5" aria-hidden="true">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <Star key={i} className="size-3 fill-current" fill="currentColor" />
+                ))}
+              </span>
               5.0 Google Rating - 90+ Reviews
             </div>
           </div>
