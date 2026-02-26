@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 
 const navLinks = [
@@ -22,9 +23,17 @@ export function DesktopHeader() {
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 py-4 sm:px-6 lg:px-8">
         <Link
           href="/"
-          className="text-lg font-bold uppercase tracking-[0.08em] text-white transition hover:opacity-90"
+          className="flex items-center gap-3 text-lg font-bold uppercase tracking-[0.08em] text-white transition hover:opacity-90"
+          aria-label="Bodyjunkies home"
         >
-          Bodyjunkies
+          <Image
+            src="/assets/_orange_b_transparent.png"
+            alt=""
+            width={40}
+            height={40}
+            className="h-10 w-10 shrink-0 object-contain"
+          />
+          <span>BODYJUNKIES</span>
         </Link>
         <nav aria-label="Desktop navigation" className="flex items-center gap-8">
           <ul className="flex items-center gap-6">
