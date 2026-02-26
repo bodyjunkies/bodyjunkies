@@ -64,14 +64,21 @@ export function HomeHero({ heroImage, heroVideo }: HomeHeroProps) {
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
-            <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.11em] text-white/90">
+            <a
+              href="https://www.google.com/search?hl=en-GB&gl=uk&q=Bodyjunkies+%7C+Fitness+%26+Boxing+Studio+Islington,+259+Holloway+Rd,+London+N7+8HG&ludocid=1826352018722448038&lsig=AB86z5Wutww2nbiXMq3CJVD2spTO&hl=en&gl=GB#lrd=0x48761b7473021b31:0x1958817c0ec4e2a6,1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.11em] text-white/90 transition-opacity hover:opacity-90"
+              aria-label="View Bodyjunkies reviews on Google"
+            >
+              5.0
               <span className="inline-flex items-center gap-0.5" aria-hidden="true">
                 {[1, 2, 3, 4, 5].map((i) => (
                   <Star key={i} className="size-3 fill-current" fill="currentColor" />
                 ))}
               </span>
-              5.0 Google Rating - 90+ Reviews
-            </div>
+              <span className="normal-case">90+ reviews</span>
+            </a>
           </div>
         </div>
       </div>
