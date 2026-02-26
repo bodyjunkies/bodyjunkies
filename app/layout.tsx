@@ -54,7 +54,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="preconnect" href="https://momence.com" />
+        <link rel="preconnect" href="https://momence.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://momence.com" />
       </head>
       <body

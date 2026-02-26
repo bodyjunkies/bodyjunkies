@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 
 const MOMENCE_REVIEWS_SCRIPT_SRC = "https://momence.com/plugin/reviews/reviews.js";
-const MOMENCE_HOST = "https://momence.com";
 const LOAD_TIMEOUT_MS = 8000;
 const MAX_AUTO_RETRIES = 2;
 
@@ -30,32 +29,6 @@ const STATIC_TESTIMONIALS = [
   },
 ] as const;
 
-function ensureNetworkHints() {
-  if (typeof document === "undefined") return;
-
-  const links: Array<{
-    rel: "preconnect" | "dns-prefetch";
-    href: string;
-    crossOrigin?: "anonymous";
-  }> = [
-    { rel: "preconnect", href: MOMENCE_HOST, crossOrigin: "anonymous" },
-    { rel: "dns-prefetch", href: "//momence.com" },
-  ];
-
-  links.forEach((linkDef) => {
-    const selector = `link[rel="${linkDef.rel}"][href="${linkDef.href}"]`;
-    if (document.head.querySelector(selector)) return;
-
-    const link = document.createElement("link");
-    link.rel = linkDef.rel;
-    link.href = linkDef.href;
-    if (linkDef.crossOrigin) {
-      link.crossOrigin = linkDef.crossOrigin;
-    }
-    document.head.appendChild(link);
-  });
-}
-
 export function ReviewsCarousel() {
   const containerRef = useRef<HTMLDivElement>(null);
   const pluginMountRef = useRef<HTMLDivElement>(null);
@@ -76,11 +49,6 @@ export function ReviewsCarousel() {
   };
   const hasOverlayState =
     !shouldLoad || status === "loading" || status === "idle" || status === "error" || status === "fallback";
-
-  useEffect(() => {
-    if (!shouldLoad) return;
-    ensureNetworkHints();
-  }, [shouldLoad]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -123,7 +91,6 @@ export function ReviewsCarousel() {
     reviewsRoot.id = "momence-plugin-reviews";
 
     const script = document.createElement("script");
-    script.async = true;
     script.type = "module";
     script.setAttribute("host_id", "93353");
     script.setAttribute("is_profile_picture_enabled", "true");
@@ -179,16 +146,7 @@ export function ReviewsCarousel() {
   }, [shouldLoad, loadAttempt]);
 
   return (
-    <>
-      <style jsx global>{`
-        :root {
-          --momenceReviewColorBackground: #fbfbfb;
-          --momenceBorder: 1px solid rgba(0, 0, 0, 0.08);
-          --momenceBorderRadius: 12px;
-          --momenceBoxShadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
-        }
-      `}</style>
-      <div
+    <div
         ref={containerRef}
         className={`relative w-full overflow-hidden rounded-xl border border-white/10 bg-black/20 ${
           hasOverlayState ? "min-h-[320px]" : ""
@@ -254,6 +212,5 @@ export function ReviewsCarousel() {
           </div>
         )}
       </div>
-    </>
   );
 }

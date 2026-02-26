@@ -16,6 +16,11 @@
   --font-body:
     "Aileron Regular", "Aileron", var(--font-geist-sans), Arial, Helvetica,
     sans-serif;
+  /* Momence reviews plugin theming */
+  --momenceReviewColorBackground: #fbfbfb;
+  --momenceBorder: 1px solid rgba(0, 0, 0, 0.08);
+  --momenceBorderRadius: 12px;
+  --momenceBoxShadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
 }
 
 @theme inline {
