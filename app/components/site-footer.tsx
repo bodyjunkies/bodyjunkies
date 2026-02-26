@@ -85,9 +85,17 @@ export function SiteFooter() {
               Opening Hours
             </p>
             <ul className="mt-3 space-y-1 text-sm text-white/85">
-              {siteConfig.openingHours.map((line) => (
-                <li key={line}>{line}</li>
-              ))}
+              {siteConfig.openingHours.map((line) => {
+                const colon = line.indexOf(": ");
+                const days = colon >= 0 ? line.slice(0, colon) : line;
+                const hours = colon >= 0 ? line.slice(colon + 2) : "";
+                return (
+                  <li key={line} className="flex gap-4">
+                    <span className="w-20 shrink-0">{days}</span>
+                    <span className="tabular-nums">{hours}</span>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </section>
