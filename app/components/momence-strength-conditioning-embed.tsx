@@ -1,14 +1,18 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { mountMomenceScheduleScript } from "../lib/momence-embed";
 
-const MOMENCE_SCRIPT_SRC =
-  "https://momence.com/plugin/host-schedule/host-schedule.js";
 const FALLBACK_BOOKING_URL = "https://momence.com/appointments/93353";
+const MOBILE_ROOT_MARGIN_PX = 120;
+const DESKTOP_ROOT_MARGIN_PX = 300;
+const SPA_LOAD_FALLBACK_DELAY_MS = 1600;
 
 export function MomenceStrengthConditioningEmbed() {
   const containerRef = useRef<HTMLDivElement>(null);
   const pluginMountRef = useRef<HTMLDivElement>(null);
+  const hasRequestedLoadRef = useRef(false);
+  const isBootstrappingRef = useRef(false);
   const [shouldLoad, setShouldLoad] = useState(
     () => typeof window !== "undefined" && !("IntersectionObserver" in window)
   );
@@ -20,52 +24,83 @@ export function MomenceStrengthConditioningEmbed() {
     if (shouldLoad) return;
     const container = containerRef.current;
     if (!container || !("IntersectionObserver" in window)) return;
-    const rootMargin = window.matchMedia("(max-width: 768px)").matches
-      ? "120px 0px"
-      : "300px 0px";
+    const rootMarginPx = window.matchMedia("(max-width: 768px)").matches
+      ? MOBILE_ROOT_MARGIN_PX
+      : DESKTOP_ROOT_MARGIN_PX;
+
+    const requestLoad = () => {
+      if (hasRequestedLoadRef.current) return;
+      hasRequestedLoadRef.current = true;
+      setShouldLoad(true);
+      setStatus("loading");
+    };
+
+    const isWithinViewportBuffer = () => {
+      const bounds = container.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      return (
+        bounds.top <= viewportHeight + rootMarginPx &&
+        bounds.bottom >= -rootMarginPx
+      );
+    };
+
+    if (isWithinViewportBuffer()) {
+      requestLoad();
+      return;
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {
         if (!entries.some((entry) => entry.isIntersecting)) return;
-        setShouldLoad(true);
-        setStatus("loading");
+        requestLoad();
         observer.disconnect();
       },
-      { rootMargin }
+      { rootMargin: `${rootMarginPx}px 0px` }
     );
 
     observer.observe(container);
-    return () => observer.disconnect();
+    const fallbackTimeout = window.setTimeout(
+      requestLoad,
+      SPA_LOAD_FALLBACK_DELAY_MS
+    );
+
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(fallbackTimeout);
+    };
   }, [shouldLoad]);
 
   useEffect(() => {
     if (!shouldLoad) return;
     const pluginMount = pluginMountRef.current;
-    if (!pluginMount) return;
+    if (!pluginMount || isBootstrappingRef.current) return;
+    isBootstrappingRef.current = true;
+    setStatus("loading");
 
-    const script = document.createElement("script");
-    script.async = true;
-    script.type = "module";
-    script.setAttribute("fetchpriority", "low");
-    script.setAttribute("host_id", "93353");
-    script.setAttribute("teacher_ids", "[]");
-    script.setAttribute("location_ids", "[95520]");
-    script.setAttribute("tag_ids", "[164836]");
-    script.setAttribute("lite_mode", "true");
-    script.setAttribute("default_filter", "show-all");
-    script.setAttribute("locale", "en");
-    script.onload = () => setStatus("ready");
-    script.onerror = () => setStatus("error");
-    script.src = MOMENCE_SCRIPT_SRC;
-
-    const wrapper = document.createElement("div");
-    wrapper.id = "ribbon-schedule";
-    pluginMount.replaceChildren(wrapper, script);
+    const cleanup = mountMomenceScheduleScript({
+      mountPoint: pluginMount,
+      config: {
+        hostId: "93353",
+        teacherIds: "[]",
+        locationIds: "[95520]",
+        tagIds: "[164836]",
+        liteMode: "true",
+        defaultFilter: "show-all",
+        locale: "en",
+      },
+      onLoad: () => {
+        isBootstrappingRef.current = false;
+        setStatus("ready");
+      },
+      onError: () => {
+        isBootstrappingRef.current = false;
+        setStatus("error");
+      },
+    });
 
     return () => {
-      script.onload = null;
-      script.onerror = null;
-      pluginMount.replaceChildren();
+      isBootstrappingRef.current = false;
+      cleanup();
     };
   }, [shouldLoad]);
 

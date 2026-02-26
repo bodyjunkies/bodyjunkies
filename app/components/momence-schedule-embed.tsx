@@ -2,20 +2,15 @@
 
 import { useEffect, useRef, useState } from "react";
 import { trackEvent } from "../lib/analytics";
+import { mountMomenceScheduleScript } from "../lib/momence-embed";
 
-const MOMENCE_SCRIPT_SRC =
-  "https://momence.com/plugin/host-schedule/host-schedule.js";
 const FALLBACK_BOOKING_URL = "https://momence.com/appointments/93353";
+const RENDER_RETRY_DELAY_MS = 2400;
+const NO_RENDER_TIMEOUT_MS = 6500;
 
 export function MomenceScheduleEmbed() {
-  const containerRef = useRef<HTMLDivElement>(null);
   const pluginMountRef = useRef<HTMLDivElement>(null);
-  const [shouldLoad, setShouldLoad] = useState(
-    () => typeof window !== "undefined" && !("IntersectionObserver" in window)
-  );
-  const [status, setStatus] = useState<"idle" | "loading" | "ready" | "error">(
-    shouldLoad ? "loading" : "idle"
-  );
+  const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
 
   useEffect(() => {
     trackEvent("schedule_view_load", {
@@ -24,64 +19,89 @@ export function MomenceScheduleEmbed() {
   }, []);
 
   useEffect(() => {
-    if (shouldLoad) return;
-    const container = containerRef.current;
-    if (!container || !("IntersectionObserver" in window)) return;
-    const rootMargin = window.matchMedia("(max-width: 768px)").matches
-      ? "120px 0px"
-      : "300px 0px";
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (!entries.some((entry) => entry.isIntersecting)) return;
-        setShouldLoad(true);
-        setStatus("loading");
-        observer.disconnect();
-      },
-      { rootMargin }
-    );
-
-    observer.observe(container);
-    return () => observer.disconnect();
-  }, [shouldLoad]);
-
-  useEffect(() => {
-    if (!shouldLoad) return;
     const pluginMount = pluginMountRef.current;
     if (!pluginMount) return;
+    setStatus("loading");
+    let isSettled = false;
+    let retryTimeout: number | undefined;
+    let noRenderTimeout: number | undefined;
 
-    const script = document.createElement("script");
-    script.async = true;
-    script.type = "module";
-    script.setAttribute("fetchpriority", "low");
-    script.setAttribute("host_id", "93353");
-    script.setAttribute("teacher_ids", "[]");
-    script.setAttribute("location_ids", "[]");
-    script.setAttribute("tag_ids", "[]");
-    script.setAttribute("default_filter", "show-all");
-    script.setAttribute("locale", "en");
-    script.onload = () => setStatus("ready");
-    script.onerror = () => setStatus("error");
-    script.src = MOMENCE_SCRIPT_SRC;
+    const hasRenderedEmbed = () => {
+      const wrapper = pluginMount.querySelector<HTMLElement>("#ribbon-schedule");
+      const hasIframe = pluginMount.querySelector("iframe") !== null;
+      return hasIframe || (wrapper?.childElementCount ?? 0) > 0;
+    };
 
-    const wrapper = document.createElement("div");
-    wrapper.id = "ribbon-schedule";
-    pluginMount.replaceChildren(wrapper, script);
+    const markReady = () => {
+      if (isSettled) return;
+      isSettled = true;
+      if (retryTimeout) window.clearTimeout(retryTimeout);
+      if (noRenderTimeout) window.clearTimeout(noRenderTimeout);
+      setStatus("ready");
+    };
+
+    const markError = () => {
+      if (isSettled) return;
+      isSettled = true;
+      if (retryTimeout) window.clearTimeout(retryTimeout);
+      if (noRenderTimeout) window.clearTimeout(noRenderTimeout);
+      setStatus("error");
+    };
+
+    const mountEmbed = (cacheBust: boolean) =>
+      mountMomenceScheduleScript({
+        mountPoint: pluginMount,
+        cacheBust,
+        config: {
+          hostId: "93353",
+          teacherIds: "[]",
+          locationIds: "[]",
+          tagIds: "[]",
+          defaultFilter: "show-all",
+          locale: "en",
+        },
+        onLoad: markReady,
+        onError: markError,
+      });
+
+    let cleanup = mountEmbed(false);
+    let didRetryWithCacheBust = false;
+
+    const observer = new MutationObserver(() => {
+      if (hasRenderedEmbed()) {
+        markReady();
+      }
+    });
+    observer.observe(pluginMount, { childList: true, subtree: true });
+
+    retryTimeout = window.setTimeout(() => {
+      if (isSettled) return;
+      if (hasRenderedEmbed() || didRetryWithCacheBust) return;
+      didRetryWithCacheBust = true;
+      cleanup();
+      cleanup = mountEmbed(true);
+    }, RENDER_RETRY_DELAY_MS);
+
+    noRenderTimeout = window.setTimeout(() => {
+      if (isSettled) return;
+      if (hasRenderedEmbed()) return;
+      markError();
+    }, NO_RENDER_TIMEOUT_MS);
 
     return () => {
-      script.onload = null;
-      script.onerror = null;
-      pluginMount.replaceChildren();
+      observer.disconnect();
+      if (retryTimeout) window.clearTimeout(retryTimeout);
+      if (noRenderTimeout) window.clearTimeout(noRenderTimeout);
+      cleanup();
     };
-  }, [shouldLoad]);
+  }, []);
 
   return (
     <div
-      ref={containerRef}
       className="relative min-h-[540px] rounded-xl border border-white/10 bg-black/20"
     >
       <div ref={pluginMountRef} className="min-h-[540px]" />
-      {!shouldLoad || status === "loading" ? (
+      {status === "loading" ? (
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 px-5 text-center">
           <div className="h-10 w-10 animate-pulse rounded-full border border-white/25 bg-white/10" />
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/75">
