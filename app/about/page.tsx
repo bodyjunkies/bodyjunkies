@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { AboutContent } from "../components/about-content";
+import { buildPageMetadata } from "../lib/seo";
 
-export const metadata = {
+export const metadata = buildPageMetadata({
   title: "About Us | Bodyjunkies",
   description:
     "Discover Bodyjunkies: gritty small-group boxing and fitness coaching in London, built on community, accountability, and inner fire.",
-};
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (

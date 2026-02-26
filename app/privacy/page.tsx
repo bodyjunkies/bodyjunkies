@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { buildPageMetadata } from "../lib/seo";
 
-export const metadata = {
+export const metadata = buildPageMetadata({
   title: "Privacy Policy | Bodyjunkies",
   description:
     "Read how Bodyjunkies collects, uses, stores, and protects personal data for memberships, bookings, and coaching communication.",
-};
+  path: "/privacy",
+});
 
 export default function PrivacyPage() {
   return (

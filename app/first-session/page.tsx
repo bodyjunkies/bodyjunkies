@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
+import { buildPageMetadata } from "../lib/seo";
 
-export const metadata = {
+export const metadata = buildPageMetadata({
   title: "First Session | Bodyjunkies",
   description:
     "See exactly what to expect in your first Bodyjunkies session: arrival, warm-up, class flow, and next steps.",
-};
+  path: "/first-session",
+});
 
 const steps = [
   {

@@ -1,11 +1,13 @@
 import { MomenceScheduleEmbed } from "../components/momence-schedule-embed";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { buildPageMetadata } from "../lib/seo";
 
-export const metadata = {
+export const metadata = buildPageMetadata({
   title: "Book a Class | Bodyjunkies",
   description: "View the class schedule and book your next session at Bodyjunkies.",
-};
+  path: "/schedule",
+});
 
 export default function SchedulePage() {
   return (

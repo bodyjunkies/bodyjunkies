@@ -16,6 +16,8 @@ type Tile = {
   copy: string;
   href: string;
   cta: string;
+  imageAlt: string;
+  videoAriaLabel: string;
   icon: ComponentType<{ className?: string }>;
 };
 
@@ -25,6 +27,10 @@ const tiles: Tile[] = [
     copy: "1:1 coaching built around your level, goals, and pace.",
     href: "/personal-training",
     cta: "Book 1:1 Session",
+    imageAlt:
+      "Coach delivering one-to-one boxing and fitness instruction at Bodyjunkies",
+    videoAriaLabel:
+      "Personal training footage with one-to-one coaching at Bodyjunkies",
     icon: Users,
   },
   {
@@ -32,6 +38,10 @@ const tiles: Tile[] = [
     copy: "Compound strength work built for the ring and beyond.",
     href: "/schedule/strength-conditioning",
     cta: "Book S&C Session",
+    imageAlt:
+      "Members working through a strength and conditioning block at Bodyjunkies",
+    videoAriaLabel:
+      "Strength and conditioning training footage inside the Bodyjunkies studio",
     icon: Dumbbell,
   },
   {
@@ -39,6 +49,10 @@ const tiles: Tile[] = [
     copy: "See all pathways before you commit: Starter Pack, classes, and PT.",
     href: "/pricing",
     cta: "View pricing",
+    imageAlt:
+      "Bodyjunkies members training together while exploring class pathways",
+    videoAriaLabel:
+      "Bodyjunkies class footage highlighting membership and training pathways",
     icon: Wallet,
   },
 ];
@@ -94,7 +108,7 @@ export function ServicesBento({ media }: ServicesBentoProps) {
                             loop
                             playsInline
                             preload="none"
-                            aria-label={`${tile.title} training footage at Bodyjunkies`}
+                            aria-label={tile.videoAriaLabel}
                           >
                             {getVideoSourceCandidates(mediaUrl).map((source) => (
                               <source key={source.src} src={source.src} type={source.type} />
@@ -103,7 +117,7 @@ export function ServicesBento({ media }: ServicesBentoProps) {
                         ) : (
                           <Image
                             src={mediaUrl}
-                            alt={`${tile.title} at Bodyjunkies`}
+                            alt={tile.imageAlt}
                             fill
                             className="object-cover"
                             sizes="100vw"
@@ -182,7 +196,7 @@ export function ServicesBento({ media }: ServicesBentoProps) {
                     loop
                     playsInline
                     preload="none"
-                    aria-label={`${tile.title} training footage at Bodyjunkies`}
+                    aria-label={tile.videoAriaLabel}
                   >
                     {getVideoSourceCandidates(mediaUrl).map((source) => (
                       <source key={source.src} src={source.src} type={source.type} />
@@ -191,7 +205,7 @@ export function ServicesBento({ media }: ServicesBentoProps) {
                 ) : (
                   <Image
                     src={mediaUrl}
-                    alt={`${tile.title} at Bodyjunkies`}
+                    alt={tile.imageAlt}
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"

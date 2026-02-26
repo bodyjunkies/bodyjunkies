@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { MomencePersonalTrainingEmbed } from "../components/momence-personal-training-embed";
+import { buildPageMetadata } from "../lib/seo";
 
-export const metadata = {
+export const metadata = buildPageMetadata({
   title: "Personal Training | Bodyjunkies",
   description:
     "Book personal training sessions or share your goals through the lead form at Bodyjunkies.",
-};
+  path: "/personal-training",
+});
 
 export default function PersonalTrainingPage() {
   return (

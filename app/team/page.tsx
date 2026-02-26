@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { TeamTrainerCards } from "../components/team-trainer-cards";
+import { buildPageMetadata } from "../lib/seo";
 
-export const metadata = {
+export const metadata = buildPageMetadata({
   title: "Meet The Team | Bodyjunkies",
   description:
     "Meet the Bodyjunkies coaching team and see each trainer's professional background and personal training style.",
-};
+  path: "/team",
+});
 
 export default function TeamPage() {
   return (

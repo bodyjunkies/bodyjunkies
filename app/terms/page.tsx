@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { buildPageMetadata } from "../lib/seo";
 
-export const metadata = {
+export const metadata = buildPageMetadata({
   title: "Terms & Conditions | Bodyjunkies",
   description:
     "Review Bodyjunkies website, booking, cancellation, and session participation terms.",
-};
+  path: "/terms",
+});
 
 export default function TermsPage() {
   return (

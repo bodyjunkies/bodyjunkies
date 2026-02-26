@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { buildPageMetadata } from "../lib/seo";
 
-export const metadata = {
+export const metadata = buildPageMetadata({
   title: "FAQ | Bodyjunkies",
   description:
     "Answers to common questions about beginner suitability, equipment, session format, bookings, and cancellations at Bodyjunkies.",
-};
+  path: "/faq",
+});
 
 const faqs = [
   {

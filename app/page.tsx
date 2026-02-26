@@ -4,10 +4,18 @@ import { ReviewsCarousel } from "./components/reviews-carousel";
 import { ServicesBento } from "./components/services-bento";
 import { siteConfig } from "./lib/site";
 import { getHomeMedia } from "./lib/media";
+import { buildPageMetadata } from "./lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 
 const STARTER_PACK_IMAGE = "/assets/%28WEB%29BODYJUNKIES_210124_0064.jpg";
+
+export const metadata = buildPageMetadata({
+  title: "Bodyjunkies | Fuel Your Fire",
+  description:
+    "Bodyjunkies boxing and conditioning in London. Train with grit, community, and expert coaching.",
+  path: "/",
+});
 
 export default async function Home() {
   const media = await getHomeMedia();

@@ -1,12 +1,13 @@
 import { MomenceStrengthConditioningEmbed } from "../../components/momence-strength-conditioning-embed";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { buildPageMetadata } from "../../lib/seo";
 
-export const metadata = {
+export const metadata = buildPageMetadata({
   title: "Strength & Conditioning | Bodyjunkies",
-  description:
-    "Book strength and conditioning sessions at Bodyjunkies.",
-};
+  description: "Book strength and conditioning sessions at Bodyjunkies.",
+  path: "/schedule/strength-conditioning",
+});
 
 export default function StrengthConditioningSchedulePage() {
   return (

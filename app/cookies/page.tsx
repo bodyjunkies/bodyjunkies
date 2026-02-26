@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { buildPageMetadata } from "../lib/seo";
 
-export const metadata = {
+export const metadata = buildPageMetadata({
   title: "Cookie Policy | Bodyjunkies",
   description:
     "Understand how Bodyjunkies uses cookies and similar technologies for site functionality, analytics, and booking experiences.",
-};
+  path: "/cookies",
+});
 
 export default function CookiesPage() {
   return (
