@@ -1,223 +1,57 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import { Star } from "lucide-react";
+import { GOOGLE_REVIEWS } from "../lib/reviews";
 
-const MOMENCE_REVIEWS_SCRIPT_SRC = "https://momence.com/plugin/reviews/reviews.js";
-const LOAD_TIMEOUT_MS = 8000;
-const MAX_AUTO_RETRIES = 2;
+const loopedReviews = [...GOOGLE_REVIEWS, ...GOOGLE_REVIEWS];
 
-type ReviewStatus = "idle" | "loading" | "ready" | "error" | "fallback";
-
-const STATIC_TESTIMONIALS = [
-  {
-    quote:
-      "I came in with no boxing background. Coaches broke everything down clearly and I felt progress in weeks.",
-    name: "Bodyjunkies Member",
-    result: "Beginner Route",
-  },
-  {
-    quote:
-      "Sessions are structured, intense, and focused. You work hard and leave with proper detail, not random circuits.",
-    name: "Bodyjunkies Member",
-    result: "Experienced Route",
-  },
-  {
-    quote:
-      "The community is strong and the coaching standard is high every single session. It keeps me consistent.",
-    name: "Bodyjunkies Member",
-    result: "Tribe Feedback",
-  },
-] as const;
+function ReviewCard({ quote, author, rating }: { quote: string; author: string; rating: number }) {
+  return (
+    <article className="relative w-[82vw] max-w-[22rem] shrink-0 rounded-2xl border border-white/15 bg-white/[0.04] p-5 sm:w-[22rem]">
+      <div className="mb-3 flex gap-0.5" aria-label={`${rating} out of 5 stars`}>
+        {Array.from({ length: rating }).map((_, i) => (
+          <Star key={i} className="size-3.5 fill-[#F69523] text-[#F69523]" aria-hidden="true" />
+        ))}
+      </div>
+      <p className="line-clamp-5 text-sm leading-relaxed text-white/85">&ldquo;{quote}&rdquo;</p>
+      <p className="mt-4 text-xs font-semibold uppercase tracking-[0.14em] text-white">{author}</p>
+      <p className="mt-0.5 text-[11px] uppercase tracking-[0.12em] text-white/45">Google Review</p>
+    </article>
+  );
+}
 
 export function ReviewsCarousel() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const pluginMountRef = useRef<HTMLDivElement>(null);
-  const autoRetryCountRef = useRef(0);
-  const retryTimeoutRef = useRef<number | null>(null);
-  const [status, setStatus] = useState<ReviewStatus>("idle");
-  const [loadAttempt, setLoadAttempt] = useState(0);
-  const [shouldLoad, setShouldLoad] = useState(
-    () => typeof window !== "undefined" && typeof IntersectionObserver === "undefined"
-  );
-
-  const retryLoad = (resetAutoRetry = false) => {
-    if (resetAutoRetry) {
-      autoRetryCountRef.current = 0;
-    }
-    setStatus("loading");
-    setLoadAttempt((attempt) => attempt + 1);
-  };
-  const hasOverlayState =
-    !shouldLoad || status === "loading" || status === "idle" || status === "error" || status === "fallback";
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-    if (typeof IntersectionObserver === "undefined") {
-      setShouldLoad(true);
-      setStatus("loading");
-      return;
-    }
-    const rootMargin = window.matchMedia("(max-width: 768px)").matches
-      ? "120px 0px"
-      : "240px 0px";
-
-    let wasInView = false;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        if (!entry) return;
-        if (entry.isIntersecting) {
-          if (!wasInView) {
-            wasInView = true;
-            setShouldLoad(true);
-            autoRetryCountRef.current = 0;
-            setStatus("loading");
-            setLoadAttempt((attempt) => attempt + 1);
-          }
-        } else {
-          wasInView = false;
-        }
-      },
-      { rootMargin }
-    );
-
-    observer.observe(container);
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (!shouldLoad) return;
-    const pluginMount = pluginMountRef.current;
-    if (!pluginMount) return;
-    let isMounted = true;
-    let didResolve = false;
-
-    const reviewsRoot = document.createElement("div");
-    reviewsRoot.id = "momence-plugin-reviews";
-
-    const script = document.createElement("script");
-    script.type = "module";
-    script.setAttribute("host_id", "93353");
-    script.setAttribute("is_profile_picture_enabled", "true");
-    script.setAttribute("is_text_only_enabled", "true");
-    script.setAttribute("is_session_and_teacher_info_enabled", "true");
-    script.setAttribute("layout", "horizontal");
-    script.setAttribute(
-      "signature",
-      "98e0fe2b6e055a841810d060089c8fb203a0f4a8593d0bb1ca95f253339e433c"
-    );
-    script.src = MOMENCE_REVIEWS_SCRIPT_SRC;
-    script.onload = () => {
-      if (!isMounted) return;
-      didResolve = true;
-      setStatus("ready");
-      autoRetryCountRef.current = 0;
-    };
-    script.onerror = () => {
-      if (!isMounted) return;
-      if (autoRetryCountRef.current < MAX_AUTO_RETRIES) {
-        didResolve = true;
-        setStatus("error");
-        autoRetryCountRef.current += 1;
-        const delay = 600 * autoRetryCountRef.current;
-        retryTimeoutRef.current = window.setTimeout(() => {
-          retryLoad(false);
-        }, delay);
-        return;
-      }
-      didResolve = true;
-      setStatus("fallback");
-    };
-
-    const timeoutId = window.setTimeout(() => {
-      if (!isMounted || didResolve) return;
-      script.onerror?.(new Event("error"));
-    }, LOAD_TIMEOUT_MS);
-
-    pluginMount.replaceChildren(reviewsRoot, script);
-
-    return () => {
-      isMounted = false;
-      window.clearTimeout(timeoutId);
-      if (retryTimeoutRef.current !== null) {
-        window.clearTimeout(retryTimeoutRef.current);
-        retryTimeoutRef.current = null;
-      }
-      script.onload = null;
-      script.onerror = null;
-      script.remove();
-      pluginMount.replaceChildren();
-    };
-  }, [shouldLoad, loadAttempt]);
+  const shouldReduceMotion = useReducedMotion();
 
   return (
-    <div
-        ref={containerRef}
-        className={`relative w-full overflow-hidden rounded-xl border border-white/10 bg-black/20 ${
-          hasOverlayState ? "min-h-[320px]" : ""
-        }`}
-      >
-        <div ref={pluginMountRef} className="w-full" />
+    <div className="relative">
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-[#221E3A] to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-[#221E3A] to-transparent" />
 
-        {(!shouldLoad || status === "loading" || status === "idle") && (
-          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 px-5 text-center">
-            <div className="h-10 w-10 animate-pulse rounded-full border border-white/25 bg-white/10" />
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/75">
-              Loading Reviews
-            </p>
-          </div>
-        )}
-
-        {status === "error" && (
-          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-4 bg-[#221E3A]/95 px-5 text-center">
-            <div className="h-9 w-9 animate-pulse rounded-full border border-white/25 bg-white/10" />
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/80">
-              Retrying Reviews Feed
-            </p>
-            <button
-              type="button"
-              onClick={() => retryLoad(true)}
-              className="inline-flex items-center justify-center rounded-full bg-[var(--bj-red)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-white transition-transform hover:scale-[1.02] active:scale-[0.98]"
-            >
-              Try Again
-            </button>
-          </div>
-        )}
-
-        {status === "fallback" && (
-          <div className="absolute inset-0 z-20 overflow-auto bg-[#221E3A] p-4 sm:p-5">
-            <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/80">
-                Reviews Feed Unavailable
-              </p>
-              <button
-                type="button"
-                onClick={() => retryLoad(true)}
-                className="inline-flex items-center justify-center rounded-full bg-[var(--bj-red)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-white transition-transform hover:scale-[1.02] active:scale-[0.98]"
-              >
-                Try Again
-              </button>
-            </div>
-            <div className="grid gap-3 sm:grid-cols-3">
-              {STATIC_TESTIMONIALS.map((item) => (
-                <article
-                  key={item.result}
-                  className="rounded-xl border border-white/15 bg-white/[0.04] p-4"
-                >
-                  <p className="text-sm leading-relaxed text-white/85">&quot;{item.quote}&quot;</p>
-                  <p className="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-white">
-                    {item.name}
-                  </p>
-                  <p className="mt-1 text-[11px] uppercase tracking-[0.12em] text-[#F69523]">
-                    {item.result}
-                  </p>
-                </article>
-              ))}
-            </div>
-          </div>
-        )}
-      </div>
+      {shouldReduceMotion ? (
+        <div className="flex gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+          {GOOGLE_REVIEWS.map((review) => (
+            <ReviewCard key={review.author} {...review} />
+          ))}
+        </div>
+      ) : (
+        <div className="overflow-hidden">
+          <motion.div
+            className="flex w-max gap-3"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{
+              ease: "linear",
+              duration: 60,
+              repeat: Infinity,
+            }}
+          >
+            {loopedReviews.map((review, index) => (
+              <ReviewCard key={`${review.author}-${index}`} {...review} />
+            ))}
+          </motion.div>
+        </div>
+      )}
+    </div>
   );
 }
