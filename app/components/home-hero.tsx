@@ -48,8 +48,10 @@ export function HomeHero({ heroImage, heroVideo }: HomeHeroProps) {
             </p>
             <h1 className="mt-4 text-4xl font-black uppercase leading-[0.97] text-white sm:text-5xl lg:text-6xl">
               Fuel Your Fire
-              <br />
-              Build Real Strength
+              <span className="hidden sm:inline">
+                <br />
+                Build Real Strength
+              </span>
             </h1>
             <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-white/85 sm:max-w-xl sm:text-base">
               Small-group boxing sessions with structure, accountability, and a
