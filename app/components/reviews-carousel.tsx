@@ -6,7 +6,7 @@ import Link from "next/link";
 import { GOOGLE_REVIEWS } from "../lib/reviews";
 
 const GOOGLE_REVIEWS_URL =
-  "https://www.google.com/search?hl=en-GB&gl=uk&q=Bodyjunkies+%7C+Fitness+%26+Boxing+Studio+Islington,+259+Holloway+Rd,+London+N7+8HG&ludocid=1826352018722448038&lsig=AB86z5Wutww2nbiXMq3CJVD2spTO&hl=en&gl=GB#lrd=0x48761b7473021b31:0x1958817c0ec4e2a6,1";
+  "https://www.google.com/maps/place//data=!4m4!3m3!1s0x48761b7473021b31:0x1958817c0ec4e2a6!9m1!1b1";
 
 const loopedReviews = [...GOOGLE_REVIEWS, ...GOOGLE_REVIEWS];
 

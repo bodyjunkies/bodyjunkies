@@ -84,7 +84,7 @@ export default async function Home() {
             coaches.
           </p>
           <a
-            href="https://www.google.com/search?hl=en-GB&gl=uk&q=Bodyjunkies+%7C+Fitness+%26+Boxing+Studio+Islington,+259+Holloway+Rd,+London+N7+8HG&ludocid=1826352018722448038&lsig=AB86z5Wutww2nbiXMq3CJVD2spTO&hl=en&gl=GB#lrd=0x48761b7473021b31:0x1958817c0ec4e2a6,1"
+            href="https://www.google.com/maps/place//data=!4m4!3m3!1s0x48761b7473021b31:0x1958817c0ec4e2a6!9m1!1b1"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-4 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.11em] text-white/90 transition-opacity hover:opacity-90"
