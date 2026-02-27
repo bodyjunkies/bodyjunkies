@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Star } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Star } from "lucide-react";
 import { getVideoSourceCandidates } from "../lib/video";
 
 type HomeHeroProps = {
@@ -72,7 +72,7 @@ export function HomeHero({ heroImage, heroVideo }: HomeHeroProps) {
               href="https://www.google.com/maps/place//data=!4m4!3m3!1s0x48761b7473021b31:0x1958817c0ec4e2a6!9m1!1b1"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-3 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.11em] text-white/90 transition-opacity hover:opacity-90"
+              className="group mt-3 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.11em] text-white/90 transition-all duration-200 ease-out hover:scale-[1.05] hover:border-white/60 hover:bg-white/20 active:scale-[0.97]"
               aria-label="View Bodyjunkies reviews on Google"
             >
               5.0
@@ -82,6 +82,7 @@ export function HomeHero({ heroImage, heroVideo }: HomeHeroProps) {
                 ))}
               </span>
               <span className="normal-case">90+ reviews</span>
+              <ArrowUpRight className="size-3 opacity-60 transition-opacity duration-200 group-hover:opacity-100" aria-hidden="true" />
             </a>
           </div>
         </div>

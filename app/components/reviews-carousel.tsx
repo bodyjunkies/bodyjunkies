@@ -12,24 +12,31 @@ const loopedReviews = [...GOOGLE_REVIEWS, ...GOOGLE_REVIEWS];
 
 function ReviewCard({ quote, author, rating }: { quote: string; author: string; rating: number }) {
   return (
-    <Link
-      href={GOOGLE_REVIEWS_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="block w-[82vw] max-w-[22rem] shrink-0 sm:w-[22rem] transition-transform hover:scale-[1.02] active:scale-[0.99]"
-      aria-label="View Bodyjunkies reviews on Google"
+    <motion.div
+      className="block w-[82vw] max-w-[22rem] shrink-0 sm:w-[22rem]"
+      whileHover={{ scale: 1.03, y: -3 }}
+      whileTap={{ scale: 0.98 }}
+      transition={{ type: "spring", stiffness: 340, damping: 22 }}
     >
-      <article className="relative h-full rounded-2xl border border-white/15 bg-white/[0.04] p-5">
-        <div className="mb-3 flex gap-0.5" aria-label={`${rating} out of 5 stars`}>
-          {Array.from({ length: rating }).map((_, i) => (
-            <Star key={i} className="size-3.5 fill-[#F69523] text-[#F69523]" aria-hidden="true" />
-          ))}
-        </div>
-        <p className="line-clamp-5 text-sm leading-relaxed text-white/85">&ldquo;{quote}&rdquo;</p>
-        <p className="mt-4 text-xs font-semibold uppercase tracking-[0.14em] text-white">{author}</p>
-        <p className="mt-0.5 text-[11px] uppercase tracking-[0.12em] text-white/45">Google Review</p>
-      </article>
-    </Link>
+      <Link
+        href={GOOGLE_REVIEWS_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group block h-full"
+        aria-label="View Bodyjunkies reviews on Google"
+      >
+        <article className="relative h-full rounded-2xl border border-white/15 bg-white/[0.04] p-5 transition-colors duration-200 group-hover:border-white/35 group-hover:bg-white/[0.08]">
+          <div className="mb-3 flex gap-0.5" aria-label={`${rating} out of 5 stars`}>
+            {Array.from({ length: rating }).map((_, i) => (
+              <Star key={i} className="size-3.5 fill-[#F69523] text-[#F69523]" aria-hidden="true" />
+            ))}
+          </div>
+          <p className="line-clamp-5 text-sm leading-relaxed text-white/85">&ldquo;{quote}&rdquo;</p>
+          <p className="mt-4 text-xs font-semibold uppercase tracking-[0.14em] text-white">{author}</p>
+          <p className="mt-0.5 text-[11px] uppercase tracking-[0.12em] text-white/45">Google Review</p>
+        </article>
+      </Link>
+    </motion.div>
   );
 }
 
