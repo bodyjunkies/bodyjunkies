@@ -1,64 +1,54 @@
-const MOMENCE_SCRIPT_SRC =
-  "https://momence.com/plugin/host-schedule/host-schedule.js";
+// ---------------------------------------------------------------------------
+// Shared constants
+// ---------------------------------------------------------------------------
 
-type MomenceScheduleScriptConfig = {
-  hostId: string;
-  teacherIds: string;
-  locationIds: string;
-  tagIds: string;
-  defaultFilter: string;
-  locale: string;
-  liteMode?: string;
-};
+export const MOMENCE_HOST_ID = "93353";
+export const BOOKING_CONFIRMED_URL = "https://bodyjunkies.co.uk/booking-confirmed";
 
-type MountMomenceScheduleScriptArgs = {
-  mountPoint: HTMLDivElement;
-  config: MomenceScheduleScriptConfig;
-  onLoad: () => void;
-  onError: () => void;
-  cacheBust?: boolean;
-  fetchPriority?: "high" | "low" | "auto";
-};
+// ---------------------------------------------------------------------------
+// Shared helpers
+// ---------------------------------------------------------------------------
 
-export function mountMomenceScheduleScript({
-  mountPoint,
-  config,
-  onLoad,
-  onError,
-  cacheBust = false,
-  fetchPriority = "high",
-}: MountMomenceScheduleScriptArgs) {
-  const script = document.createElement("script");
-  script.async = true;
-  script.type = "module";
-  script.setAttribute("fetchpriority", fetchPriority);
-  script.setAttribute("host_id", config.hostId);
-  script.setAttribute("teacher_ids", config.teacherIds);
-  script.setAttribute("location_ids", config.locationIds);
-  script.setAttribute("tag_ids", config.tagIds);
-  script.setAttribute("default_filter", config.defaultFilter);
-  script.setAttribute("locale", config.locale);
-
-  if (config.liteMode) {
-    script.setAttribute("lite_mode", config.liteMode);
+export function getTimeoutMultiplier(): number {
+  if (typeof navigator === "undefined") return 1;
+  const conn = (navigator as Navigator & { connection?: { effectiveType?: string } })
+    .connection;
+  if (!conn?.effectiveType) return 1;
+  switch (conn.effectiveType) {
+    case "slow-2g":
+    case "2g":
+      return 2;
+    case "3g":
+      return 1.5;
+    default:
+      return 1;
   }
-
-  script.onload = onLoad;
-  script.onerror = onError;
-  if (cacheBust) {
-    const cacheBustKey = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
-    script.src = `${MOMENCE_SCRIPT_SRC}?reload=${cacheBustKey}`;
-  } else {
-    script.src = MOMENCE_SCRIPT_SRC;
-  }
-
-  const wrapper = document.createElement("div");
-  wrapper.id = "ribbon-schedule";
-  mountPoint.replaceChildren(wrapper, script);
-
-  return () => {
-    script.onload = null;
-    script.onerror = null;
-    mountPoint.replaceChildren();
-  };
 }
+
+function cacheBustSuffix(): string {
+  return `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+}
+
+export function cacheBustUrl(url: string): string {
+  const u = new URL(url);
+  u.searchParams.set("_r", cacheBustSuffix());
+  return u.toString();
+}
+
+export function withReturnUrl(url: string): string {
+  const u = new URL(url);
+  u.searchParams.set("return_url", BOOKING_CONFIRMED_URL);
+  u.searchParams.set("returnUrl", BOOKING_CONFIRMED_URL);
+  return u.toString();
+}
+
+export function isMomenceOrigin(origin: string): boolean {
+  if (!origin) return false;
+  try {
+    const hostname = new URL(origin).hostname;
+    return hostname === "momence.com" || hostname.endsWith(".momence.com");
+  } catch {
+    return false;
+  }
+}
+

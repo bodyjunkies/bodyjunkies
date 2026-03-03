@@ -13,6 +13,7 @@ export const metadata = buildPageMetadata({
 export default function PersonalTrainingPage() {
   return (
     <main className="min-h-screen bg-[#221E3A] pb-nav-offset">
+      <link rel="modulepreload" href="https://momence.com/plugin/lead-form/lead-form.js" />
       <div className="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         <Link
           href="/"
