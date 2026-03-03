@@ -95,7 +95,7 @@ export default async function Home() {
             5.0
             <span className="inline-flex items-center gap-0.5" aria-hidden="true">
               {[1, 2, 3, 4, 5].map((i) => (
-                <Star key={i} className="size-3 fill-current" fill="currentColor" />
+                <Star key={i} className="size-3 fill-[#F69523] text-[#F69523]" />
               ))}
             </span>
             <span className="normal-case">(90+)</span>
