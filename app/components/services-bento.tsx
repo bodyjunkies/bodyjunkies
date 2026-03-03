@@ -69,7 +69,7 @@ export function ServicesBento({ media }: ServicesBentoProps) {
       <div className="mb-5 flex items-end justify-between gap-4 sm:mb-6">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
-            Services
+            More Ways To Train
           </p>
           <h3 className="mt-2 text-3xl font-black uppercase text-white sm:text-4xl">
             Train With Intent
