@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { CalendarCheck2 } from "lucide-react";
+import { Zap } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const CTA_REVEAL_VIEWPORT_RATIO = 0.2;
@@ -93,7 +93,7 @@ export function MobileStarterPackCta() {
                 aria-label="Book Starter Pack £49"
                 className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-white/15 bg-[var(--bj-red)]/95 px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white shadow-[0_8px_18px_rgba(148,4,5,0.28)]"
               >
-                <CalendarCheck2 className="h-4 w-4" />
+                <Zap className="h-4 w-4" />
                 Starter Pack £49
               </Link>
             </motion.div>
@@ -124,7 +124,7 @@ export function MobileStarterPackCta() {
                 aria-label="Book Starter Pack £49"
                 className="inline-flex min-h-[44px] items-center justify-center gap-1.5 rounded-full border border-white/15 bg-[var(--bj-red)]/95 px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.12em] text-white shadow-[0_8px_18px_rgba(148,4,5,0.28)]"
               >
-                <CalendarCheck2 className="h-3.5 w-3.5 shrink-0" />
+                <Zap className="h-3.5 w-3.5 shrink-0" />
                 £49
               </Link>
             </motion.div>
