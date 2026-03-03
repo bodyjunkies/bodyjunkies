@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import { StarterPackEmbedLazy } from "../components/starter-pack-embed-lazy";
+import { StarterPackEmbed } from "../components/starter-pack-embed";
 import { buildPageMetadata } from "../lib/seo";
 
 export const metadata = buildPageMetadata({
@@ -36,7 +36,7 @@ export default function StarterPackPage() {
           </p>
         </div>
         <div className="overflow-hidden rounded-2xl border border-white/15 bg-white/[0.02] p-0">
-          <StarterPackEmbedLazy />
+          <StarterPackEmbed />
         </div>
       </div>
     </main>

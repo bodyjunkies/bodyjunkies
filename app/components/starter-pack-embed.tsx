@@ -21,44 +21,12 @@ const STARTER_PACK_URL = withReturnUrl(STARTER_PACK_BASE_URL);
 export function StarterPackEmbed() {
   const containerRef = useRef<HTMLDivElement>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
-  const [shouldLoad, setShouldLoad] = useState(
-    () => typeof window !== "undefined" && !("IntersectionObserver" in window)
-  );
+  const shouldLoad = true;
   const [iframeHeight, setIframeHeight] = useState(1200);
   const [iframeStatus, setIframeStatus] = useState<"loading" | "ready" | "error">(
     "loading"
   );
   const hasTrackedBookingCompleteRef = useRef(false);
-
-  useEffect(() => {
-    if (shouldLoad) {
-      return;
-    }
-
-    const container = containerRef.current;
-    if (!container) {
-      return;
-    }
-
-    if (!("IntersectionObserver" in window)) {
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (!entries.some((entry) => entry.isIntersecting)) {
-          return;
-        }
-
-        setShouldLoad(true);
-        observer.disconnect();
-      },
-      { rootMargin: "300px 0px" }
-    );
-
-    observer.observe(container);
-    return () => observer.disconnect();
-  }, [shouldLoad]);
 
   useEffect(() => {
     if (!shouldLoad) {
@@ -164,7 +132,7 @@ export function StarterPackEmbed() {
           title="Starter Pack - Bodyjunkies"
           className="w-full border-0 transition-[height] duration-300 ease-out"
           style={{ height: `${iframeHeight}px`, minHeight: "1000px" }}
-          loading="lazy"
+          loading="eager"
           scrolling="yes"
           allowFullScreen
           onLoad={() => setIframeStatus("ready")}
