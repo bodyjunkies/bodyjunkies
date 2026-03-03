@@ -165,7 +165,7 @@ export function StarterPackEmbed() {
           className="w-full border-0 transition-[height] duration-300 ease-out"
           style={{ height: `${iframeHeight}px`, minHeight: "1000px" }}
           loading="lazy"
-          scrolling="no"
+          scrolling="yes"
           allowFullScreen
           onLoad={() => setIframeStatus("ready")}
           onError={() => setIframeStatus("error")}
