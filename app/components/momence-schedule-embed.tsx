@@ -56,7 +56,7 @@ export function MomenceScheduleEmbed() {
           hostId: "93353",
           teacherIds: "[]",
           locationIds: "[]",
-          tagIds: "[]",
+          tagIds: "[165209,176483,163787]",
           defaultFilter: "show-all",
           locale: "en",
         },
