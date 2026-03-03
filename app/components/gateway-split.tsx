@@ -133,8 +133,7 @@ export function GatewaySplit({
                   Fire In
                 </h2>
                 <p className="max-w-sm text-[15px] leading-relaxed text-white/85 sm:text-base">
-                  Already equipped and ready to move? Jump straight into sessions and
-                  book your next session.
+                  Already equipped and ready to move? Jump straight in and book your next session.
                 </p>
                 <p className="text-xs font-medium uppercase tracking-[0.12em] text-white/75">
                   Drop in to available classes.
