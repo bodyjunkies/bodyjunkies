@@ -76,7 +76,7 @@ export function GatewaySplit({
                 whileHover={{ scale: 1.01 }}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-[var(--bj-red)]/40 bg-[var(--bj-red)] px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white sm:w-fit"
               >
-                Start Starter Pack
+                View Starter Pack
                 <ArrowRight className="h-4 w-4" />
               </motion.span>
             </div>
