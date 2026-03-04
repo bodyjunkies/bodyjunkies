@@ -24,10 +24,15 @@ export function AnalyticsAutoTracker() {
       const path = toPath(link.href);
       if (!path) return;
 
-      if (
-        path.startsWith("/starter-pack")
-      ) {
+      if (path.startsWith("/starter-pack")) {
         trackEvent("starter_pack_click", {
+          source_path: window.location.pathname,
+          target_path: path,
+        });
+      }
+
+      if (path.startsWith("/taster-session")) {
+        trackEvent("taster_session_click", {
           source_path: window.location.pathname,
           target_path: path,
         });
