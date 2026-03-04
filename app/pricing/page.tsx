@@ -59,11 +59,9 @@ export default function PricingPage() {
               </article>
             </Link>
 
-            <a
-              href="https://momence.com/u/bodyjunkies-NFLGZG"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Experienced Track: View Schedule"
+            <Link
+              href="/taster-session"
+              aria-label="Experienced Track: Taster Session £15"
               className="block cursor-pointer"
             >
               <article className="flex h-full flex-col rounded-2xl border border-white/15 bg-black/20 p-5 transition-colors hover:border-white/25 hover:bg-white/[0.06]">
@@ -72,23 +70,24 @@ export default function PricingPage() {
                     Experienced Track
                   </p>
                   <h2 className="mt-3 text-2xl font-black uppercase text-white">
-                    Class Booking
+                    Taster Session
                   </h2>
-                  <p className="mt-2 text-sm text-white/80">
-                    Already ready to move? Book straight into available sessions.
+                  <p className="mt-2 text-4xl font-black uppercase text-white">£15</p>
+                  <p className="mt-3 text-sm text-white/80">
+                    Already have your own gloves? Try a full session and feel the tribe atmosphere.
                   </p>
                   <ul className="mt-4 space-y-2 text-sm text-white/85">
-                    <li>High-intensity boxing sessions</li>
-                    <li>Strength and conditioning blocks</li>
-                    <li>Live schedule availability</li>
+                    <li>Full boxing session experience</li>
+                    <li>Bring your own gloves</li>
+                    <li>Zero strings attached</li>
                   </ul>
                 </div>
                 <span className="mt-5 inline-flex items-center gap-2 rounded-full border border-white/35 bg-white/10 px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white">
-                  View Schedule
+                  Taster Session £15
                   <ArrowRight className="h-4 w-4" />
                 </span>
               </article>
-            </a>
+            </Link>
 
             <Link
               href="/personal-training"

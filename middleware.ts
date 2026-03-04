@@ -3,6 +3,7 @@ import type { NextRequest } from "next/server";
 
 const STARTER_PACK_EXTERNAL_URL =
   "https://momence.com/Bodyjunkies/membership/Intro-Package/539286";
+const TASTER_SESSION_EXTERNAL_URL = "https://momence.com/m/676912";
 const SCHEDULE_EXTERNAL_URL = "https://momence.com/u/bodyjunkies-NFLGZG";
 
 function isMobileRequest(userAgent: string): boolean {
@@ -18,6 +19,9 @@ export function middleware(request: NextRequest) {
     if (request.nextUrl.pathname.startsWith("/starter-pack")) {
       return NextResponse.redirect(STARTER_PACK_EXTERNAL_URL);
     }
+    if (request.nextUrl.pathname.startsWith("/taster-session")) {
+      return NextResponse.redirect(TASTER_SESSION_EXTERNAL_URL);
+    }
   }
 
   // Catch any straggler traffic to the removed /schedule routes
@@ -29,5 +33,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/starter-pack/:path*", "/schedule/:path*"],
+  matcher: ["/starter-pack/:path*", "/taster-session/:path*", "/schedule/:path*"],
 };

@@ -83,12 +83,11 @@ export function GatewaySplit({
           </motion.article>
         </Link>
 
-        <a
-          href="https://momence.com/u/bodyjunkies-NFLGZG"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="Experienced: View Schedule"
+        <Link
+          href="/taster-session"
+          aria-label="Experienced: View Taster Session"
           className="block h-full cursor-pointer"
+          id="gateway-experienced-card"
         >
           <motion.article
             initial={{ opacity: 0, y: 24 }}
@@ -135,10 +134,10 @@ export function GatewaySplit({
                   Fire In
                 </h2>
                 <p className="max-w-sm text-[15px] leading-relaxed text-white/85 sm:text-base">
-                  Already equipped and ready to move? Jump straight in and book your next session.
+                  Already equipped and ready to move? Try a full session and feel the tribe atmosphere first hand.
                 </p>
                 <p className="text-xs font-medium uppercase tracking-[0.12em] text-white/75">
-                  Drop in to available classes.
+                  Bring your own gloves. Zero strings.
                 </p>
               </div>
               <motion.span
@@ -146,12 +145,12 @@ export function GatewaySplit({
                 whileHover={{ scale: 1.02 }}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/40 bg-white/10 px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white backdrop-blur-sm sm:w-fit"
               >
-                View Schedule
+                View Taster Session
                 <ArrowRight className="h-4 w-4" />
               </motion.span>
             </div>
           </motion.article>
-        </a>
+        </Link>
       </div>
     </section>
   );
