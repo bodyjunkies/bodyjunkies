@@ -83,8 +83,10 @@ export function GatewaySplit({
           </motion.article>
         </Link>
 
-        <Link
-          href="/schedule"
+        <a
+          href="https://momence.com/u/bodyjunkies-NFLGZG"
+          target="_blank"
+          rel="noreferrer"
           aria-label="Experienced: View Schedule"
           className="block h-full cursor-pointer"
         >
@@ -149,7 +151,7 @@ export function GatewaySplit({
               </motion.span>
             </div>
           </motion.article>
-        </Link>
+        </a>
       </div>
     </section>
   );

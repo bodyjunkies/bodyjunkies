@@ -59,8 +59,10 @@ export default function PricingPage() {
               </article>
             </Link>
 
-            <Link
-              href="/schedule"
+            <a
+              href="https://momence.com/u/bodyjunkies-NFLGZG"
+              target="_blank"
+              rel="noreferrer"
               aria-label="Experienced Track: View Schedule"
               className="block cursor-pointer"
             >
@@ -86,7 +88,7 @@ export default function PricingPage() {
                   <ArrowRight className="h-4 w-4" />
                 </span>
               </article>
-            </Link>
+            </a>
 
             <Link
               href="/personal-training"

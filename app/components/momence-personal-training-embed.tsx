@@ -2,19 +2,16 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import { trackEvent } from "../lib/analytics";
 import {
   MOMENCE_HOST_ID,
   getTimeoutMultiplier,
   isMomenceOrigin,
-  withReturnUrl,
 } from "../lib/momence-embed";
-import { useMomenceIframe } from "../hooks/use-momence-iframe";
 
-const APPOINTMENTS_BASE_URL =
+const APPOINTMENTS_URL =
   "https://momence.com/appointments/appointment-reservation/93353?boardId=94755";
-const APPOINTMENTS_URL = withReturnUrl(APPOINTMENTS_BASE_URL);
-const FALLBACK_BOOKING_URL = APPOINTMENTS_BASE_URL;
 
 const LEAD_FORM_SCRIPT_SRC = "https://momence.com/plugin/lead-form/lead-form.js";
 const LEAD_FORM_CONTAINER_ID = "momence-plugin-lead-form";
@@ -34,12 +31,6 @@ function uniqueLeadFormUrl(bust: boolean): string {
 }
 
 export function MomencePersonalTrainingEmbed() {
-  const appointments = useMomenceIframe({
-    src: APPOINTMENTS_URL,
-    timeoutMs: 15_000,
-    analyticsSource: "momence_post_message",
-  });
-
   const leadFormRef = useRef<HTMLDivElement>(null);
   const hasTrackedLeadSubmitRef = useRef(false);
   const [leadFormStatus, setLeadFormStatus] = useState<"loading" | "ready" | "error">(
@@ -47,7 +38,6 @@ export function MomencePersonalTrainingEmbed() {
   );
   const [leadFormKey, setLeadFormKey] = useState(0);
 
-  // Lead-form–specific postMessage listener for submit analytics
   useEffect(() => {
     function onMessage(event: MessageEvent) {
       if (!isMomenceOrigin(event.origin)) return;
@@ -77,7 +67,6 @@ export function MomencePersonalTrainingEmbed() {
     return () => window.removeEventListener("message", onMessage);
   }, []);
 
-  // Lead form script injection (with 1 cache-bust retry + timeout)
   useEffect(() => {
     const container = leadFormRef.current;
     if (!container) return;
@@ -174,7 +163,8 @@ export function MomencePersonalTrainingEmbed() {
           Choose Your Route
         </p>
         <p className="mt-2 text-sm text-white/80 sm:text-base">
-          New to 1:1 coaching? Share your goal first. Ready now? Book your slot straight away.
+          New to 1:1 coaching? Share your goal first. Ready now? Book your slot straight
+          away.
         </p>
         <div className="mt-4 flex flex-col gap-2 sm:flex-row">
           <a
@@ -184,10 +174,13 @@ export function MomencePersonalTrainingEmbed() {
             Share Goal First
           </a>
           <a
-            href="#pt-book"
-            className="inline-flex items-center justify-center rounded-full bg-[var(--bj-red)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-white transition-transform hover:scale-[1.02] active:scale-[0.98]"
+            href={APPOINTMENTS_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-[var(--bj-red)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-white transition-transform hover:scale-[1.02] active:scale-[0.98]"
           >
             Book Slot Now
+            <ArrowRight className="h-3.5 w-3.5" />
           </a>
         </div>
       </div>
@@ -208,56 +201,17 @@ export function MomencePersonalTrainingEmbed() {
           Book Personal Training
         </h2>
         <p className="mt-3 max-w-2xl text-sm text-white/80 sm:text-base">
-          Choose a 1:1 slot that fits your week and lock it in directly below.
+          Choose a 1:1 slot that fits your week and lock it in.
         </p>
-        <div className="mt-5 overflow-hidden rounded-xl border border-white/15 bg-black/20 p-2 sm:p-3">
-          {appointments.status === "loading" && (
-            <div className="flex min-h-[60vh] flex-col items-center justify-center gap-3 px-5 text-center">
-              <div className="h-10 w-10 animate-pulse rounded-full border border-white/25 bg-white/10" />
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/75">
-                Loading Personal Training Appointments
-              </p>
-            </div>
-          )}
-          {appointments.status === "error" && (
-            <div className="flex min-h-[60vh] flex-col items-center justify-center gap-4 px-5 text-center">
-              <p className="max-w-md text-sm text-white/80">
-                Booking did not load. Try again or open appointments in a new tab.
-              </p>
-              <div className="flex flex-col items-center gap-2 sm:flex-row">
-                <button
-                  type="button"
-                  onClick={appointments.retry}
-                  className="inline-flex items-center justify-center rounded-full bg-[var(--bj-red)] px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.12em] text-white transition-transform hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  Try Again
-                </button>
-                <a
-                  href={FALLBACK_BOOKING_URL}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center justify-center rounded-full border border-white/30 bg-white/10 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.12em] text-white transition-transform hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  Open Booking In New Tab
-                </a>
-              </div>
-            </div>
-          )}
-          {appointments.status !== "error" && (
-            <iframe
-              key={appointments.retryKey}
-              ref={appointments.iframeRef}
-              src={appointments.iframeSrc}
-              className="min-h-[60vh] w-full border-0"
-              allowFullScreen
-              scrolling="yes"
-              loading="eager"
-              title="Bodyjunkies Personal Training Appointments"
-              onLoad={appointments.onLoad}
-              onError={appointments.onError}
-            />
-          )}
-        </div>
+        <a
+          href={APPOINTMENTS_URL}
+          target="_blank"
+          rel="noreferrer"
+          className="mt-5 inline-flex items-center gap-2 rounded-full bg-[var(--bj-red)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white transition-transform hover:scale-[1.02] active:scale-[0.98]"
+        >
+          View Appointments & Book
+          <ArrowRight className="h-4 w-4" />
+        </a>
       </motion.article>
 
       <motion.article
@@ -291,7 +245,8 @@ export function MomencePersonalTrainingEmbed() {
           {leadFormStatus === "error" && (
             <div className="flex min-h-[140px] flex-col items-center justify-center gap-3 px-5 text-center">
               <p className="max-w-md text-sm text-white/80">
-                Form did not load. Try again or use appointments and add goals in your note.
+                Form did not load. Try again or book directly and add your goals in the
+                note.
               </p>
               <div className="flex flex-col items-center gap-2 sm:flex-row">
                 <button
@@ -302,7 +257,7 @@ export function MomencePersonalTrainingEmbed() {
                   Try Again
                 </button>
                 <a
-                  href={FALLBACK_BOOKING_URL}
+                  href={APPOINTMENTS_URL}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center justify-center rounded-full border border-white/35 bg-white/10 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.12em] text-white transition-transform hover:scale-[1.02] active:scale-[0.98]"

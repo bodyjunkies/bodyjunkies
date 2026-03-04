@@ -80,7 +80,9 @@ export function AboutContent() {
               <motion.a
                 whileTap={{ scale: 0.98 }}
                 whileHover={{ scale: 1.02 }}
-                href="/schedule"
+                href="https://momence.com/u/bodyjunkies-NFLGZG"
+                target="_blank"
+                rel="noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/40 bg-white/10 px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white backdrop-blur-sm"
               >
                 Book a Class
@@ -312,7 +314,9 @@ export function AboutContent() {
             <motion.a
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              href="/schedule"
+              href="https://momence.com/u/bodyjunkies-NFLGZG"
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center justify-center rounded-full border border-white/35 bg-white/10 px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white"
             >
               Book Session

@@ -6,8 +6,6 @@ const routes = [
   "/about",
   "/team",
   "/starter-pack",
-  "/schedule",
-  "/schedule/strength-conditioning",
   "/personal-training",
   "/booking-confirmed",
   "/pricing",

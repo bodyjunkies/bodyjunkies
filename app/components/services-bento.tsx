@@ -36,7 +36,7 @@ const tiles: Tile[] = [
   {
     title: "Strength & Conditioning",
     copy: "Compound strength work built for the ring and beyond.",
-    href: "/schedule/strength-conditioning",
+    href: "https://momence.com/u/bodyjunkies-NFLGZG",
     cta: "Book S&C Session",
     imageAlt:
       "Members working through a strength and conditioning block at Bodyjunkies",

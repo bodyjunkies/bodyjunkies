@@ -28,12 +28,14 @@ export default function BookingConfirmedPage() {
             planning your next step now.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Link
-              href="/schedule"
+            <a
+              href="https://momence.com/u/bodyjunkies-NFLGZG"
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center justify-center rounded-full bg-[var(--bj-red)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white transition hover:scale-[1.02]"
             >
               Book Another Session
-            </Link>
+            </a>
             <Link
               href="/personal-training"
               className="inline-flex items-center justify-center rounded-full border border-white/35 bg-white/10 px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white transition hover:scale-[1.02]"

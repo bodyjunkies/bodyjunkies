@@ -234,12 +234,14 @@ export default async function Home() {
             </Link>
             <p className="text-sm text-white/70">
               Already training?{" "}
-              <Link
-                href="/schedule"
+              <a
+                href="https://momence.com/u/bodyjunkies-NFLGZG"
+                target="_blank"
+                rel="noreferrer"
                 className="font-semibold uppercase tracking-[0.1em] text-white transition hover:text-white/85"
               >
                 View Schedule
-              </Link>
+              </a>
             </p>
           </div>
         </div>

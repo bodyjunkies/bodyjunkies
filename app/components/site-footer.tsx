@@ -10,13 +10,13 @@ const legalLinks = [
 
 const quickLinks = [
   { label: "Starter Pack", href: "/starter-pack" },
-  { label: "Schedule", href: "/schedule" },
+  { label: "Schedule", href: "https://momence.com/u/bodyjunkies-NFLGZG", external: true },
   { label: "Pricing", href: "/pricing" },
   { label: "First Session", href: "/first-session" },
   { label: "FAQ", href: "/faq" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
-];
+] as const;
 
 export function SiteFooter() {
   return (
@@ -107,12 +107,23 @@ export function SiteFooter() {
           <ul className="mt-4 space-y-2 text-sm">
             {quickLinks.map((link) => (
               <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="text-white/85 transition hover:text-white"
-                >
-                  {link.label}
-                </Link>
+                {"external" in link ? (
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-white/85 transition hover:text-white"
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    href={link.href}
+                    className="text-white/85 transition hover:text-white"
+                  >
+                    {link.label}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>
