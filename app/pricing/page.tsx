@@ -49,7 +49,7 @@ export default function PricingPage() {
                   </h2>
                   <p className="mt-2 text-4xl font-black uppercase text-white">£49</p>
                   <p className="mt-3 text-sm text-white/85">
-                    Perfect for beginners. Includes intro sessions plus your own gloves and wraps to keep, so you can build a strong foundation from day one.
+                    Perfect for beginners. <span className="font-bold text-white">Includes intro sessions plus your own gloves and wraps to keep</span>, so you can build a strong foundation from day one.
                   </p>
                 </div>
                 <span className="mt-5 inline-flex items-center gap-2 rounded-full bg-[var(--bj-red)] px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white">
