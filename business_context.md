@@ -45,17 +45,17 @@ globs: ["**/*"]
   src="https://momence.com/plugin/host-schedule/host-schedule.js"
 ></script>
 
-- **Momence Lead Form:** 
+- **Momence Lead Form:**
 <div id="momence-plugin-lead-form"></div>
 <script
     async
     type="module"
     id="momence-plugin-lead-form-src"
     host_id="93353"
-    fields="firstName,lastName,email,phoneNumber"
+    fields="firstName,lastName,email,phoneNumber,Typeofsession,dayWeek,preferredTime,additionalInformation"
     token="zyXo3KnqXB"
     country_code="gb"
-    data-field-def='{"firstName":{"type":"text","label":"First name","required":true},"lastName":{"type":"text","label":"Last name","required":true},"email":{"type":"email","label":"Email","required":true},"phoneNumber":{"type":"phone-number","label":"Phone number","required":true}}'
+    data-field-def='{"firstName":{"type":"text","label":"First name","required":true},"lastName":{"type":"text","label":"Last name","required":true},"email":{"type":"email","label":"Email","required":true},"phoneNumber":{"type":"phone-number","label":"Phone number","required":true},"Typeofsession":{"type":"dropdown","label":"Type of session","required":true,"hidden":false,"selectOptions":["Boxing","Strength ","HIIT ","Not sure"]},"dayWeek":{"type":"multiselect","label":"Day of Week","required":true,"hidden":false,"selectOptions":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]},"preferredTime":{"type":"multiselect","label":"Preferred Time","required":true,"hidden":false,"selectOptions":["6am - 11am","12pm - 5pm","6pm - 9pm"]},"additionalInformation":{"type":"text","label":"Additional Information (optional)","required":false,"hidden":false}}'
     src="https://momence.com/plugin/lead-form/lead-form.js"
 ></script>
 

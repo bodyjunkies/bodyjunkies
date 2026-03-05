@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CalendarCheck, MessageSquareText } from "lucide-react";
 import { trackEvent } from "../lib/analytics";
 import {
   MOMENCE_HOST_ID,
@@ -97,12 +97,15 @@ export function MomencePersonalTrainingEmbed() {
       script.id = "momence-plugin-lead-form-src";
       script.setAttribute("fetchpriority", "high");
       script.setAttribute("host_id", MOMENCE_HOST_ID);
-      script.setAttribute("fields", "firstName,lastName,email,phoneNumber");
+      script.setAttribute(
+        "fields",
+        "firstName,lastName,email,phoneNumber,Typeofsession,dayWeek,preferredTime,additionalInformation",
+      );
       script.setAttribute("token", "zyXo3KnqXB");
       script.setAttribute("country_code", "gb");
       script.setAttribute(
         "data-field-def",
-        '{"firstName":{"type":"text","label":"First name","required":true},"lastName":{"type":"text","label":"Last name","required":true},"email":{"type":"email","label":"Email","required":true},"phoneNumber":{"type":"phone-number","label":"Phone number","required":true}}',
+        '{"firstName":{"type":"text","label":"First name","required":true},"lastName":{"type":"text","label":"Last name","required":true},"email":{"type":"email","label":"Email","required":true},"phoneNumber":{"type":"phone-number","label":"Phone number","required":true},"Typeofsession":{"type":"dropdown","label":"Type of session","required":true,"hidden":false,"selectOptions":["Boxing","Strength ","HIIT ","Not sure"]},"dayWeek":{"type":"multiselect","label":"Day of Week","required":true,"hidden":false,"selectOptions":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]},"preferredTime":{"type":"multiselect","label":"Preferred Time","required":true,"hidden":false,"selectOptions":["6am - 11am","12pm - 5pm","6pm - 9pm"]},"additionalInformation":{"type":"text","label":"Additional Information (optional)","required":false,"hidden":false}}',
       );
       script.onload = markReady;
       script.onerror = () => {
@@ -157,51 +160,27 @@ export function MomencePersonalTrainingEmbed() {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 gap-4">
-      <div className="rounded-2xl border border-white/15 bg-white/[0.02] p-4 sm:p-5">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
-          Choose Your Route
-        </p>
-        <p className="mt-2 text-sm text-white/80 sm:text-base">
-          New to 1:1 coaching? Share your goal first. Ready now? Book your slot straight
-          away.
-        </p>
-        <div className="mt-4 flex flex-col gap-2 sm:flex-row">
-          <a
-            href="#pt-goal"
-            className="inline-flex items-center justify-center rounded-full border border-white/30 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-white transition-transform hover:scale-[1.02] active:scale-[0.98]"
-          >
-            Share Goal First
-          </a>
-          <a
-            href={APPOINTMENTS_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-[var(--bj-red)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-white transition-transform hover:scale-[1.02] active:scale-[0.98]"
-          >
-            Book Slot Now
-            <ArrowRight className="h-3.5 w-3.5" />
-          </a>
-        </div>
-      </div>
-
+    <div className="grid grid-cols-1 gap-4 lg:grid-cols-[5fr_7fr] lg:gap-6 lg:items-start">
+      {/* Left column — Book directly */}
       <motion.article
         id="pt-book"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.25 }}
         transition={{ duration: 0.4 }}
-        whileHover={{ y: -3 }}
-        className="group rounded-2xl border border-white/15 bg-white/[0.02] p-4 sm:p-6"
+        className="rounded-2xl border border-white/15 bg-white/[0.02] p-5 sm:p-6 lg:sticky lg:top-24"
       >
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
-          Appointments
+        <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/5">
+          <CalendarCheck className="h-5 w-5 text-[var(--bj-red)]" />
+        </div>
+        <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
+          Ready to Train
         </p>
-        <h2 className="mt-2 text-3xl font-black uppercase leading-tight text-white sm:text-4xl">
-          Book Personal Training
+        <h2 className="mt-2 text-2xl font-black uppercase leading-tight text-white sm:text-3xl">
+          Book a Session
         </h2>
-        <p className="mt-3 max-w-2xl text-sm text-white/80 sm:text-base">
-          Choose a 1:1 slot that fits your week and lock it in.
+        <p className="mt-3 text-sm leading-relaxed text-white/80 sm:text-base">
+          Know what you want? Pick a 1:1 slot that fits your week and lock it in.
         </p>
         <a
           href={APPOINTMENTS_URL}
@@ -212,24 +191,44 @@ export function MomencePersonalTrainingEmbed() {
           View Appointments & Book
           <ArrowRight className="h-4 w-4" />
         </a>
+
+        <div className="mt-6 border-t border-white/10 pt-5">
+          <p className="text-xs font-semibold uppercase tracking-[0.15em] text-white/50">
+            Not sure yet?
+          </p>
+          <p className="mt-1.5 text-sm text-white/70">
+            Fill in the form and we&apos;ll help you figure out the right sessions for
+            your goals.
+          </p>
+          <a
+            href="#pt-goal"
+            className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-white/80 transition-colors hover:text-white"
+          >
+            Share your goal
+            <ArrowRight className="h-3.5 w-3.5" />
+          </a>
+        </div>
       </motion.article>
 
+      {/* Right column — Lead form */}
       <motion.article
         id="pt-goal"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.25 }}
-        transition={{ duration: 0.4, delay: 0.04 }}
-        whileHover={{ y: -3 }}
-        className="group rounded-2xl border border-white/15 bg-white/[0.02] p-4 sm:p-6"
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.4, delay: 0.06 }}
+        className="rounded-2xl border border-white/15 bg-white/[0.02] p-5 sm:p-6"
       >
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
-          Lead Form
+        <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/5">
+          <MessageSquareText className="h-5 w-5 text-[var(--bj-orange)]" />
+        </div>
+        <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
+          New to 1:1
         </p>
-        <h2 className="mt-2 text-3xl font-black uppercase leading-tight text-white sm:text-4xl">
+        <h2 className="mt-2 text-2xl font-black uppercase leading-tight text-white sm:text-3xl">
           Share Your Goal First
         </h2>
-        <p className="mt-3 max-w-2xl text-sm text-white/80 sm:text-base">
+        <p className="mt-3 text-sm leading-relaxed text-white/80 sm:text-base">
           Reach out and we&apos;ll discuss where you are now and what you want from your
           sessions.
         </p>
