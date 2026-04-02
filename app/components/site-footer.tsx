@@ -14,6 +14,7 @@ const quickLinks = [
   { label: "Schedule", href: "https://momence.com/u/bodyjunkies-NFLGZG", external: true },
   { label: "Pricing", href: "/pricing" },
   { label: "First Session", href: "/first-session" },
+  { label: "Hall of Fame", href: "/hall-of-fame" },
   { label: "FAQ", href: "/faq" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },

@@ -11,6 +11,7 @@ const navLinks = [
   { label: "Pricing", href: "/pricing" },
   { label: "FAQ", href: "/faq" },
   { label: "Trainers", href: "/team" },
+  { label: "Hall of Fame", href: "/hall-of-fame" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
