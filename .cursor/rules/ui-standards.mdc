@@ -4,7 +4,7 @@ alwaysApply: true
 # Bodyjunkies Brand Style Guide
 
 ## 1. Vision & Voice
-- **Mission:** Bringing grit back to boxing through dynamic, people-focused sessions.
+- **Mission:** Bringing drive back to boxing through dynamic, people-focused sessions.
 - **Tone:** Bold, direct, and uncluttered. Reflect "Clarity + Fire."
 - **Visual Reference:** Inspired by the minimalist, high-contrast aesthetic of BLOK London (https://www.bloklondon.com/).
 
@@ -12,7 +12,7 @@ alwaysApply: true
 Maintain power and momentum through high contrast.
 - **Primary Background:** Navy Blue (`#221E3A`) — Our foundation for strength and stability.
 - **Primary Text/Space:** White (`#FFFFFF`) — Ensures breathability and modern clarity.
-- **Emphasis/Grit:** Black (`#000000`) — Used for contrast and "edge."
+- **Emphasis/Drive:** Black (`#000000`) — Used for contrast and "edge."
 - **Accent - Hero Fire:** Red (`#940405`) — Use sparingly for intensity and call-to-actions.
 - **Accent - Outlaw Spark:** Orange (`#F69523`) — Use to punctuate community spirit and energy.
 
@@ -25,7 +25,7 @@ Maintain power and momentum through high contrast.
   - *Usage:* Rare, high-impact "visual punches" for hero sections or quotes.
 
 ## 4. UI Components & Interaction
-- **Cards:** Utilize "Glassmorphism" for mobile overlays to maintain depth without sacrificing the "Grit" aesthetic.
+- **Cards:** Utilize "Glassmorphism" for mobile overlays to maintain depth without sacrificing the "Drive" aesthetic.
 - **Buttons:** - Primary buttons should use the **Hero Fire Red** (`#940405`).
   - Interaction: Subtle scale-up effect (e.g., `scale-105`) on hover/active states.
 - **Layouts:** "Don't overdesign." Prioritize negative space (White) against the Navy background to keep the UI from feeling cluttered.

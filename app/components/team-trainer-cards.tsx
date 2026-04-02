@@ -27,7 +27,7 @@ const trainers: Trainer[] = [
     image: "/assets/Carousel/%28WEB%29BODYJUNKIES_210124_0837.webp",
     alt: "Trainer profile image for Alan at Bodyjunkies",
     professionalInfo:
-      "With over 30 years of experience in combat sports, Alan is a former British Taekwondo Champion who grew up in an era where grit, sweat, and hard work were part of everyday life. He has coached both amateur and professional fighters, helping them sharpen technique, build relentless stamina, and develop mental toughness in and out of the ring.",
+      "With over 30 years of experience in combat sports, Alan is a former British Taekwondo Champion who grew up in an era where drive, sweat, and hard work were part of everyday life. He has coached both amateur and professional fighters, helping them sharpen technique, build relentless stamina, and develop mental toughness in and out of the ring.",
     personalStyle:
       "High-energy and no-nonsense. Alan builds every session on determination, resilience, and respect. Expect to train hard, push your limits, and earn every drop of progress. \"No shortcuts. Just sweat, skill, and spirit.\"",
   },

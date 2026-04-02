@@ -1,5 +1,11 @@
 import Link from "next/link";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  CalendarDays,
+  LineChart,
+  UtensilsCrossed,
+} from "lucide-react";
 import { buildPageMetadata } from "../lib/seo";
 
 export const metadata = buildPageMetadata({
@@ -22,10 +28,7 @@ export default function PricingPage() {
         </Link>
 
         <section className="rounded-2xl border border-white/15 bg-white/[0.03] p-6 sm:p-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
-            Pricing
-          </p>
-          <h1 className="mt-3 text-3xl font-black uppercase text-white sm:text-4xl">
+          <h1 className="text-3xl font-black uppercase text-white sm:text-4xl">
             Choose Your Path
           </h1>
           <p className="mt-4 max-w-3xl text-sm text-white/80 sm:text-base">
@@ -121,10 +124,10 @@ export default function PricingPage() {
           </div>
 
           <div className="mt-6 rounded-xl border border-white/15 bg-black/20 p-4 sm:p-5">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/70">
+            <h2 className="border-b border-white/15 pb-3 text-lg font-black uppercase tracking-[0.12em] text-white sm:text-xl">
               Memberships
-            </p>
-            <div className="mt-4 grid gap-3 lg:grid-cols-3">
+            </h2>
+            <div className="mt-5 grid gap-3 lg:grid-cols-3">
               <Link
                 href="https://momence.com/Bodyjunkies/membership/B-Unlimited/540930"
                 target="_blank"
@@ -194,6 +197,58 @@ export default function PricingPage() {
                   </span>
                 </article>
               </Link>
+            </div>
+
+            <div className="border-t border-white/10 pt-5 sm:pt-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
+                What&apos;s included
+              </p>
+              <div className="mt-4 grid gap-4 sm:grid-cols-3">
+                <article className="rounded-xl border border-white/20 bg-white/5 p-5">
+                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/15">
+                    <LineChart
+                      className="h-4 w-4 text-white"
+                      aria-hidden
+                    />
+                  </span>
+                  <h3 className="mt-3 text-lg font-black uppercase text-white">
+                    Monthly Progress Tracking
+                  </h3>
+                  <p className="mt-2 text-sm text-white/85">
+                    More than just a number. Record your monthly measurements in
+                    your Momence profile to celebrate how your body is evolving
+                    and see the results of your dedication.
+                  </p>
+                </article>
+                <article className="rounded-xl border border-white/20 bg-white/5 p-5">
+                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/15">
+                    <UtensilsCrossed
+                      className="h-4 w-4 text-white"
+                      aria-hidden
+                    />
+                  </span>
+                  <h3 className="mt-3 text-lg font-black uppercase text-white">
+                    Your 7-Day Lifestyle Fuel
+                  </h3>
+                  <p className="mt-2 text-sm text-white/85">
+                    {`Nourishment made simple. Access our curated eating plans for Healthy Living, Vitality & Growth, or Body Composition, designed to help you feel energized all week long.`}
+                  </p>
+                </article>
+                <article className="rounded-xl border border-white/20 bg-white/5 p-5">
+                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/15">
+                    <CalendarDays
+                      className="h-4 w-4 text-white"
+                      aria-hidden
+                    />
+                  </span>
+                  <h3 className="mt-3 text-lg font-black uppercase text-white">
+                    Weekly Featured Session
+                  </h3>
+                  <p className="mt-2 text-sm text-white/85">
+                    {`Keep your routine fresh and inspired with our 'Workout of the Week'—extra guidance to help you find your rhythm and stay on track.`}
+                  </p>
+                </article>
+              </div>
             </div>
           </div>
         </section>

@@ -39,7 +39,7 @@ const galleryItems: GalleryItem[] = [
   { src: carouselSrc("(WEB)BODYJUNKIES_210124_1128.webp"), alt: "Boxing and conditioning" },
   { src: carouselSrc("(WEB)BODYJUNKIES_210124_1137.webp"), alt: "Real people, real coaching" },
   { src: carouselSrc("(WEB)BODYJUNKIES_210124_1148.webp"), alt: "Bodyjunkies community" },
-  { src: carouselSrc("(WEB)BODYJUNKIES_210124_1193.webp"), alt: "Grit in the room" },
+  { src: carouselSrc("(WEB)BODYJUNKIES_210124_1193.webp"), alt: "Drive in the room" },
 ];
 
 export function CommunityGallery() {

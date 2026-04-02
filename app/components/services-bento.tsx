@@ -72,7 +72,7 @@ export function ServicesBento({ media }: ServicesBentoProps) {
             More Ways To Train
           </p>
           <h3 className="mt-2 text-3xl font-black uppercase text-white sm:text-4xl">
-            Train With Intent
+            Everything You Need
           </h3>
         </div>
       </div>

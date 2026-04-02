@@ -14,7 +14,7 @@ const STARTER_PACK_IMAGE = "/assets/%28WEB%29BODYJUNKIES_210124_0064.webp";
 export const metadata = buildPageMetadata({
   title: "Bodyjunkies | Fuel Your Fire",
   description:
-    "Bodyjunkies boxing and conditioning in London. Train with grit, community, and expert coaching.",
+    "Bodyjunkies boxing and conditioning in London. Train with drive, community, and expert coaching.",
   path: "/",
 });
 
@@ -127,12 +127,12 @@ export default async function Home() {
                 Meet The Team
               </p>
               <h2 className="mt-3 text-3xl font-black uppercase text-white sm:text-4xl">
-                Coaches Who Bring Grit And Precision
+                Coaches Dedicated to Your Journey
               </h2>
               <p className="mt-4 max-w-2xl text-sm text-white/80 sm:text-base">
-                Every coach has a different lane, but the same standard:
-                structure, accountability, and proper boxing detail in every
-                session.
+                Our team provides the expert guidance, balanced nutrition, and
+                consistent support you need to reach your unique goals—whatever
+                they may be.
               </p>
               <ul className="mt-4 space-y-1 text-xs font-semibold uppercase tracking-[0.08em] text-white/80 sm:text-sm">
                 <li>England Boxing / ABA-qualified coaches</li>
@@ -185,7 +185,7 @@ export default async function Home() {
           </div>
           <p className="mt-4 hidden max-w-2xl text-sm text-white/80 md:mt-4 md:block md:text-base">
             Find Bodyjunkies in Islington and step in for boxing and fitness
-            sessions built around grit, structure, and progress.
+            sessions built around consistency, structure, and progress.
           </p>
           <p className="mt-2 hidden text-xs font-semibold uppercase tracking-[0.1em] text-white/70 md:block">
             1 min from Holloway Road Station
@@ -219,9 +219,13 @@ export default async function Home() {
             Start Here
           </p>
           <h2 className="mt-3 text-3xl font-black uppercase text-white sm:text-4xl">
-            Step In. Train With Intent.
+            Discover Your Potential
           </h2>
           <p className="mt-4 max-w-2xl text-sm text-white/80 sm:text-base">
+            Get the sessions, the nutrition, and the tracking you need to be in
+            the best shape of your life.
+          </p>
+          <p className="mt-3 max-w-2xl text-sm text-white/80 sm:text-base">
             New to boxing? Start with the Starter Pack to build your base and{" "}
             <span className="font-bold">receive your brand-new boxing gloves and wraps as part of your kit.</span>
           </p>

@@ -6,7 +6,7 @@ globs: ["**/*"]
 # Bodyjunkies Business Context
 
 ## Mission & Vision
-- **Mission:** To bring the grit back to boxing through dynamic people-focused small-group classes.
+- **Mission:** To bring the drive back to boxing through dynamic people-focused small-group classes.
 - **Vision:** To give people physical strength, mental fortitude, and confidence through healthy relationships with exercise.
 - **Strap-line:** Fuel Your Fire.
 - **Values:** Community, accountability, empowerment, and growth expressed through boxing & fitness.

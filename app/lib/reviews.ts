@@ -84,7 +84,7 @@ export const GOOGLE_REVIEWS: StaticReview[] = [
     rating: 5,
   },
   {
-    summary: "Strong crew and community with a serious workout standard.",
+    summary: "Strong crew and community with serious workout quality.",
     quote:
       "Simply the best workout you'll get in the London area. Great crew, great community and the sweat is real!",
     author: "Tom Newman",

@@ -62,7 +62,7 @@ export function AboutContent() {
               smiling between rounds, and backing each other to the final bell.
             </p>
             <p className="mt-3 max-w-3xl text-sm text-white/90 sm:text-base">
-              We are a boutique London studio with grit in the room and real
+              We are a boutique London studio with drive in the room and real
               coaching on the floor. Beginners, busy parents, athletes, and
               fighters all train side by side with one shared mindset: show up
               with inner fire.
@@ -110,7 +110,7 @@ export function AboutContent() {
             Our Story
           </p>
           <h2 className="mt-3 text-3xl font-black uppercase text-white sm:text-4xl">
-            Grit Back In The Room
+            Drive Back In The Room
           </h2>
           <p className="mt-4 max-w-3xl text-sm text-white/85 sm:text-base">
             Bodyjunkies started with a clear idea: boxing should build people,
@@ -140,7 +140,7 @@ export function AboutContent() {
               Train Hard. Build Real Power.
             </h2>
             <p className="mt-3 text-sm text-white/85 sm:text-base">
-              We bring the grit back to boxing through dynamic, people-focused
+              We bring the drive back to boxing through dynamic, people-focused
               small-group classes. Our protocols are built to help anyone with
               inner fire test limits and prove power, in and out of the ring.
             </p>

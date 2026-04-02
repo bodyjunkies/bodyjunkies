@@ -48,14 +48,13 @@ export function HomeHero({ heroImage, heroVideo }: HomeHeroProps) {
             </p>
             <h1 className="mt-4 text-4xl font-black uppercase leading-[0.97] text-white sm:text-5xl lg:text-6xl">
               Fuel Your Fire
-              <span className="hidden sm:inline">
-                <br />
-                Build Real Strength
-              </span>
+              <br />
+              Become Your Personal Best
             </h1>
-            <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-white/85 sm:max-w-xl sm:text-base">
-              Small-group boxing sessions with structure, accountability, and a
-              real training standard.
+            <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-white/85 sm:max-w-2xl sm:text-base">
+              A complete approach to your well-being. Small-group sessions,
+              personalized nutrition, and progress tracking designed to help you
+              feel your best, inside and out.
             </p>
           </div>
           <div>
