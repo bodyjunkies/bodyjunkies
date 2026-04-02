@@ -227,7 +227,7 @@ export default async function Home() {
           </p>
           <p className="mt-3 max-w-2xl text-sm text-white/80 sm:text-base">
             New to boxing? Start with the Starter Pack to build your base and{" "}
-            <span className="font-bold">receive your brand-new boxing gloves and wraps as part of your kit.</span>
+            <span className="font-bold">receive your boxing gloves and wraps as part of your kit.</span>
           </p>
           <div className="mt-6 flex flex-col items-start gap-3">
             <Link
