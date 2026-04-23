@@ -15,8 +15,17 @@ export const metadata = buildPageMetadata({
   title:
     "Bodyjunkies Fitness & Boxing Studio | Gym & Fitness Classes Islington",
   description:
-    "Top-rated fitness gym in Islington, London. Boxing & conditioning classes, personal training, and a Starter Pack with gloves to keep. 90+ five-star Google reviews.",
+    "Top-rated fitness gym in Islington, London. Boxing & conditioning classes, white collar boxing, personal training, and a Starter Pack with gloves to keep. 90+ five-star Google reviews.",
   path: "/",
+  keywords: [
+    "boxing gym London",
+    "white collar boxing",
+    "white collar boxing London",
+    "boxing Islington",
+    "Bodyjunkies",
+    "boxing classes London",
+    "personal training boxing",
+  ],
 });
 
 export default async function Home() {
@@ -41,6 +50,8 @@ export default async function Home() {
     "@type": "ExerciseGym",
     "@id": `${siteConfig.url}/#exercisegym`,
     name: siteConfig.legalName,
+    description:
+      "Top-rated fitness gym in Islington, London. Boxing & conditioning classes, white collar boxing preparation, personal training, and Starter Pack with gloves. 90+ five-star Google reviews.",
     url: siteConfig.url,
     foundingDate: siteConfig.foundingDate,
     email: siteConfig.email,

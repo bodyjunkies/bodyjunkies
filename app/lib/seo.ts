@@ -7,18 +7,21 @@ type PageMetadataInput = {
   title: string;
   description: string;
   path: string;
+  keywords?: string[];
 };
 
 export function buildPageMetadata({
   title,
   description,
   path,
+  keywords,
 }: PageMetadataInput): Metadata {
   const canonicalUrl = `${siteConfig.url}${path}`;
 
   return {
     title,
     description,
+    ...(keywords?.length ? { keywords } : {}),
     metadataBase: new URL(siteConfig.url),
     alternates: {
       canonical: path,
