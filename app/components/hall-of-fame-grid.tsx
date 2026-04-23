@@ -83,7 +83,7 @@ export function HallOfFameGrid() {
               >
                 <Image
                   src={fighter.image}
-                  alt={fighter.name}
+                  alt={`${fighter.name}, Bodyjunkies white collar boxer${fighter.record ? ` (${fighter.record})` : ""}`}
                   fill
                   className="object-cover"
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"

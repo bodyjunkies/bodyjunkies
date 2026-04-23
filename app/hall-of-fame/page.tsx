@@ -6,18 +6,8 @@ import { buildPageMetadata } from "../lib/seo";
 export const metadata = buildPageMetadata({
   title: "White Collar Boxing Hall of Fame | Bodyjunkies",
   description:
-    "Meet the Bodyjunkies members who went from the gym to the ring. Our white collar boxing Hall of Fame celebrates everyday people who trained, fought, and earned their place on fight night in London.",
+    "Meet the Bodyjunkies members who went from the gym to the ring — everyday people who trained in London, fought on the night, and earned their place.",
   path: "/hall-of-fame",
-  keywords: [
-    "white collar boxing",
-    "white collar boxing London",
-    "white collar boxing event",
-    "amateur boxing fight night",
-    "from the gym to the ring",
-    "Bodyjunkies boxing",
-    "charity boxing event London",
-    "boxing hall of fame",
-  ],
 });
 
 export default function HallOfFamePage() {
@@ -40,15 +30,14 @@ export default function HallOfFamePage() {
             From The Gym To The Ring
           </h1>
           <p className="mt-4 max-w-3xl text-sm text-white/80 sm:text-base">
-            White collar boxing takes everyday people and puts them through real fight
-            preparation. No prior experience required. Just the will to show
-            up and do the work.
+            White collar boxing prepares everyday people for a real fight. No
+            prior experience required. Just the will to show up and do the
+            work.
           </p>
           <p className="mt-3 max-w-3xl text-sm text-white/80 sm:text-base">
-            Every name on this page went from the gym to the ring. They trained
-            at Bodyjunkies, committed to the process, and stepped between the
-            ropes on fight night — a moment they&apos;ll carry with them for
-            the rest of their lives.
+            Every name on this page went from the gym to the ring. They
+            trained at Bodyjunkies, committed to the process, and stepped
+            between the ropes on fight night.
           </p>
           <div className="mt-8">
             <HallOfFameGrid />
