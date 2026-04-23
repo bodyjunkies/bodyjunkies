@@ -27,7 +27,16 @@ const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 export const metadata: Metadata = {
   title: "Bodyjunkies | Fuel Your Fire",
   description:
-    "Bodyjunkies boxing and conditioning in London. Train with drive, community, and expert coaching.",
+    "Bodyjunkies boxing and conditioning in London. White collar boxing, personal training, and group sessions in Islington. Train with drive, community, and expert coaching.",
+  keywords: [
+    "boxing gym London",
+    "white collar boxing",
+    "white collar boxing London",
+    "boxing Islington",
+    "Bodyjunkies",
+    "boxing classes London",
+    "personal training boxing",
+  ],
   metadataBase: new URL(siteConfig.url),
   alternates: {
     canonical: "/",

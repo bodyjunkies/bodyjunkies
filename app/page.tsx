@@ -14,8 +14,17 @@ const STARTER_PACK_IMAGE = "/assets/%28WEB%29BODYJUNKIES_210124_0064.webp";
 export const metadata = buildPageMetadata({
   title: "Bodyjunkies | Fuel Your Fire",
   description:
-    "Bodyjunkies boxing and conditioning in London. Train with drive, community, and expert coaching.",
+    "Bodyjunkies boxing and conditioning in London. White collar boxing, personal training, and group sessions in Islington with expert coaching.",
   path: "/",
+  keywords: [
+    "boxing gym London",
+    "white collar boxing",
+    "white collar boxing London",
+    "boxing Islington",
+    "Bodyjunkies",
+    "boxing classes London",
+    "personal training boxing",
+  ],
 });
 
 export default async function Home() {
@@ -29,6 +38,8 @@ export default async function Home() {
     "@context": "https://schema.org",
     "@type": "SportsActivityLocation",
     name: "Bodyjunkies",
+    description:
+      "Boxing gym in Islington, London offering group boxing classes, white collar boxing preparation, personal training, and conditioning sessions.",
     url: siteConfig.url,
     email: siteConfig.email,
     image: `${siteConfig.url}${media.gatewayImage}`,
