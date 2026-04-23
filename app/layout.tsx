@@ -25,26 +25,47 @@ const geistMono = Geist_Mono({
 const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 
 export const metadata: Metadata = {
-  title: "Bodyjunkies | Fuel Your Fire",
+  title:
+    "Bodyjunkies Fitness & Boxing Studio | Gym & Fitness Classes Islington",
   description:
-    "Bodyjunkies boxing and conditioning in London. Train with drive, community, and expert coaching.",
+    "Top-rated fitness gym in Islington, London. Boxing & conditioning classes, personal training, and a Starter Pack with gloves to keep. 90+ five-star Google reviews.",
   metadataBase: new URL(siteConfig.url),
   alternates: {
     canonical: "/",
   },
+  authors: [{ name: "Bodyjunkies" }],
   openGraph: {
     type: "website",
+    locale: "en_GB",
     url: siteConfig.url,
-    title: "Bodyjunkies | Fuel Your Fire",
+    title:
+      "Bodyjunkies Fitness & Boxing Studio | Gym & Fitness Classes Islington",
     description:
-      "Boxing and conditioning in Islington with coach-led sessions, real accountability, and a strong community.",
-    siteName: "Bodyjunkies",
+      "Top-rated fitness gym in Islington, London. Boxing & conditioning classes, personal training, and a Starter Pack with gloves to keep. 90+ five-star Google reviews.",
+    siteName: "Bodyjunkies Fitness & Boxing Studio",
+    images: [
+      {
+        url: "/assets/%28WEB%29BODYJUNKIES_210124_0647.webp",
+        width: 1200,
+        height: 630,
+        alt: "Bodyjunkies Fitness & Boxing Studio Islington",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bodyjunkies | Fuel Your Fire",
+    site: "@Bodyjunkies",
+    title:
+      "Bodyjunkies Fitness & Boxing Studio | Gym & Fitness Classes Islington",
     description:
-      "Boxing and conditioning in Islington with coach-led sessions and real progress.",
+      "Top-rated fitness gym in Islington, London. Boxing & conditioning classes, personal training, and a Starter Pack with gloves to keep.",
+    images: ["/assets/%28WEB%29BODYJUNKIES_210124_0647.webp"],
+  },
+  other: {
+    "geo.region": "GB-ISL",
+    "geo.placename": "Islington, London",
+    "geo.position": "51.5517;-0.1114",
+    ICBM: "51.5517, -0.1114",
   },
 };
 

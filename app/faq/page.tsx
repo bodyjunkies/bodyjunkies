@@ -34,6 +34,30 @@ const faqs = [
     q: "What should I bring to class?",
     a: "Bring water, comfortable training clothes, and your wraps/gloves if you already have them. Arrive early for your first session.",
   },
+  {
+    q: "What are the session times?",
+    a: "We run sessions Monday to Sunday. Check the live schedule on Momence for exact times and availability. Early morning, lunchtime, and evening slots are available on weekdays.",
+  },
+  {
+    q: "Where is Bodyjunkies located?",
+    a: "We are at 259 Holloway Road, Islington, London N7 8HG. The studio is a 1-minute walk from Holloway Road tube station.",
+  },
+  {
+    q: "What does the Starter Pack include?",
+    a: "The Starter Pack is £49 and includes intro sessions plus your own pair of boxing gloves and wraps to keep. It is designed to give beginners a proper foundation.",
+  },
+  {
+    q: "Do you offer personal training?",
+    a: "Yes. We offer 1:1 personal training sessions for boxing, conditioning, and tailored coaching. You can book directly or fill in the lead form so we can match you with the right coach.",
+  },
+  {
+    q: "Is there a membership option?",
+    a: "Yes. We offer monthly memberships including B-Unlimited for unlimited classes, B-12 for 12 credits, and B-8 for 8 credits. All memberships include progress tracking and nutrition plans.",
+  },
+  {
+    q: "Can I try a single session before committing?",
+    a: "Yes. If you already have your own gloves, you can book a Taster Session for £15 to experience a full class with no commitment.",
+  },
 ];
 
 export default function FaqPage() {
