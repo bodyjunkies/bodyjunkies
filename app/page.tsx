@@ -12,9 +12,10 @@ import { Star } from "lucide-react";
 const STARTER_PACK_IMAGE = "/assets/%28WEB%29BODYJUNKIES_210124_0064.webp";
 
 export const metadata = buildPageMetadata({
-  title: "Bodyjunkies | Fuel Your Fire",
+  title:
+    "Bodyjunkies Fitness & Boxing Studio | Gym & Fitness Classes Islington",
   description:
-    "Bodyjunkies boxing and conditioning in London. White collar boxing, personal training, and group sessions in Islington with expert coaching.",
+    "Top-rated fitness gym in Islington, London. Boxing & conditioning classes, white collar boxing, personal training, and a Starter Pack with gloves to keep. 90+ five-star Google reviews.",
   path: "/",
   keywords: [
     "boxing gym London",
@@ -32,33 +33,128 @@ export default async function Home() {
   const socialProfiles = [
     siteConfig.social.instagram,
     siteConfig.social.tiktok,
+    "https://www.google.com/maps/place/Bodyjunkies+%7C+Fitness+%26+Boxing+Studio+Islington/@51.5517,-0.1114,17z/",
   ].filter(Boolean);
 
-  const localBusinessJsonLd = {
+  const studioImages = [
+    "/assets/%28WEB%29BODYJUNKIES_210124_0647.webp",
+    "/assets/%28WEB%29BODYJUNKIES_210124_1301.webp",
+    "/assets/%28WEB%29BODYJUNKIES_210124_0064.webp",
+    "/assets/%28WEB%29BODYJUNKIES_210124_1160.webp",
+    "/assets/womens-boxing-north-london-fitness-boxing-bodyjunkies-04%20%281%29.webp",
+    "/assets/Boxing%20at%20BJ-2.webp",
+  ].map((p) => `${siteConfig.url}${p}`);
+
+  const exerciseGymJsonLd = {
     "@context": "https://schema.org",
-    "@type": "SportsActivityLocation",
-    name: "Bodyjunkies",
+    "@type": "ExerciseGym",
+    "@id": `${siteConfig.url}/#exercisegym`,
+    name: siteConfig.legalName,
     description:
-      "Boxing gym in Islington, London offering group boxing classes, white collar boxing preparation, personal training, and conditioning sessions.",
+      "Top-rated fitness gym in Islington, London. Boxing & conditioning classes, white collar boxing preparation, personal training, and Starter Pack with gloves. 90+ five-star Google reviews.",
     url: siteConfig.url,
+    foundingDate: siteConfig.foundingDate,
     email: siteConfig.email,
-    image: `${siteConfig.url}${media.gatewayImage}`,
+    telephone: siteConfig.telephone,
+    image: studioImages,
+    logo: `${siteConfig.url}/assets/%28WEB%29BODYJUNKIES_210124_0647.webp`,
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Islington",
-      addressRegion: "London",
-      addressCountry: "GB",
+      streetAddress: siteConfig.address.streetAddress,
+      addressLocality: siteConfig.address.addressLocality,
+      addressRegion: siteConfig.address.addressRegion,
+      postalCode: siteConfig.address.postalCode,
+      addressCountry: siteConfig.address.addressCountry,
     },
-    openingHours: siteConfig.openingHours,
-    ...(siteConfig.phoneDisplay ? { telephone: siteConfig.phoneDisplay } : {}),
-    ...(socialProfiles.length ? { sameAs: socialProfiles } : {}),
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: siteConfig.geo.latitude,
+      longitude: siteConfig.geo.longitude,
+    },
+    hasMap: siteConfig.mapsHref,
+    openingHoursSpecification: [
+      { "@type": "OpeningHoursSpecification", dayOfWeek: "Monday", opens: "07:00", closes: "21:00" },
+      { "@type": "OpeningHoursSpecification", dayOfWeek: "Tuesday", opens: "06:45", closes: "21:45" },
+      { "@type": "OpeningHoursSpecification", dayOfWeek: "Wednesday", opens: "06:45", closes: "21:45" },
+      { "@type": "OpeningHoursSpecification", dayOfWeek: "Thursday", opens: "06:45", closes: "21:45" },
+      { "@type": "OpeningHoursSpecification", dayOfWeek: "Friday", opens: "07:00", closes: "20:00" },
+      { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "08:30", closes: "13:30" },
+      { "@type": "OpeningHoursSpecification", dayOfWeek: "Sunday", opens: "08:30", closes: "13:30" },
+    ],
+    priceRange: "££",
+    currenciesAccepted: "GBP",
+    paymentAccepted: "Cash, Credit Card, Debit Card",
+    amenityFeature: [
+      { "@type": "LocationFeatureSpecification", name: "Boxing Ring", value: true },
+      { "@type": "LocationFeatureSpecification", name: "Showers", value: true },
+      { "@type": "LocationFeatureSpecification", name: "Changing Rooms", value: true },
+      { "@type": "LocationFeatureSpecification", name: "Personal Training", value: true },
+      { "@type": "LocationFeatureSpecification", name: "Air Conditioning", value: true },
+      { "@type": "LocationFeatureSpecification", name: "Small Group Training", value: true },
+    ],
+    areaServed: [
+      { "@type": "City", name: "Islington" },
+      { "@type": "AdministrativeArea", name: "North London" },
+    ],
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "5.0",
+      bestRating: "5",
+      worstRating: "1",
+      reviewCount: "95",
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Bodyjunkies Classes & Training",
+      itemListElement: [
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Boxing Classes" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Conditioning Classes" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Personal Training" } },
+      ],
+    },
+    potentialAction: {
+      "@type": "ReserveAction",
+      name: "Book a Starter Pack",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${siteConfig.url}/starter-pack`,
+      },
+      result: {
+        "@type": "Reservation",
+        name: "Starter Pack Booking",
+      },
+    },
+    sameAs: socialProfiles,
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
+      { "@type": "ListItem", position: 2, name: "About", item: `${siteConfig.url}/about` },
+      { "@type": "ListItem", position: 3, name: "Starter Pack", item: `${siteConfig.url}/starter-pack` },
+      { "@type": "ListItem", position: 4, name: "Taster Session", item: `${siteConfig.url}/taster-session` },
+      { "@type": "ListItem", position: 5, name: "Pricing", item: `${siteConfig.url}/pricing` },
+      { "@type": "ListItem", position: 6, name: "Reviews", item: `${siteConfig.url}/#reviews` },
+      { "@type": "ListItem", position: 7, name: "Coaches", item: `${siteConfig.url}/team` },
+      { "@type": "ListItem", position: 8, name: "Personal Training", item: `${siteConfig.url}/personal-training` },
+      { "@type": "ListItem", position: 9, name: "Contact", item: `${siteConfig.url}/contact` },
+      { "@type": "ListItem", position: 10, name: "FAQ", item: `${siteConfig.url}/faq` },
+      { "@type": "ListItem", position: 11, name: "Terms", item: `${siteConfig.url}/terms` },
+      { "@type": "ListItem", position: 12, name: "Privacy", item: `${siteConfig.url}/privacy` },
+    ],
   };
 
   return (
     <main className="pb-nav-offset">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(exerciseGymJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <HomeHero
         heroImage={media.gatewayImage}
