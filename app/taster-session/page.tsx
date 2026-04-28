@@ -49,7 +49,7 @@ export default function TasterSessionPage() {
           <ul className="mt-3 grid gap-2 text-sm text-white/85 sm:grid-cols-2 sm:text-base">
             <li>One full small-group boxing class — same format as our regulars</li>
             <li>Live coaching cues and pacing options throughout</li>
-            <li>Access to wraps, pads, and bag space at the studio</li>
+            <li>Meet the team — chat with our coaches about your goals</li>
             <li>Bring your own gloves — that&apos;s the only kit you need</li>
           </ul>
         </section>
