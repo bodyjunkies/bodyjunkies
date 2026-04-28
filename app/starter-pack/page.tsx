@@ -35,9 +35,51 @@ export default function StarterPackPage() {
             Once complete, your confirmation arrives immediately by email.
           </p>
         </div>
+        <section
+          aria-labelledby="starter-pack-included"
+          className="mb-5 rounded-2xl border border-white/15 bg-white/[0.03] p-5 sm:p-6"
+        >
+          <h2
+            id="starter-pack-included"
+            className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70"
+          >
+            What&apos;s Included
+          </h2>
+          <ul className="mt-3 grid gap-2 text-sm text-white/85 sm:grid-cols-2 sm:text-base">
+            <li>Boxing gloves and wraps to keep — yours from day one</li>
+            <li>Intro sessions to build technique and confidence</li>
+            <li>Live coaching cues, pacing options, and clear standards</li>
+            <li>Full access to the Bodyjunkies schedule once you start</li>
+          </ul>
+        </section>
         <div className="overflow-hidden rounded-2xl border border-white/15 bg-white/[0.02] p-0">
           <StarterPackEmbed />
         </div>
+        <section className="mt-6 grid gap-4 sm:grid-cols-2">
+          <article className="rounded-xl border border-white/15 bg-black/20 p-5">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.16em] text-white/70">
+              Who It&apos;s For
+            </h2>
+            <p className="mt-2 text-sm text-white/85 sm:text-base">
+              Total beginners and anyone returning to training. The Starter
+              Pack pathway is built so you can step into a small-group boxing
+              class with a coach beside you, learn the fundamentals at the
+              right pace, and keep the kit you trained in. No prior
+              experience required.
+            </p>
+          </article>
+          <article className="rounded-xl border border-white/15 bg-black/20 p-5">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.16em] text-white/70">
+              After You Book
+            </h2>
+            <p className="mt-2 text-sm text-white/85 sm:text-base">
+              Confirmation arrives by email immediately. Bring water and
+              training gear — your gloves and wraps are waiting at the studio
+              at 259 Holloway Road, Islington, one minute from Holloway Road
+              tube. Coaches will brief you on arrival.
+            </p>
+          </article>
+        </section>
       </div>
     </main>
   );

@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 const SCHEDULE_EXTERNAL_URL = "https://momence.com/u/bodyjunkies-NFLGZG";
+// Add entries only for legacy URLs confirmed in Search Console (Page indexing →
+// Not found / Page with redirect). Speculative redirects fragment signals.
 const LEGACY_REDIRECTS: Record<string, string> = {
   "/index": "/",
   "/buy-classes": "/pricing",
