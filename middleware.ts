@@ -1,37 +1,46 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-const STARTER_PACK_EXTERNAL_URL =
-  "https://momence.com/Bodyjunkies/membership/Intro-Package/539286";
-const TASTER_SESSION_EXTERNAL_URL = "https://momence.com/m/676912";
 const SCHEDULE_EXTERNAL_URL = "https://momence.com/u/bodyjunkies-NFLGZG";
-
-function isMobileRequest(userAgent: string): boolean {
-  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile/i.test(
-    userAgent,
-  );
-}
+const LEGACY_REDIRECTS: Record<string, string> = {
+  "/index": "/",
+  "/buy-classes": "/pricing",
+  "/post/book-a-class-for-fitness-day": "/pricing",
+  "/product-page/discounted-6-week-challenge-2nd-payment": "/starter-pack",
+};
 
 export function middleware(request: NextRequest) {
-  const userAgent = request.headers.get("user-agent") ?? "";
+  const { pathname, search, hostname } = request.nextUrl;
 
-  if (isMobileRequest(userAgent)) {
-    if (request.nextUrl.pathname.startsWith("/starter-pack")) {
-      return NextResponse.redirect(STARTER_PACK_EXTERNAL_URL);
-    }
-    if (request.nextUrl.pathname.startsWith("/taster-session")) {
-      return NextResponse.redirect(TASTER_SESSION_EXTERNAL_URL);
-    }
+  if (hostname === "www.bodyjunkies.co.uk") {
+    return NextResponse.redirect(
+      `https://bodyjunkies.co.uk${pathname}${search}`,
+      308,
+    );
   }
 
   // Catch any straggler traffic to the removed /schedule routes
-  if (request.nextUrl.pathname.startsWith("/schedule")) {
-    return NextResponse.redirect(SCHEDULE_EXTERNAL_URL);
+  if (pathname.startsWith("/schedule")) {
+    return NextResponse.redirect(SCHEDULE_EXTERNAL_URL, 308);
+  }
+
+  const redirectTarget = LEGACY_REDIRECTS[pathname];
+  if (redirectTarget) {
+    return NextResponse.redirect(
+      `https://bodyjunkies.co.uk${redirectTarget}${search}`,
+      308,
+    );
   }
 
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ["/starter-pack/:path*", "/taster-session/:path*", "/schedule/:path*"],
+  matcher: [
+    "/schedule/:path*",
+    "/index",
+    "/buy-classes",
+    "/post/:path*",
+    "/product-page/:path*",
+  ],
 };

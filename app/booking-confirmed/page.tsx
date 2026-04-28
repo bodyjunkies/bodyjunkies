@@ -3,12 +3,18 @@ import { CheckCircle2 } from "lucide-react";
 import { BookingConfirmedTracker } from "../components/booking-confirmed-tracker";
 import { buildPageMetadata } from "../lib/seo";
 
-export const metadata = buildPageMetadata({
+export const metadata = {
+  ...buildPageMetadata({
   title: "Booking Confirmed | Bodyjunkies",
   description:
     "Your booking is confirmed. Get ready for your next Bodyjunkies session and choose your next step.",
   path: "/booking-confirmed",
-});
+  }),
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 export default function BookingConfirmedPage() {
   return (
