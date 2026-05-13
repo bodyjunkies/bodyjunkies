@@ -8,6 +8,7 @@ export const metadata = buildPageMetadata({
   description:
     "Review Bodyjunkies website, booking, cancellation, and session participation terms.",
   path: "/terms",
+  noindex: true,
 });
 
 export default function TermsPage() {

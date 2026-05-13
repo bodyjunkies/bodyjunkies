@@ -8,6 +8,7 @@ export const metadata = buildPageMetadata({
   description:
     "Understand how Bodyjunkies uses cookies and similar technologies for site functionality, analytics, and booking experiences.",
   path: "/cookies",
+  noindex: true,
 });
 
 export default function CookiesPage() {

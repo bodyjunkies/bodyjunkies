@@ -8,6 +8,9 @@ type PageMetadataInput = {
   description: string;
   path: string;
   keywords?: string[];
+  // Set true on legal/thin pages that should not compete in search.
+  // Links are still followed so equity flows to canonical pages.
+  noindex?: boolean;
 };
 
 export function buildPageMetadata({
@@ -15,6 +18,7 @@ export function buildPageMetadata({
   description,
   path,
   keywords,
+  noindex,
 }: PageMetadataInput): Metadata {
   const canonicalUrl = `${siteConfig.url}${path}`;
 
@@ -22,6 +26,7 @@ export function buildPageMetadata({
     title,
     description,
     ...(keywords?.length ? { keywords } : {}),
+    ...(noindex ? { robots: { index: false, follow: true } } : {}),
     metadataBase: new URL(siteConfig.url),
     alternates: {
       canonical: path,

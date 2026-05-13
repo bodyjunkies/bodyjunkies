@@ -8,6 +8,7 @@ export const metadata = buildPageMetadata({
   description:
     "Read how Bodyjunkies collects, uses, stores, and protects personal data for memberships, bookings, and coaching communication.",
   path: "/privacy",
+  noindex: true,
 });
 
 export default function PrivacyPage() {
