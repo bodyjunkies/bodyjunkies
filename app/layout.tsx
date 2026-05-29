@@ -24,52 +24,10 @@ const geistMono = Geist_Mono({
 
 const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 
+// Page-level metadata (incl. canonical) lives on each route via buildPageMetadata().
 export const metadata: Metadata = {
-  title:
-    "Bodyjunkies Fitness & Boxing Studio | Gym & Fitness Classes Islington",
-  description:
-    "Top-rated fitness gym in Islington, London. Boxing & conditioning classes, white collar boxing, personal training, and a Starter Pack with gloves to keep. 90+ five-star Google reviews.",
-  keywords: [
-    "boxing gym London",
-    "white collar boxing",
-    "white collar boxing London",
-    "boxing Islington",
-    "Bodyjunkies",
-    "boxing classes London",
-    "personal training boxing",
-  ],
   metadataBase: new URL(siteConfig.url),
-  alternates: {
-    canonical: "/",
-  },
   authors: [{ name: "Bodyjunkies" }],
-  openGraph: {
-    type: "website",
-    locale: "en_GB",
-    url: siteConfig.url,
-    title:
-      "Bodyjunkies Fitness & Boxing Studio | Gym & Fitness Classes Islington",
-    description:
-      "Top-rated fitness gym in Islington, London. Boxing & conditioning classes, personal training, and a Starter Pack with gloves to keep. 90+ five-star Google reviews.",
-    siteName: "Bodyjunkies Fitness & Boxing Studio",
-    images: [
-      {
-        url: "/assets/%28WEB%29BODYJUNKIES_210124_0647.webp",
-        width: 1200,
-        height: 630,
-        alt: "Bodyjunkies Fitness & Boxing Studio Islington",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    site: "@Bodyjunkies",
-    title:
-      "Bodyjunkies Fitness & Boxing Studio | Gym & Fitness Classes Islington",
-    description:
-      "Top-rated fitness gym in Islington, London. Boxing & conditioning classes, personal training, and a Starter Pack with gloves to keep.",
-    images: ["/assets/%28WEB%29BODYJUNKIES_210124_0647.webp"],
-  },
   other: {
     "geo.region": "GB-ISL",
     "geo.placename": "Islington, London",

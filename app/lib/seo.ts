@@ -29,7 +29,7 @@ export function buildPageMetadata({
     ...(noindex ? { robots: { index: false, follow: true } } : {}),
     metadataBase: new URL(siteConfig.url),
     alternates: {
-      canonical: path,
+      canonical: canonicalUrl,
     },
     openGraph: {
       type: "website",

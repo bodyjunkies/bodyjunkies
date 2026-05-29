@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { buildPageMetadata } from "../lib/seo";
+import { siteConfig } from "../lib/site";
 
 export const metadata = buildPageMetadata({
   title: "FAQ | Bodyjunkies",
@@ -64,6 +65,7 @@ export default function FaqPage() {
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    url: `${siteConfig.url}/faq`,
     mainEntity: faqs.map((item) => ({
       "@type": "Question",
       name: item.q,
