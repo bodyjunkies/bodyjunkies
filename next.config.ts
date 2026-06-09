@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { buildLegacyRedirects } from "./lib/legacy-redirects";
 
 const nextConfig: NextConfig = {
   // Exclude public assets from serverless bundle (served by CDN).
@@ -7,16 +8,8 @@ const nextConfig: NextConfig = {
     "/*": ["public/**"],
   },
   async redirects() {
-    return [
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "www.bodyjunkies.co.uk" }],
-        destination: "https://bodyjunkies.co.uk/:path*",
-        permanent: true,
-      },
-    ];
+    return buildLegacyRedirects();
   },
-  // Legacy Wix redirects are handled in middleware.ts (absolute apex URLs, single-hop www+legacy).
 };
 
 export default nextConfig;
