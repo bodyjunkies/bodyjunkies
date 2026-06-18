@@ -5,6 +5,11 @@
 export const MOMENCE_HOST_ID = "93353";
 export const BOOKING_CONFIRMED_URL = "https://bodyjunkies.co.uk/booking-confirmed";
 
+export const SCHEDULE_CONTAINER_ID = "ribbon-schedule";
+export const SCHEDULE_SCRIPT_SRC =
+  "https://momence.com/plugin/host-schedule/host-schedule.js";
+export const SCHEDULE_PATH = "/schedule";
+
 // ---------------------------------------------------------------------------
 // Shared helpers
 // ---------------------------------------------------------------------------

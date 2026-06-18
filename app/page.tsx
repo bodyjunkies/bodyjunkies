@@ -346,7 +346,7 @@ export default async function Home() {
             <p className="text-sm text-white/70">
               Already training?{" "}
               <a
-                href="https://momence.com/u/bodyjunkies-NFLGZG"
+                href="/schedule"
                 target="_blank"
                 rel="noreferrer"
                 className="font-semibold uppercase tracking-[0.1em] text-white transition hover:text-white/85"

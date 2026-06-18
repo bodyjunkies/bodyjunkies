@@ -35,7 +35,7 @@ export default function BookingConfirmedPage() {
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <a
-              href="https://momence.com/u/bodyjunkies-NFLGZG"
+              href="/schedule"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center justify-center rounded-full bg-[var(--bj-red)] px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white transition hover:scale-[1.02]"

@@ -3,6 +3,7 @@ import { useEffect } from "react";
 
 const SCRIPTS = [
   "https://momence.com/plugin/lead-form/lead-form.js",
+  "https://momence.com/plugin/host-schedule/host-schedule.js",
 ];
 
 export function MomencePreloader() {

@@ -40,6 +40,7 @@ globs: ["**/*"]
   teacher_ids="[]"
   location_ids="[]"
   tag_ids="[]"
+  hide_drop_in_price="true"
   default_filter="show-all"
   locale="en"
   src="https://momence.com/plugin/host-schedule/host-schedule.js"

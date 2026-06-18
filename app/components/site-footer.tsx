@@ -11,7 +11,7 @@ const legalLinks = [
 const quickLinks = [
   { label: "Starter Pack", href: "/starter-pack" },
   { label: "Taster Session", href: "/taster-session" },
-  { label: "Schedule", href: "https://momence.com/u/bodyjunkies-NFLGZG", external: true },
+  { label: "Schedule", href: "/schedule" },
   { label: "Pricing", href: "/pricing" },
   { label: "First Session", href: "/first-session" },
   { label: "Hall of Fame", href: "/hall-of-fame" },

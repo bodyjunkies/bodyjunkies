@@ -37,7 +37,7 @@ export default function Error({
               Starter Pack £49
             </Link>
             <a
-              href="https://momence.com/u/bodyjunkies-NFLGZG"
+              href="/schedule"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center justify-center rounded-full border border-white/35 bg-white/10 px-6 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-white transition hover:scale-[1.02]"

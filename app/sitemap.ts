@@ -13,6 +13,7 @@ const routes = [
   "/first-session",
   "/contact",
   "/hall-of-fame",
+  "/schedule",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
