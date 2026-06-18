@@ -11,10 +11,11 @@ const legalLinks = [
 const quickLinks = [
   { label: "Starter Pack", href: "/starter-pack" },
   { label: "Taster Session", href: "/taster-session" },
+  { label: "Classes", href: "/classes" },
   { label: "Schedule", href: "/schedule" },
   { label: "Pricing", href: "/pricing" },
   { label: "First Session", href: "/first-session" },
-  { label: "Hall of Fame", href: "/hall-of-fame" },
+  { label: "White Collar Boxing", href: "/white-collar-boxing" },
   { label: "FAQ", href: "/faq" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },

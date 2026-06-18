@@ -20,6 +20,7 @@ export const LEGACY_EXACT: Record<string, string> = {
   "/pricing-plans": "/pricing",
   "/personaltraining": "/personal-training",
   "/coaches": "/team",
+  "/hall-of-fame": "/white-collar-boxing",
   "/b-trainers": "/team",
   "/colin-k-copy": "/team",
   "/jason-p": "/team",

@@ -27,6 +27,7 @@ export const siteConfig = {
   geo: { latitude: 51.5517, longitude: -0.1114 },
   mapsHref:
     "https://maps.google.com/?q=Bodyjunkies+Fitness+%26+Boxing+Studio+Islington",
+  whiteCollarBoxingLondonUrl: "https://www.whitecollarboxinglondon.com/",
   openingHours: [
     "Mon: 7:00 AM – 9:00 PM",
     "Tue–Thu: 6:45 AM – 9:45 PM",

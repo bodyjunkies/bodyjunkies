@@ -12,7 +12,8 @@ const routes = [
   "/faq",
   "/first-session",
   "/contact",
-  "/hall-of-fame",
+  "/white-collar-boxing",
+  "/classes",
   "/schedule",
 ];
 
