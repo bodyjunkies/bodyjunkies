@@ -39,13 +39,12 @@ export function DesktopHeader() {
           aria-label="Bodyjunkies home"
         >
           <Image
-            src="/assets/_orange_b_transparent.png"
+            src="/assets/bodyjunkies-white-text.png"
             alt=""
-            width={40}
+            width={150}
             height={40}
-            className="h-10 w-10 shrink-0 object-contain"
+            className="h-10 w-auto shrink-0 object-contain"
           />
-          <span>BODYJUNKIES</span>
         </Link>
         <nav aria-label="Desktop navigation" className="hidden items-center gap-8 md:flex">
           <ul className="flex items-center gap-6">

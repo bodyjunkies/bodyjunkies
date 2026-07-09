@@ -24,7 +24,7 @@ export function HomeHero({ heroImage, heroVideo }: HomeHeroProps) {
         />
         {heroVideo ? (
           <video
-            className="absolute inset-0 h-full w-full object-cover"
+            className="absolute inset-0 h-full w-full object-cover lg:hidden"
             autoPlay
             muted
             loop
@@ -39,10 +39,28 @@ export function HomeHero({ heroImage, heroVideo }: HomeHeroProps) {
           </video>
         ) : null}
         <div className="absolute inset-0 bg-[linear-gradient(160deg,rgba(0,0,0,0.88)_0%,rgba(0,0,0,0.55)_50%,rgba(0,0,0,0.78)_100%)] sm:hidden" />
-        <div className="absolute inset-0 hidden bg-[linear-gradient(110deg,rgba(0,0,0,0.86)_0%,rgba(0,0,0,0.52)_45%,rgba(0,0,0,0.75)_100%)] sm:block" />
+        <div className="absolute inset-0 hidden bg-[linear-gradient(110deg,rgba(0,0,0,0.86)_0%,rgba(0,0,0,0.55)_45%,rgba(0,0,0,0.6)_100%)] sm:block" />
+        {heroVideo ? (
+          <div className="absolute right-8 top-1/2 hidden h-[78%] -translate-y-1/2 overflow-hidden rounded-2xl border border-white/20 shadow-2xl lg:block xl:right-10 aspect-[9/16]">
+            <video
+              className="h-full w-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster={heroImage}
+              aria-label="Bodyjunkies members training in a boxing and conditioning session"
+            >
+              {videoSources.map((source) => (
+                <source key={source.src} src={source.src} type={source.type} />
+              ))}
+            </video>
+          </div>
+        ) : null}
 
         <div className="relative z-10 flex min-h-[70svh] flex-col justify-between p-6 sm:min-h-[74svh] sm:p-8 lg:p-10">
-          <div className="max-w-2xl">
+          <div className="max-w-2xl lg:max-w-xl xl:max-w-2xl">
             <p className="inline-flex items-center rounded-full border border-white/35 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-white/90">
               Boxing And Fitness In Islington
             </p>
@@ -51,7 +69,7 @@ export function HomeHero({ heroImage, heroVideo }: HomeHeroProps) {
               <br />
               Become Your Personal Best
             </h1>
-            <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-white/85 sm:max-w-2xl sm:text-base">
+            <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-white/85 sm:max-w-2xl sm:text-base lg:max-w-xl xl:max-w-2xl">
               A complete approach to your well-being. Small-group sessions,
               personalized nutrition, and progress tracking designed to help you
               feel your best, inside and out.
