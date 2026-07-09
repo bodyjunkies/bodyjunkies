@@ -36,16 +36,36 @@ export function SiteFooter() {
             Boxing and conditioning in Islington with high standards, tight
             coaching, and a community that keeps you accountable.
           </p>
-          <div className="mt-4 flex items-center gap-2 text-sm text-white/85">
-            <MapPin className="h-4 w-4" />
-            <a
-              href={siteConfig.mapsHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition hover:text-white"
-            >
-              {siteConfig.addressLine1}, {siteConfig.addressLine2}
-            </a>
+          <div className="mt-4 space-y-1.5 text-sm text-white/85">
+            <p className="font-bold text-white">
+              Bodyjunkies | Fitness &amp; Boxing Studio Islington
+            </p>
+            <div className="flex items-center gap-2">
+              <MapPin className="h-4 w-4" />
+              <a
+                href={siteConfig.mapsHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition hover:text-white"
+              >
+                {siteConfig.addressLine1}, {siteConfig.addressLine2}
+              </a>
+            </div>
+            <p>
+              <a
+                href={siteConfig.phoneHref}
+                className="transition hover:text-white"
+              >
+                {siteConfig.phoneDisplay}
+              </a>
+              {" · "}
+              <a
+                href={siteConfig.emailHref}
+                className="transition hover:text-white"
+              >
+                {siteConfig.email}
+              </a>
+            </p>
           </div>
         </section>
 

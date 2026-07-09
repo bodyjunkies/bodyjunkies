@@ -12,10 +12,9 @@ import { Star } from "lucide-react";
 const STARTER_PACK_IMAGE = "/assets/%28WEB%29BODYJUNKIES_210124_0064.webp";
 
 export const metadata = buildPageMetadata({
-  title:
-    "Bodyjunkies Fitness & Boxing Studio | Gym & Fitness Classes Islington",
+  title: "Fitness & Gym Classes, Boxing in Islington | Bodyjunkies",
   description:
-    "Top-rated fitness gym in Islington, London. Boxing & conditioning classes, white collar boxing, personal training, and a Starter Pack with gloves to keep. 90+ five-star Google reviews.",
+    "Small group fitness classes and non-contact boxing in Islington - max 12 per session. £49 Starter Pack with gloves to keep. 5.0 from 90+ Google reviews.",
   path: "/",
   keywords: [
     "boxing gym London",
@@ -270,10 +269,13 @@ export default async function Home() {
           </h2>
           <div className="md:hidden">
             <p className="mt-4 max-w-2xl text-sm text-white/80">
-              Find us in Islington. Get directions when you are ready to train.
-            </p>
-            <p className="mt-2 text-xs font-semibold uppercase tracking-[0.1em] text-white/70">
-              1 min from Holloway Road Station
+              Bodyjunkies is an independent fitness and boxing studio at 259
+              Holloway Road, Islington N7 8HG - one minute from Holloway Road
+              station, with Caledonian Road and Drayton Park a short walk away.
+              Small group fitness classes and gym classes run morning to
+              evening, capped at 12 per session, with one-to-one personal
+              training in our private weights room. Get directions when
+              you&apos;re ready to train.
             </p>
             <a
               href={siteConfig.mapsHref}
@@ -291,11 +293,13 @@ export default async function Home() {
             </Link>
           </div>
           <p className="mt-4 hidden max-w-2xl text-sm text-white/80 md:mt-4 md:block md:text-base">
-            Find Bodyjunkies in Islington and step in for boxing and fitness
-            sessions built around consistency, structure, and progress.
-          </p>
-          <p className="mt-2 hidden text-xs font-semibold uppercase tracking-[0.1em] text-white/70 md:block">
-            1 min from Holloway Road Station
+            Bodyjunkies is an independent fitness and boxing studio at 259
+            Holloway Road, Islington N7 8HG - one minute from Holloway Road
+            station, with Caledonian Road and Drayton Park a short walk away.
+            Small group fitness classes and gym classes run morning to evening,
+            capped at 12 per session, with one-to-one personal training in our
+            private weights room. Get directions when you&apos;re ready to
+            train.
           </p>
           <Link
             href="/contact"

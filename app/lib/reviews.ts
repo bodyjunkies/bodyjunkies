@@ -7,13 +7,6 @@ export type StaticReview = {
 
 export const GOOGLE_REVIEWS: StaticReview[] = [
   {
-    summary: "Welcoming community with coaches who track your progress.",
-    quote:
-      "I signed up for the 6-week bootcamp and have honestly never left! The trainers are detailed, encouraging, and genuinely care about your progress. The classes feel like a welcoming community where everyone supports each other, and you're always free to work at your own pace while still being challenged. Plus, it's such a great feeling to support a local business that actually takes the time to make each session personal, something you don't get at the big chain gyms. Highly recommend meeting the team and trying out a session 💪🏼",
-    author: "Liz Di",
-    rating: 5,
-  },
-  {
     summary: "Supportive coaches make every level feel welcome and driven.",
     quote:
       "I've been attending this boxing club for the last eight months, and I can honestly say it's been absolutely amazing. From day one, I felt welcomed and supported, no matter my ability or experience. The coaches are passionate, knowledgeable, and genuinely care about your progress, always pushing you to improve while keeping training enjoyable and motivating.",
@@ -25,13 +18,6 @@ export const GOOGLE_REVIEWS: StaticReview[] = [
     quote:
       "Best gym in Islington by far. I've tried loads of fitness classes around here, but the atmosphere and sense of belonging at Bodyjunkies is on another level. It feels like a place where you actually get an energising workout in small group, rather than just another commercial gym. If you're in North London and want a spot that delivers results without the ego, you won't find better.",
     author: "Anna Egorova",
-    rating: 5,
-  },
-  {
-    summary: "Bootcamp confidence boost that turned into long-term training.",
-    quote:
-      "I originally signed up for the 6-week bootcamp as I needed a push to start working out again, and was wasting money paying for a membership elsewhere and not using it. I wasn't feeling very confident, but after speaking with Stephen, I felt reassured and went ahead with my induction session. The trainers at Body Junkies are amazing, so encouraging and push you to do your best. After completing the 6 weeks, I'm still going to classes and am currently training with Stephen. Signing up was the best decision I've made for my fitness journey!",
-    author: "Rachel Alleyne",
     rating: 5,
   },
   {

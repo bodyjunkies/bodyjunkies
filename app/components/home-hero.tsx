@@ -61,18 +61,18 @@ export function HomeHero({ heroImage, heroVideo }: HomeHeroProps) {
 
         <div className="relative z-10 flex min-h-[70svh] flex-col justify-between p-6 sm:min-h-[74svh] sm:p-8 lg:p-10">
           <div className="max-w-2xl lg:max-w-xl xl:max-w-2xl">
-            <p className="inline-flex items-center rounded-full border border-white/35 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-white/90">
-              Boxing And Fitness In Islington
-            </p>
-            <h1 className="mt-4 text-4xl font-black uppercase leading-[0.97] text-white sm:text-5xl lg:text-6xl">
+            <h1 className="inline-flex items-center rounded-full border border-white/35 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-white/90">
+              Small Group Fitness Classes &amp; Boxing in Islington
+            </h1>
+            <p className="mt-4 text-4xl font-black uppercase leading-[0.97] text-white sm:text-5xl lg:text-6xl">
               Fuel Your Fire
               <br />
               Become Your Personal Best
-            </h1>
+            </p>
             <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-white/85 sm:max-w-2xl sm:text-base lg:max-w-xl xl:max-w-2xl">
-              A complete approach to your well-being. Small-group sessions,
-              personalized nutrition, and progress tracking designed to help you
-              feel your best, inside and out.
+              A complete approach to your wellbeing. Small group fitness
+              classes, personalised nutrition and progress tracking designed to
+              help you feel your best, inside and out.
             </p>
           </div>
           <div>

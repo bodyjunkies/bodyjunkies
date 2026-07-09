@@ -1,7 +1,8 @@
-const phoneDisplay = process.env.NEXT_PUBLIC_PHONE_DISPLAY?.trim() ?? "";
+const phoneDisplay =
+  process.env.NEXT_PUBLIC_PHONE_DISPLAY?.trim() || "+44 7458 672586";
 const phoneHref =
-  process.env.NEXT_PUBLIC_PHONE_HREF?.trim() ??
-  (phoneDisplay ? `tel:${phoneDisplay.replace(/[^\d+]/g, "")}` : "");
+  process.env.NEXT_PUBLIC_PHONE_HREF?.trim() ||
+  `tel:${phoneDisplay.replace(/[^\d+]/g, "")}`;
 const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() ?? "info@bodyjunkies.co.uk";
 const emailHref = process.env.NEXT_PUBLIC_CONTACT_EMAIL_HREF?.trim() ?? `mailto:${email}`;
 
@@ -15,8 +16,8 @@ export const siteConfig = {
   telephone: "+44 7458 672586",
   email,
   emailHref,
-  addressLine1: "Bodyjunkies Studio",
-  addressLine2: "Islington, London",
+  addressLine1: "259 Holloway Road",
+  addressLine2: "Islington N7 8HG",
   address: {
     streetAddress: "259 Holloway Road",
     addressLocality: "Islington",
