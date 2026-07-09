@@ -157,7 +157,7 @@ export default async function Home() {
       />
       <HomeHero
         heroImage={media.gatewayImage}
-        heroVideo="/assets/10secs.mp4"
+        heroVideo="/assets/10secs_v2.mp4"
       />
 
       <GatewaySplit
