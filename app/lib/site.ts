@@ -10,7 +10,7 @@ export const siteConfig = {
   name: "Bodyjunkies",
   legalName: "Bodyjunkies Fitness & Boxing Studio",
   url: "https://bodyjunkies.co.uk",
-  foundingDate: "2018",
+  foundingDate: "2017",
   phoneDisplay,
   phoneHref,
   telephone: "+44 7458 672586",
@@ -25,7 +25,7 @@ export const siteConfig = {
     postalCode: "N7 8HG",
     addressCountry: "GB",
   },
-  geo: { latitude: 51.5517, longitude: -0.1114 },
+  geo: { latitude: 51.5517752, longitude: -0.1115389 },
   mapsHref:
     "https://maps.google.com/?q=Bodyjunkies+Fitness+%26+Boxing+Studio+Islington",
   whiteCollarBoxingLondonUrl: "https://www.whitecollarboxinglondon.com/",

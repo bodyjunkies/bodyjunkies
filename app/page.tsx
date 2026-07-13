@@ -46,11 +46,11 @@ export default async function Home() {
 
   const exerciseGymJsonLd = {
     "@context": "https://schema.org",
-    "@type": "ExerciseGym",
-    "@id": `${siteConfig.url}/#exercisegym`,
-    name: siteConfig.legalName,
+    "@type": ["HealthClub", "ExerciseGym"],
+    "@id": `${siteConfig.url}/#business`,
+    name: "Bodyjunkies | Fitness & Boxing Studio Islington",
     description:
-      "Top-rated fitness gym in Islington, London. Boxing & conditioning classes, white collar boxing preparation, personal training, and Starter Pack with gloves. 90+ five-star Google reviews.",
+      "Independent fitness and boxing studio in Islington offering non-contact fitness boxing and bodyweight strength training in small group sessions capped at 12, plus one-to-one personal training. On Holloway Road, near Holloway Road, Caledonian Road and Drayton Park stations.",
     url: siteConfig.url,
     foundingDate: siteConfig.foundingDate,
     email: siteConfig.email,
@@ -104,11 +104,104 @@ export default async function Home() {
     },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Bodyjunkies Classes & Training",
+      name: "Training at Bodyjunkies",
       itemListElement: [
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Boxing Classes" } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Conditioning Classes" } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Personal Training" } },
+        {
+          "@type": "Offer",
+          name: "£49 Starter Pack",
+          price: "49.00",
+          priceCurrency: "GBP",
+          itemOffered: {
+            "@type": "Service",
+            name: "Starter Pack",
+            description:
+              "Boxing gloves and wraps to keep, a personalised boxing induction and a small group training session, with a money-back guarantee.",
+          },
+        },
+        {
+          "@type": "Offer",
+          name: "£15 Taster Session",
+          price: "15.00",
+          priceCurrency: "GBP",
+          itemOffered: {
+            "@type": "Service",
+            name: "Taster Session",
+            description:
+              "A single small group fitness boxing session to try the studio before committing.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Fitness Classes",
+            description:
+              "Small group fitness sessions combining non-contact boxing and bodyweight strength training, capped at 12 people.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Gym Classes",
+            description:
+              "Coach-led gym classes for all levels in a small group setting, capped at 12 per session.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Group Fitness",
+            description:
+              "High-energy group fitness training with personal attention from expert coaches.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Small Group Training",
+            description:
+              "Training sessions capped at 12 participants so workouts adapt to each person's level.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Women's Fitness",
+            description:
+              "A welcoming, supportive environment for women of all fitness levels.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Beginner Fitness Classes",
+            description:
+              "Every session adapts to beginners - no boxing or fitness experience needed.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Fitness Boxing",
+            description:
+              "Non-contact boxing training focused on fitness, technique and conditioning - no sparring.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Personal Training",
+            description:
+              "One-to-one personal training in a private weights room, tailored to individual goals.",
+          },
+        },
       ],
     },
     potentialAction: {
@@ -124,6 +217,54 @@ export default async function Home() {
       },
     },
     sameAs: socialProfiles,
+  };
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${siteConfig.url}/#faq`,
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Is the boxing at Bodyjunkies full contact?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "No. All boxing at Bodyjunkies is non-contact. Sessions use boxing training methods - pads, bags and footwork - for fitness and conditioning. There is no sparring or fighting.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Do I need any boxing or fitness experience to join?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "No experience is needed. Sessions are capped at 12 people, so coaches adapt every exercise to your level, whether you are a complete beginner or already train regularly.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How big are the training sessions?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Every small group session is capped at 12 participants, so you get personal attention from the coach in every session.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How do I get started at Bodyjunkies?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Start with the £49 Starter Pack, which includes boxing gloves and wraps to keep, a personalised boxing induction and a small group session, with a money-back guarantee. Or book a £15 Taster Session to try a single session first.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Where is Bodyjunkies and how do I get there?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Bodyjunkies is at 259 Holloway Road, Islington N7 8HG, a short walk from Holloway Road, Caledonian Road and Drayton Park stations.",
+        },
+      },
+    ],
   };
 
   const breadcrumbJsonLd = {
@@ -150,6 +291,10 @@ export default async function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(exerciseGymJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <script
         type="application/ld+json"
