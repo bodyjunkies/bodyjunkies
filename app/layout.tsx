@@ -5,7 +5,7 @@ import { DesktopHeader } from "./components/desktop-header";
 import { HashScroll } from "./components/hash-scroll";
 import { AnalyticsAutoTracker } from "./components/analytics-auto-tracker";
 import { CookieNotice } from "./components/cookie-notice";
-import { GtmLoader } from "./components/gtm-loader";
+import { GtagLoader } from "./components/gtag-loader";
 import { MobileStarterPackCtaLazy } from "./components/mobile-bottom-nav-lazy";
 import { MomencePreloader } from "./components/momence-preloader";
 import { SiteFooter } from "./components/site-footer";
@@ -21,8 +21,6 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-
-const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 
 // Page-level metadata (incl. canonical) lives on each route via buildPageMetadata().
 export const metadata: Metadata = {
@@ -50,7 +48,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <GtmLoader gtmId={gtmId} />
+        <GtagLoader />
         <DesktopHeader />
         <HashScroll />
         <AnalyticsAutoTracker />

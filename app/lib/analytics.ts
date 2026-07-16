@@ -1,25 +1,31 @@
 "use client";
 
-import { getStoredCookieConsent } from "./cookie-consent";
-
 declare global {
   interface Window {
-    dataLayer?: Record<string, unknown>[];
-    gtag?: (...args: unknown[]) => void;
+    dataLayer?: unknown[];
   }
 }
 
+// The measurement ID is public (visible in page source on any GA4 site), so
+// the fallback keeps analytics working even if the env var is missing.
+export const GA_MEASUREMENT_ID =
+  process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "G-XGD7C6J3W9";
+
 type AnalyticsPayload = Record<string, string | number | boolean | null>;
 
-export function trackEvent(event: string, payload: AnalyticsPayload = {}) {
+// gtag.js only processes gtag-style `arguments` objects pushed to the
+// dataLayer — plain objects and arrays are ignored.
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function gtag(..._args: unknown[]) {
   if (typeof window === "undefined") return;
-  if (getStoredCookieConsent() !== "accepted") return;
-
-  const data = { event, ...payload };
   window.dataLayer = window.dataLayer ?? [];
-  window.dataLayer.push(data);
+  // eslint-disable-next-line prefer-rest-params
+  window.dataLayer.push(arguments);
+}
 
-  if (typeof window.gtag === "function") {
-    window.gtag("event", event, payload);
-  }
+// Events are sent regardless of cookie consent: Consent Mode (see
+// gtag-loader.tsx) keeps storage denied for non-consenting visitors, so
+// their events reach GA4 only as cookieless pings used for modeling.
+export function trackEvent(event: string, payload: AnalyticsPayload = {}) {
+  gtag("event", event, payload);
 }
