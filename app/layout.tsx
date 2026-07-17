@@ -6,6 +6,7 @@ import { HashScroll } from "./components/hash-scroll";
 import { AnalyticsAutoTracker } from "./components/analytics-auto-tracker";
 import { CookieNotice } from "./components/cookie-notice";
 import { GtagLoader } from "./components/gtag-loader";
+import { MetaPixelLoader } from "./components/meta-pixel-loader";
 import { MobileStarterPackCtaLazy } from "./components/mobile-bottom-nav-lazy";
 import { MomencePreloader } from "./components/momence-preloader";
 import { SiteFooter } from "./components/site-footer";
@@ -49,6 +50,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <GtagLoader />
+        <MetaPixelLoader />
         <DesktopHeader />
         <HashScroll />
         <AnalyticsAutoTracker />

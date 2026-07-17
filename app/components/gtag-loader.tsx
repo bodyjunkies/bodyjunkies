@@ -6,7 +6,7 @@ import {
   COOKIE_CONSENT_EVENT,
   getStoredCookieConsent,
 } from "../lib/cookie-consent";
-import { GA_MEASUREMENT_ID, gtag } from "../lib/analytics";
+import { GA_MEASUREMENT_ID, GOOGLE_ADS_ID, gtag } from "../lib/analytics";
 
 function applyConsent(command: "default" | "update", granted: boolean) {
   const value = granted ? "granted" : "denied";
@@ -45,6 +45,11 @@ export function GtagLoader() {
     // client-side navigation is sent by the pathname effect below, so the
     // config must not send its own.
     gtag("config", GA_MEASUREMENT_ID, { send_page_view: false });
+    if (GOOGLE_ADS_ID) {
+      // Google Ads remarketing/conversions; governed by the same Consent
+      // Mode state, and receives the manual page_view events below.
+      gtag("config", GOOGLE_ADS_ID);
+    }
     ensureGtagLoaded();
 
     const onConsentChange = () => {

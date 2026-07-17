@@ -29,8 +29,8 @@ export function CookieNotice() {
         </p>
         <p className="mt-2 text-sm text-white/90">
           We use necessary cookies for core site functionality. Optional
-          analytics helps us improve performance and booking journeys. Learn
-          more in our{" "}
+          analytics and marketing cookies help us improve performance,
+          booking journeys, and our advertising. Learn more in our{" "}
           <Link
             href="/cookies"
             className="underline decoration-white/60 underline-offset-4"
@@ -52,7 +52,7 @@ export function CookieNotice() {
             onClick={() => chooseConsent("accepted")}
             className="inline-flex min-h-11 items-center rounded-full bg-[var(--bj-red)] px-4 py-2.5 text-sm font-semibold uppercase tracking-[0.12em] text-white transition hover:scale-[1.02] active:scale-[0.98]"
           >
-            Accept Analytics
+            Accept All
           </button>
           <button
             type="button"
