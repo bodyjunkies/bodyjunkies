@@ -27,6 +27,7 @@ export const LEGACY_EXACT: Record<string, string> = {
   "/alan-k": "/team",
   "/chudi": "/team",
   "/copy-of-chudi-o-1": "/team",
+  "/introoffer": "/starter-pack",
   "/post/book-a-class-for-fitness-day": "/pricing",
   "/product-page/discounted-6-week-challenge-2nd-payment": "/starter-pack",
 };
