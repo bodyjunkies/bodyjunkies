@@ -11,7 +11,7 @@ import { buildPageMetadata } from "../lib/seo";
 export const metadata = buildPageMetadata({
   title: "Pricing & Memberships | Bodyjunkies",
   description:
-    "Explore Bodyjunkies pricing pathways: Starter Pack, class bookings, and personal training options in Islington.",
+    "Explore Bodyjunkies pricing pathways: Starter Pack, memberships, class packs, and personal training options in Islington.",
   path: "/pricing",
 });
 
@@ -249,6 +249,67 @@ export default function PricingPage() {
                   </p>
                 </article>
               </div>
+            </div>
+          </div>
+
+          <div className="mt-6 rounded-xl border border-white/15 bg-black/20 p-4 sm:p-5">
+            <h2 className="border-b border-white/15 pb-3 text-lg font-black uppercase tracking-[0.12em] text-white sm:text-xl">
+              Class Packs
+            </h2>
+            <p className="mt-4 text-sm text-white/80">
+              One-off payments. No monthly commitment — buy your credits and
+              train when it suits you.
+            </p>
+            <div className="mt-5 grid gap-3 sm:grid-cols-2">
+              <Link
+                href="https://momence.com/m/539295"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="B10 Pack: Buy B10 Pack"
+                className="block cursor-pointer"
+              >
+                <article className="flex h-full flex-col rounded-xl border border-white/15 bg-white/5 p-4 transition-colors hover:border-white/25 hover:bg-white/[0.09]">
+                  <div className="flex-1">
+                    <h3 className="text-lg font-black uppercase text-white">
+                      B10 Pack
+                    </h3>
+                    <p className="mt-1 text-2xl font-black text-white">£180.00</p>
+                    <p className="mt-2 text-sm text-white/85">
+                      10 sessions to be used within 3 months from first use.
+                      One-off payment.
+                    </p>
+                  </div>
+                  <span className="mt-4 inline-flex items-center gap-2 rounded-full bg-[var(--bj-red)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-white">
+                    Buy B10 Pack
+                    <ArrowRight className="h-4 w-4" />
+                  </span>
+                </article>
+              </Link>
+
+              <Link
+                href="https://momence.com/m/780449"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="B5 Pack: Buy B5 Pack"
+                className="block cursor-pointer"
+              >
+                <article className="flex h-full flex-col rounded-xl border border-white/15 bg-white/5 p-4 transition-colors hover:border-white/25 hover:bg-white/[0.09]">
+                  <div className="flex-1">
+                    <h3 className="text-lg font-black uppercase text-white">
+                      B5 Pack
+                    </h3>
+                    <p className="mt-1 text-2xl font-black text-white">£100.00</p>
+                    <p className="mt-2 text-sm text-white/85">
+                      5 sessions to be used within 2 months from first use.
+                      One-off payment.
+                    </p>
+                  </div>
+                  <span className="mt-4 inline-flex items-center gap-2 rounded-full bg-[var(--bj-red)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-white">
+                    Buy B5 Pack
+                    <ArrowRight className="h-4 w-4" />
+                  </span>
+                </article>
+              </Link>
             </div>
           </div>
         </section>

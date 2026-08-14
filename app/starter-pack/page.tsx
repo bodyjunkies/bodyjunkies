@@ -6,7 +6,7 @@ import { buildPageMetadata } from "../lib/seo";
 export const metadata = buildPageMetadata({
   title: "Starter Pack | Bodyjunkies",
   description:
-    "Get started with the Starter Pack — gloves, intro sessions, and your base at Bodyjunkies.",
+    "Get started with the Starter Pack — gloves, the Boxing Induction, and group session at Bodyjunkies.",
   path: "/starter-pack",
 });
 
@@ -29,7 +29,8 @@ export default function StarterPackPage() {
             Starter Pack £49
           </h1>
           <p className="mt-3 max-w-2xl text-sm text-white/80 sm:text-base">
-            Gloves, intro sessions, and your base. Complete checkout below.
+            Gloves, the Boxing Induction, and group session. Complete checkout
+            below.
           </p>
           <p className="mt-2 max-w-2xl text-xs uppercase tracking-[0.16em] text-white/65">
             Once complete, your confirmation arrives immediately by email.
@@ -47,7 +48,7 @@ export default function StarterPackPage() {
           </h2>
           <ul className="mt-3 grid gap-2 text-sm text-white/85 sm:grid-cols-2 sm:text-base">
             <li>Boxing gloves and wraps to keep — yours from day one</li>
-            <li>Intro sessions to build technique and confidence</li>
+            <li>The Boxing Induction to build technique and confidence</li>
             <li>Live coaching cues, pacing options, and clear standards</li>
             <li>Full access to the Bodyjunkies schedule once you start</li>
           </ul>
