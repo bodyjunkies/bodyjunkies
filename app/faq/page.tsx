@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     q: "Do I need my own gloves?",
-    a: "No for your first phase. The Starter Pack includes gloves and intro sessions so you can start properly with your own kit.",
+    a: "No for your first phase. The Starter Pack includes gloves and the Boxing Induction so you can start properly with your own kit.",
   },
   {
     q: "What if my fitness level is low right now?",
@@ -45,7 +45,7 @@ const faqs = [
   },
   {
     q: "What does the Starter Pack include?",
-    a: "The Starter Pack is £49 and includes intro sessions plus your own pair of boxing gloves and wraps to keep. It is designed to give beginners a proper foundation.",
+    a: "The Starter Pack is £49 and includes the Boxing Induction and a group session, plus your own pair of boxing gloves and wraps to keep. It is designed to give beginners a proper foundation.",
   },
   {
     q: "Do you offer personal training?",
