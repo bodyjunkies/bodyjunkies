@@ -12,7 +12,7 @@ export const metadata = buildPageMetadata({
 
 export default function ContactPage() {
   const whatsappHref =
-    "https://wa.me/447458672586?text=Hi%21%20I%27m%20interested%20in%20the%20Bodyjunkies%20Starter%20Pack.";
+    "https://wa.me/447388626887?text=Hi%21%20I%27m%20interested%20in%20the%20Bodyjunkies%20Starter%20Pack.";
 
   return (
     <main className="min-h-screen bg-[#221E3A] pb-nav-offset">
@@ -63,7 +63,7 @@ export default function ContactPage() {
                 WhatsApp
               </p>
               <p className="mt-2 text-lg font-bold text-white">
-                +44 7458 672586
+                +44 7388 626887
               </p>
             </a>
             <a

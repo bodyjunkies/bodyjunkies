@@ -1,5 +1,5 @@
 const phoneDisplay =
-  process.env.NEXT_PUBLIC_PHONE_DISPLAY?.trim() || "+44 7458 672586";
+  process.env.NEXT_PUBLIC_PHONE_DISPLAY?.trim() || "+44 7388 626887";
 const phoneHref =
   process.env.NEXT_PUBLIC_PHONE_HREF?.trim() ||
   `tel:${phoneDisplay.replace(/[^\d+]/g, "")}`;
@@ -13,7 +13,7 @@ export const siteConfig = {
   foundingDate: "2017",
   phoneDisplay,
   phoneHref,
-  telephone: "+44 7458 672586",
+  telephone: "+44 7388 626887",
   email,
   emailHref,
   addressLine1: "259 Holloway Road",
