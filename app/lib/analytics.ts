@@ -51,24 +51,32 @@ function forwardToMeta(event: string, payload: AnalyticsPayload) {
   } else if (event === "taster_session_click") {
     fbq("track", "Schedule", { content_name: "taster_session" });
   } else if (
-    event === "booking_complete" &&
-    payload.source === "starter_pack_iframe"
+    (event === "booking_complete" || event === "momence_direct_purchase") &&
+    typeof payload.value === "number"
   ) {
     fbq("track", "Purchase", {
       currency: "GBP",
-      value: 49,
-      content_name: "starter_pack",
+      value: payload.value,
+      content_name: payload.product,
     });
   } else {
     fbq("trackCustom", event, payload);
   }
 }
 
+// The site is only framed when Momence's purchase redirect loads
+// /booking-confirmed inside the embedded checkout. That page re-opens itself
+// in the top window (see BookingConfirmedTracker), so anything tracked from
+// inside the frame would be counted twice.
+export function isFramed() {
+  return typeof window !== "undefined" && window.self !== window.top;
+}
+
 // Events are sent to GA regardless of cookie consent: Consent Mode (see
 // gtag-loader.tsx) keeps storage denied for non-consenting visitors, so
 // their events reach GA4 only as cookieless pings used for modeling.
 export function trackEvent(event: string, payload: AnalyticsPayload = {}) {
-  if (typeof window === "undefined") return;
+  if (typeof window === "undefined" || isFramed()) return;
   gtag("event", event, payload);
   forwardToMeta(event, payload);
 }

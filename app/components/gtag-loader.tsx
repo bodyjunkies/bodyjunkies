@@ -6,7 +6,12 @@ import {
   COOKIE_CONSENT_EVENT,
   getStoredCookieConsent,
 } from "../lib/cookie-consent";
-import { GA_MEASUREMENT_ID, GOOGLE_ADS_ID, gtag } from "../lib/analytics";
+import {
+  GA_MEASUREMENT_ID,
+  GOOGLE_ADS_ID,
+  gtag,
+  isFramed,
+} from "../lib/analytics";
 
 function applyConsent(command: "default" | "update", granted: boolean) {
   const value = granted ? "granted" : "denied";
@@ -35,6 +40,7 @@ export function GtagLoader() {
   const pathname = usePathname();
 
   useEffect(() => {
+    if (isFramed()) return;
     // Consent Mode v2: set the consent state before the tag loads, then load
     // it unconditionally. Visitors who decline (or ignore the banner) send
     // cookieless pings that GA4 uses for modeling; storage is only granted
@@ -63,6 +69,7 @@ export function GtagLoader() {
   }, []);
 
   useEffect(() => {
+    if (isFramed()) return;
     // Next.js updates document.title shortly after the route commit, so wait
     // a beat before reading it or GA attributes the view to the old title.
     // The dedupe lives inside the callback so a double-mount (StrictMode)

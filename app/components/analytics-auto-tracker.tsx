@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { trackEvent } from "../lib/analytics";
 
 function toPath(href: string) {
@@ -13,8 +13,6 @@ function toPath(href: string) {
 }
 
 export function AnalyticsAutoTracker() {
-  const bookingCompleteFiredRef = useRef(false);
-
   useEffect(() => {
     const onClick = (event: MouseEvent) => {
       const target = event.target as HTMLElement | null;
@@ -41,26 +39,6 @@ export function AnalyticsAutoTracker() {
 
     document.addEventListener("click", onClick);
     return () => document.removeEventListener("click", onClick);
-  }, []);
-
-  useEffect(() => {
-    const current = `${window.location.pathname}${window.location.search}`.toLowerCase();
-    if (window.location.pathname === "/booking-confirmed") {
-      return;
-    }
-
-    if (
-      bookingCompleteFiredRef.current ||
-      !/(thank-you|thanks|success|booking-confirmed|confirmation)/.test(current)
-    ) {
-      return;
-    }
-
-    bookingCompleteFiredRef.current = true;
-    trackEvent("booking_complete", {
-      source: "return_url_pattern",
-      path: window.location.pathname,
-    });
   }, []);
 
   return null;

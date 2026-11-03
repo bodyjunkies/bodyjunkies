@@ -3,7 +3,19 @@
 // ---------------------------------------------------------------------------
 
 export const MOMENCE_HOST_ID = "93353";
-export const BOOKING_CONFIRMED_URL = "https://bodyjunkies.co.uk/booking-confirmed";
+
+// Momence membership IDs of the products the site sells. Momence appends
+// membershipId to its purchase tracking redirect (see BookingConfirmedTracker),
+// so purchases can be labelled. Values are list prices for one-off products.
+const MOMENCE_PRODUCTS = new Map<string, { product: string; value?: number }>([
+  ["539286", { product: "starter_pack", value: 49 }],
+  ["676912", { product: "taster_session", value: 15 }],
+  ["780449", { product: "b5_pack", value: 100 }],
+  ["539295", { product: "b10_pack", value: 180 }],
+  ["539635", { product: "b8_membership" }],
+  ["539306", { product: "b12_membership" }],
+  ["540930", { product: "b_unlimited_membership" }],
+]);
 
 export const SCHEDULE_CONTAINER_ID = "ribbon-schedule";
 export const SCHEDULE_SCRIPT_SRC =
@@ -40,11 +52,8 @@ export function cacheBustUrl(url: string): string {
   return u.toString();
 }
 
-export function withReturnUrl(url: string): string {
-  const u = new URL(url);
-  u.searchParams.set("return_url", BOOKING_CONFIRMED_URL);
-  u.searchParams.set("returnUrl", BOOKING_CONFIRMED_URL);
-  return u.toString();
+export function getMomenceProduct(membershipId: string) {
+  return MOMENCE_PRODUCTS.get(membershipId);
 }
 
 export function isMomenceOrigin(origin: string): boolean {

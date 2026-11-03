@@ -6,7 +6,7 @@ import {
   COOKIE_CONSENT_EVENT,
   getStoredCookieConsent,
 } from "../lib/cookie-consent";
-import { META_PIXEL_ID, type FbqFunction } from "../lib/analytics";
+import { META_PIXEL_ID, isFramed, type FbqFunction } from "../lib/analytics";
 
 let pixelInitialized = false;
 let lastTrackedPath: string | null = null;
@@ -44,7 +44,7 @@ export function MetaPixelLoader() {
   const pathname = usePathname();
 
   useEffect(() => {
-    if (!META_PIXEL_ID) return;
+    if (!META_PIXEL_ID || isFramed()) return;
 
     const maybeInit = () => {
       if (pixelInitialized) return;

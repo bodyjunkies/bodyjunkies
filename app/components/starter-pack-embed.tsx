@@ -1,18 +1,12 @@
 "use client";
 
-import { withReturnUrl } from "../lib/momence-embed";
 import { useMomenceIframe } from "../hooks/use-momence-iframe";
 
-const STARTER_PACK_BASE_URL =
+const STARTER_PACK_URL =
   "https://momence.com/Bodyjunkies/membership/Intro-Package/539286";
-const STARTER_PACK_URL = withReturnUrl(STARTER_PACK_BASE_URL);
-const FALLBACK_BOOKING_URL = STARTER_PACK_BASE_URL;
 
 export function StarterPackEmbed() {
-  const iframe = useMomenceIframe({
-    src: STARTER_PACK_URL,
-    analyticsSource: "starter_pack_iframe",
-  });
+  const iframe = useMomenceIframe({ src: STARTER_PACK_URL });
 
   const height = iframe.height ?? 1200;
 
@@ -40,7 +34,7 @@ export function StarterPackEmbed() {
               Try Again
             </button>
             <a
-              href={FALLBACK_BOOKING_URL}
+              href={STARTER_PACK_URL}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center justify-center rounded-full border border-white/30 bg-white/10 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.12em] text-white transition-transform hover:scale-[1.02] active:scale-[0.98]"

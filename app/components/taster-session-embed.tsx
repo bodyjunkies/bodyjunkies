@@ -1,17 +1,11 @@
 "use client";
 
-import { withReturnUrl } from "../lib/momence-embed";
 import { useMomenceIframe } from "../hooks/use-momence-iframe";
 
-const TASTER_SESSION_BASE_URL = "https://momence.com/m/676912";
-const TASTER_SESSION_URL = withReturnUrl(TASTER_SESSION_BASE_URL);
-const FALLBACK_BOOKING_URL = TASTER_SESSION_BASE_URL;
+const TASTER_SESSION_URL = "https://momence.com/m/676912";
 
 export function TasterSessionEmbed() {
-  const iframe = useMomenceIframe({
-    src: TASTER_SESSION_URL,
-    analyticsSource: "taster_session_iframe",
-  });
+  const iframe = useMomenceIframe({ src: TASTER_SESSION_URL });
 
   const height = iframe.height ?? 1200;
 
@@ -39,7 +33,7 @@ export function TasterSessionEmbed() {
               Try Again
             </button>
             <a
-              href={FALLBACK_BOOKING_URL}
+              href={TASTER_SESSION_URL}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center justify-center rounded-full border border-white/30 bg-white/10 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.12em] text-white transition-transform hover:scale-[1.02] active:scale-[0.98]"
